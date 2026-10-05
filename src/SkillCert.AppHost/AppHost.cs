@@ -21,12 +21,12 @@ var s3 = builder.AddContainer("s3", "rustfs/rustfs", "1.0.1")
     .WithHttpHealthCheck("/health", endpointName: "api")
     .WithLifetime(ContainerLifetime.Persistent);
 
-// Fake login accounts for local dev; every account shares this password.
+// Demo data for local dev: fake accounts (all sharing this password), the AFA list, groups and review history.
 var demoPassword = builder.AddParameter("demo-password", secret: true);
 
 var migrator = builder.AddProject<Projects.SkillCert_Migrator>("migrator")
     .WithReference(db)
-    .WithEnvironment("Seed__DemoUsers", "true")
+    .WithEnvironment("Seed__DemoData", "true")
     .WithEnvironment("Seed__DemoPassword", demoPassword)
     .WaitFor(db);
 

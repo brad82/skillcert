@@ -24,7 +24,7 @@ services:
     restart: "no"
     environment:
       ConnectionStrings__skillcert: Host=postgres;Database=skillcert;Username=skillcert;Password=${POSTGRES_PASSWORD}
-      Seed__DemoUsers: ${SEED_DEMO_USERS:-true}
+      Seed__DemoData: ${SEED_DEMO_DATA:-true}
       Seed__DemoPassword: ${DEMO_PASSWORD:?set DEMO_PASSWORD in .env}
       TZ: ${TZ:-America/Denver}
     depends_on:

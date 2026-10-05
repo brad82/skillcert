@@ -164,6 +164,12 @@ Source: `docs/AFA Skills Record - Revised v3.pdf`.
 - **Seed file:** `src/SkillCert.Infrastructure/Seed/afa-skills-record.json`. Drafted and approved on 4 Oct 2026. Each node holds code, ShortTitle (paper text), Title (standalone), and its children. Default `RecertificationDays` and permitted methods are set per competency for the demo.
 - **PDF layout:** dark band for top-level headings, light band for sub-headings, Date + Initials columns. The paper prints 4.3 CPR in two columns; the PDF may use a single column.
 
+4. **Phase 1 implementation choices** (no product scope change):
+   - **Current revision:** derived as the highest `RevisionNumber`, not stored as `Competency.CurrentRevisionId`. It's the same rule with one less column to keep in sync.
+   - **Review method:** `CompetencyReview` stores an explicit `Method` (Self, Peer, Classified) alongside the spec §8 fields, so queries don't have to infer it.
+   - **Breaking revisions:** invalidate all older-revision evidence. That includes Not Competent reviews, which then read Not Certified / RevisionInvalidated.
+   - **Demo history:** fixed per-candidate profiles plus a fixed `Random(42)` instead of Bogus, because the real AFA list and named demo users made Bogus unnecessary. The seed switch is `Seed:DemoData`.
+
 ## 3. Spec defaults still to finalize
 | Item | Decide in |
 |---|---|
@@ -203,33 +209,33 @@ Source: `docs/AFA Skills Record - Revised v3.pdf`.
 ### Phase 1: Domain core + currency engine (2 wks)
 **Goal:** the data model and the currency rules, proven by tests. No UI.
 
-- [ ] Entities + configurations:
+- [x] Entities + configurations:
   - Competency
   - CompetencyRevision (+ `ShortTitle`, RevisionResource, permitted review methods/classifications, `InvalidatesPreviousReviews`, `RecertificationDays`, PublishedAt)
   - CompetencyList, CompetencyListNode (unified heading/competency tree, explicit `SortOrder`)
-- [ ] Entities: UserGroup, UserGroupMembership, GroupListAssignment, ReviewerClassification (+ `AffirmationPolicy`), UserReviewerClassification.
-- [ ] Entities: CompetencyReview (all spec §8 fields), ReviewSignature.
-- [ ] Constraints and indexes:
+- [x] Entities: UserGroup, UserGroupMembership, GroupListAssignment, ReviewerClassification (+ `AffirmationPolicy`), UserReviewerClassification.
+- [x] Entities: CompetencyReview (all spec §8 fields), ReviewSignature.
+- [x] Constraints and indexes (enforced in Postgres, tested with Testcontainers; the "competency nodes have no children" rule is a composite FK onto `(id, list, kind)` with the child's `parent_kind` pinned to `Heading`):
   - unique `(CompetencyListId, CompetencyId)` for competency nodes
   - unique normalized `Code`
   - parent node must be in the same list
   - competency nodes cannot have children
   - service-layer cycle check
   - index on `(CandidateUserId, CompetencyId, ReviewedAt)` for reviews
-- [ ] Seed:
+- [x] Seed:
   - the AFA hierarchy, transcribed into `afa-skills-record.json` per §2a
   - groups New, Returning and Senior Patroller
   - classifications Instructor = Automatic, Supervisor = ReviewerConfirmation
   - the Bogus users and review history from §1.5
-- [ ] `CurrencyEvaluator.Evaluate(reviews, revisions, asOf)` (pure). Returns Status, Reason, AchievedAt, ExpiresAt and HasPendingReview.
-- [ ] Table-driven tests for each spec §12 rule:
+- [x] `CurrencyEvaluator.Evaluate(reviews, revisions, asOf)` (pure). Returns Status, Reason, AchievedAt, ExpiresAt and HasPendingReview.
+- [x] Table-driven tests for each spec §12 rule:
   - evidence selection: only accepted reviews; ReviewedAt → CreatedAt → Id tie-break; no falling back to older favourable evidence
   - pending/rejected reviews never displace accepted evidence
   - expiry: Current strictly before ExpiresAt, Expired at/after; NULL interval never expires; day arithmetic (365 days ≠ 1 calendar year)
   - breaking revision invalidates from PublishedAt → NotCertified/RevisionInvalidated; late confirmation does not bypass it
   - NotCompetent removes currency; only a later Competent restores it; a pending NotCompetent has no effect
   - confirmation date: achieved Oct 4, confirmed Oct 18 → AchievedAt is Oct 4
-- [ ] `RequiredListsResolver`: distinct union of lists across group memberships, and a distinct competency set across lists.
+- [x] `RequiredLists` (resolver): distinct union of lists across group memberships, and a distinct competency set across lists.
 
 **Done when:** `dotnet test tests/SkillCert.Domain.Tests` is green with one named test per rule above, and seeded data loads in Aspire.
 

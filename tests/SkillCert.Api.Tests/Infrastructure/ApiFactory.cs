@@ -9,7 +9,8 @@ using Testcontainers.PostgreSql;
 namespace SkillCert.Api.Tests.Infrastructure;
 
 /// <summary>
-/// The real API on a throwaway Postgres container: real migrations, real Identity, the demo users seeded.
+/// The real API on a throwaway Postgres container: real migrations, real Identity, the full demo data seeded
+/// (users, AFA list, groups, review history).
 /// One instance per test run (see <see cref="ApiCollection"/>); tests that change shared data restore it.
 /// </summary>
 public sealed class ApiFactory : WebApplicationFactory<Program>, IAsyncLifetime
@@ -25,7 +26,11 @@ public sealed class ApiFactory : WebApplicationFactory<Program>, IAsyncLifetime
         await using var scope = Services.CreateAsyncScope();
         var db = scope.ServiceProvider.GetRequiredService<SkillCertDbContext>();
         await db.Database.MigrateAsync();
-        await ActivatorUtilities.CreateInstance<DemoUserSeeder>(scope.ServiceProvider).SeedAsync(DemoPassword);
+        await new DemoDataSeeder(
+                ActivatorUtilities.CreateInstance<DemoUserSeeder>(scope.ServiceProvider),
+                ActivatorUtilities.CreateInstance<DemoCatalogSeeder>(scope.ServiceProvider),
+                ActivatorUtilities.CreateInstance<DemoHistorySeeder>(scope.ServiceProvider))
+            .SeedAsync(DemoPassword);
     }
 
     protected override void ConfigureWebHost(IWebHostBuilder builder)

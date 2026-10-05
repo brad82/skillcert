@@ -18,7 +18,7 @@ builder.Services.ConfigureDbContext<SkillCertDbContext>(
 
 builder.Services.AddSkillCertIdentityCore();
 builder.Services.AddSingleton(TimeProvider.System);
-builder.Services.AddScoped<DemoUserSeeder>();
+builder.Services.AddDemoDataSeeding();
 
 using var host = builder.Build();
 
@@ -32,12 +32,12 @@ await db.Database.MigrateAsync();
 Log.DatabaseUpToDate(logger);
 
 var config = host.Services.GetRequiredService<IConfiguration>();
-if (config.GetValue<bool>("Seed:DemoUsers"))
+if (config.GetValue<bool>("Seed:DemoData"))
 {
     var password = config["Seed:DemoPassword"]
-        ?? throw new InvalidOperationException("Seed:DemoPassword must be set when Seed:DemoUsers is true.");
-    var created = await scope.ServiceProvider.GetRequiredService<DemoUserSeeder>().SeedAsync(password);
-    Log.DemoUsersSeeded(logger, created);
+        ?? throw new InvalidOperationException("Seed:DemoPassword must be set when Seed:DemoData is true.");
+    var result = await scope.ServiceProvider.GetRequiredService<DemoDataSeeder>().SeedAsync(password);
+    Log.DemoDataSeeded(logger, result.UsersCreated, result.CatalogCreated, result.ReviewsCreated);
 }
 
 return 0;
@@ -50,6 +50,6 @@ internal static partial class Log
     [LoggerMessage(Level = LogLevel.Information, Message = "Database is up to date")]
     public static partial void DatabaseUpToDate(ILogger logger);
 
-    [LoggerMessage(Level = LogLevel.Information, Message = "Demo users created: {Created}")]
-    public static partial void DemoUsersSeeded(ILogger logger, int created);
+    [LoggerMessage(Level = LogLevel.Information, Message = "Demo data: {Users} users created, AFA list created: {Catalog}, {Reviews} reviews created")]
+    public static partial void DemoDataSeeded(ILogger logger, int users, bool catalog, int reviews);
 }

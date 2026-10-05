@@ -14,7 +14,7 @@ Reference implementation: `src/SkillCert.Api/Features/Auth/Login.cs` and its tes
 | `SkillCert.Domain` | Entities, enums, pure rules (currency, compliance, completion date) | Reference EF Core, ASP.NET or anything with I/O |
 | `SkillCert.Infrastructure` | `SkillCertDbContext`, entity configurations, migrations, Identity, seeders, blob store, PDF renderer | Contain HTTP concerns |
 | `SkillCert.Api` | Feature slices (HTTP endpoints), auth setup, the nightly job | Put business rules in handlers that belong in Domain |
-| `SkillCert.Migrator` | Applies migrations, then seeds demo data when `Seed:DemoUsers` is true | Run in the API process |
+| `SkillCert.Migrator` | Applies migrations, then seeds demo data (users, AFA list, groups, review history) when `Seed:DemoData` is true | Run in the API process |
 
 ## The feature slice
 

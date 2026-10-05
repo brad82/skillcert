@@ -29,7 +29,7 @@ ENV ASPNETCORE_HTTP_PORTS=8080
 EXPOSE 8080
 ENTRYPOINT ["dotnet", "SkillCert.Api.dll"]
 
-# Applies migrations, seeds demo users when Seed__DemoUsers=true, then exits.
+# Applies migrations, seeds demo data when Seed__DemoData=true, then exits.
 FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS migrator
 WORKDIR /app
 COPY --from=build /out/migrator .
