@@ -204,28 +204,42 @@ A competency or list detail screen can link to its own history (`?entityId=`).
 
 ---
 
-## Notes from the admin screens (for API reconciliation)
+## API changes requested by the admin screens
 
-The admin web was built from the wireframes against the API as it stands. These are the gaps it works around
-or leaves out; each says what the screen does today.
+The admin web is built and working against today's API, with workarounds. These are the changes it wants, in
+priority order. Each says the proposed contract, what the web does until then, and what to change in `web/`
+afterwards (regenerate with `npm run gen` first).
 
-1. **Shared count on list tree nodes.** The wireframes tag shared competencies "In N lists" in the list tree.
-   `GET /api/admin/lists/{id}` returns each node's `competency` without a list count, so the tree shows no tag
-   yet. Proposal: add `listCount` to `AdminListCompetencyDto`; the tree then shows the tag when it is above 1.
-   (The competency editor and the review already show sharing, from `GET /api/admin/competencies/{id}` `lists[]`.)
-2. **New competency in a list** is two calls from the browser: `POST /api/admin/competencies`, then
-   `POST /api/admin/lists/{id}/competencies`. If the second fails, the competency exists but isn't in the list
-   (the screen says so). An optional `{ listId, parentNodeId }` on create would make it one transaction.
-3. **CSV import into a list** is also two calls: import, then the web app looks up the created codes in
-   `GET /api/admin/competencies` and adds them to the chosen list. Returning the created ids from
-   `POST /api/admin/imports/competencies` (or accepting an optional `{ listId, parentNodeId }`) would remove
-   the lookup and make it one transaction.
-4. **Searching** happens in the browser for users, lists and all competencies (the whole set is loaded once).
-   The `search=` parameters are unused for now; worth switching to if the library grows to thousands.
-5. **Audit date filters** send local midnight of the `from` day and of the day after `to`, as instants, so `to`
-   covers its whole day. The API treats `to` as exclusive, which matches.
-6. **Audit actor filter** lists administrators from `GET /api/admin/users`. A `GET /api/admin/audit/actors`
-   (everyone who appears in the log, including since-demoted admins) would be more accurate.
-7. **Recommendation rule** for "edit or new revision" is client-side (1 field → edit, 2+ → revision,
-   certification → revision only). The API's only rule is `competency.policy-change`, which the screen
-   already respects by not offering an edit.
+1. **Shared count on list tree nodes.**
+   - **Change:** add `listCount: int` to `AdminListCompetencyDto` (the `competency` on each node of
+     `GET /api/admin/lists/{id}` and every tree-changing response).
+   - **Until then:** the list tree can't show the wireframes' "In N lists" tag. Sharing is still shown in the
+     competency editor and the review (from `GET /api/admin/competencies/{id}` `lists[]`).
+   - **Then:** in `features/admin-lists/components/TreeRow.tsx`, show a tag when `node.competency.listCount > 1`.
+2. **Create a competency straight into a list, in one transaction.**
+   - **Change:** optional `placement: { listId, parentNodeId?, index? } | null` on `POST /api/admin/competencies`.
+     Refuse with the existing `list.*` problem types; audit both `competency.create` and `list.add-competencies`.
+   - **Until then:** the web creates, then calls `POST /api/admin/lists/{id}/competencies`. If the second call
+     fails, the competency exists outside the list (the screen says so).
+   - **Then:** `features/admin-lists/pages/ListEditorContainer.tsx` `onCreateCompetency` makes one call.
+3. **CSV import into a list, in one transaction, returning ids.**
+   - **Change:** optional `placement: { listId, parentNodeId? } | null` on `POST /api/admin/imports/competencies`
+     (validated in the preview too), and `CompetencyImportResponse` gains `competencies: [{ id, code }]`.
+   - **Until then:** after the import the web reloads all competencies, matches the created codes, and adds them
+     to the list with a second call.
+   - **Then:** `features/admin-import/pages/ImportContainer.tsx` `importAll` sends the placement and drops the lookup.
+4. **Audit actors.**
+   - **Change:** `entityTypes[]` already comes with `GET /api/admin/audit`; add `actors: [{ id, name }]` (everyone
+     who appears in the log, including since-demoted admins).
+   - **Until then:** the "Who" filter lists current administrators from `GET /api/admin/users`.
+   - **Then:** `features/admin-audit/pages/AuditContainer.tsx` reads `pages[0].actors` and the route stops
+     loading users.
+
+**No change needed:**
+- **Search:** users, lists and all competencies are searched in the browser over the loaded set; the `search=`
+  parameters are unused. Revisit if the library grows to thousands.
+- **Audit dates:** the web sends local midnight of `from` and of the day after `to`; the API's `to` is exclusive
+  (`At < to`), so `to` covers its whole day.
+- **Edit vs revision:** the recommendation rule is client-side (1 field → edit, 2+ → revision, certification →
+  revision only). The API's `competency.policy-change` refusal already backs the certification rule.
+- **Reordering:** Move up / down / to… uses `PUT …/position` as is. Drag and drop, when added, needs nothing new.
