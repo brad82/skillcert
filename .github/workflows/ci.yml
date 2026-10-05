@@ -98,18 +98,18 @@ jobs:
       - name: Start the stack
         run: |
           $COMPOSE up -d --build
-          timeout 180 bash -c 'until [ "$(curl -s -o /dev/null -w "%{http_code}" http://localhost:8080/api/me)" = "401" ]; do sleep 2; done'
+          timeout 180 bash -c 'until [ "$(curl -sk -o /dev/null -w "%{http_code}" https://localhost:8443/api/me)" = "401" ]; do sleep 2; done'
 
       - name: Install Playwright
         working-directory: tests/e2e
         run: |
           npm ci
-          npx playwright install --with-deps chromium
+          npx playwright install --with-deps chromium webkit
 
       - name: Run smoke tests
         working-directory: tests/e2e
         env:
-          E2E_BASE_URL: http://localhost:8080
+          E2E_BASE_URL: https://localhost:8443
         run: npx playwright test
 
       - name: Stack logs

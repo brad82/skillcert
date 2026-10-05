@@ -12,13 +12,17 @@ export default defineConfig({
   retries: process.env.CI ? 1 : 0,
   reporter: process.env.CI ? [['list'], ['html', { open: 'never' }]] : 'list',
   use: {
-    baseURL: process.env.E2E_BASE_URL ?? 'http://localhost:8080',
+    baseURL: process.env.E2E_BASE_URL ?? 'https://localhost:8443',
+    // The compose stack uses Caddy's local CA for localhost; the demo has a real certificate.
+    ignoreHTTPSErrors: true,
     trace: 'retain-on-failure',
     screenshot: 'only-on-failure',
   },
   projects: [
     // Candidate flows are designed for phones first (development plan §1.4).
     { name: 'phone', use: { ...devices['Pixel 7'] } },
+    // Safari is stricter about cookies on http://localhost than Chromium; keep it covered.
+    { name: 'iphone', use: { ...devices['iPhone 15'] } },
     { name: 'desktop', use: { ...devices['Desktop Chrome'] } },
   ],
 })

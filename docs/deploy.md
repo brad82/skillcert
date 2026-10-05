@@ -95,7 +95,7 @@ Sign in at `DEMO_URL` as `admin@skillcert.test` with `DEMO_PASSWORD`.
 
 ```bash
 docker compose -f deploy/docker-compose.yml -f deploy/docker-compose.build.yml --env-file deploy/.env.ci up -d --build
-E2E_BASE_URL=http://localhost:8080 npm --prefix tests/e2e test
+E2E_BASE_URL=https://localhost:8443 npm --prefix tests/e2e test
 docker compose -f deploy/docker-compose.yml --env-file deploy/.env.ci down -v
 ```
 
