@@ -6,3 +6,358 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: fr\n"
+
+#. placeholder {0}: draft.duplicateOf
+#: src/features/admin-lists/components/NewCompetencyDialog.tsx
+msgid "{0} already exists. To use it in this list, add it as an existing competency; it will then be shared by both lists."
+msgstr "{0} existe déjà. Pour l'utiliser dans cette liste, ajoutez-la comme compétence existante ; elle sera alors partagée par les deux listes."
+
+#: src/features/admin-lists/components/TreeRow.tsx
+msgid "{competencyCount} competencies"
+msgstr "{competencyCount} compétences"
+
+#: src/features/admin-lists/components/AddExistingDialog.tsx
+msgid "{count} selected"
+msgstr "{count} sélectionnée(s)"
+
+#: src/features/admin-lists/components/RemoveNodeDialog.tsx
+msgid "{label} leaves {listTitle} now."
+msgstr "{label} quitte {listTitle} dès maintenant."
+
+#: src/features/admin-lists/pages/ListEditorContainer.tsx
+msgid "A competency can appear only once in a list, and one of those is already here."
+msgstr "Une compétence ne peut figurer qu'une fois par liste, et l'une d'elles y est déjà."
+
+#: src/features/admin-lists/pages/ListEditorContainer.tsx
+msgid "A heading can't move inside itself. It stayed where it was."
+msgstr "Un titre ne peut pas être déplacé à l'intérieur de lui-même. Il est resté à sa place."
+
+#: src/features/admin-lists/components/TreeRow.tsx
+msgid "Actions for {label}"
+msgstr "Actions pour {label}"
+
+#: src/features/admin-lists/components/ListsTable.tsx
+msgid "Active"
+msgstr "Actif"
+
+#: src/features/admin-lists/components/AddExistingDialog.tsx
+msgid "Add {count} competencies"
+msgstr "Ajouter {count} compétences"
+
+#: src/features/admin-lists/components/AddExistingDialog.tsx
+msgid "Add 1 competency"
+msgstr "Ajouter 1 compétence"
+
+#: src/features/admin-lists/components/NewCompetencyDialog.tsx
+msgid "Add existing"
+msgstr "Ajouter l'existante"
+
+#: src/features/admin-lists/components/AddExistingDialog.tsx
+msgid "Add existing competencies to {listTitle}"
+msgstr "Ajouter des compétences existantes à {listTitle}"
+
+#: src/features/admin-lists/components/ListEditorHeader.tsx
+msgid "Add existing competency"
+msgstr "Ajouter une compétence existante"
+
+#: src/features/admin-lists/components/HeadingDialog.tsx
+#: src/features/admin-lists/components/ListEditorHeader.tsx
+msgid "Add heading"
+msgstr "Ajouter un titre"
+
+#: src/features/admin-lists/components/AddExistingDialog.tsx
+msgid "Adding a competency shares it: edits to it apply in every list that uses it."
+msgstr "Ajouter une compétence la partage : ses modifications s'appliquent dans toutes les listes qui l'utilisent."
+
+#: src/features/admin-lists/components/RemoveNodeDialog.tsx
+msgid "All review history, and the competencies themselves."
+msgstr "Tout l'historique des évaluations, et les compétences elles-mêmes."
+
+#: src/features/admin-lists/components/AddExistingDialog.tsx
+msgid "Already in this list"
+msgstr "Déjà dans cette liste"
+
+#: src/features/admin-lists/components/RemoveNodeDialog.tsx
+msgid "Archived PDFs keep what they showed."
+msgstr "Les PDF archivés conservent ce qu'ils affichaient."
+
+#: src/features/admin-lists/components/ListsTable.tsx
+msgid "Assigned groups"
+msgstr "Groupes assignés"
+
+#. placeholder {0}: list.groups.join(', ')
+#: src/features/admin-lists/components/ListEditorHeader.tsx
+msgid "Assigned to: {0}"
+msgstr "Assignée à : {0}"
+
+#: src/features/admin-lists/components/EditorDialog.tsx
+#: src/features/admin-lists/components/NewListDialog.tsx
+msgid "Cancel"
+msgstr "Annuler"
+
+#: src/features/admin-lists/components/ListEditorHeader.tsx
+msgid "Changes are live. Archived PDFs keep what they showed, and removing an item never touches review history."
+msgstr "Les modifications sont immédiates. Les PDF archivés conservent ce qu'ils affichaient, et retirer un élément ne touche jamais l'historique des évaluations."
+
+#: src/features/admin-lists/components/HeadingDialog.tsx
+#: src/features/admin-lists/components/NewCompetencyDialog.tsx
+msgid "Code"
+msgstr "Code"
+
+#: src/features/admin-lists/components/TreeRow.tsx
+msgid "Collapse {label}"
+msgstr "Replier {label}"
+
+#: src/features/admin-lists/components/ListsTable.tsx
+msgid "Competencies"
+msgstr "Compétences"
+
+#: src/features/admin-lists/components/ListEditorHeader.tsx
+#: src/features/admin-lists/components/ListsTable.tsx
+#: src/features/admin-lists/pages/ListsPage.tsx
+msgid "Competency lists"
+msgstr "Listes de compétences"
+
+#: src/features/admin-lists/components/NewCompetencyDialog.tsx
+msgid "Create and add to list"
+msgstr "Créer et ajouter à la liste"
+
+#: src/features/admin-lists/components/NewListDialog.tsx
+msgid "Create list"
+msgstr "Créer la liste"
+
+#: src/features/admin-lists/components/ListDetailsFields.tsx
+msgid "Description"
+msgstr "Description"
+
+#: src/features/admin-lists/components/HeadingDialog.tsx
+msgid "e.g. 4.1"
+msgstr "p. ex. 4.1"
+
+#: src/features/admin-lists/components/NewCompetencyDialog.tsx
+msgid "Empty: never expires."
+msgstr "Vide : n'expire jamais."
+
+#: src/features/admin-lists/components/NewCompetencyDialog.tsx
+msgid "Enter a code."
+msgstr "Saisissez un code."
+
+#: src/features/admin-lists/components/NewCompetencyDialog.tsx
+msgid "Enter a title."
+msgstr "Saisissez un titre."
+
+#: src/features/admin-lists/components/TreeRow.tsx
+msgid "Expand {label}"
+msgstr "Déplier {label}"
+
+#: src/features/admin-lists/components/ListEditorHeader.tsx
+msgid "History"
+msgstr "Historique"
+
+#. placeholder {0}: competency.listCount
+#: src/features/admin-lists/components/AddExistingDialog.tsx
+msgid "In {0} lists"
+msgstr "Dans {0} listes"
+
+#: src/features/admin-lists/components/ListsTable.tsx
+#: src/features/admin-lists/components/TreeRow.tsx
+msgid "Inactive"
+msgstr "Inactive"
+
+#: src/features/admin-lists/components/MoveDialog.tsx
+msgid "It goes at the end. Use Move up and Move down to fine-tune its place."
+msgstr "L'élément va à la fin. Utilisez Monter et Descendre pour ajuster sa place."
+
+#: src/features/admin-lists/components/ListsTable.tsx
+msgid "List"
+msgstr "Liste"
+
+#: src/features/admin-lists/components/ListTree.tsx
+msgid "List contents"
+msgstr "Contenu de la liste"
+
+#: src/features/admin-lists/pages/ListsPage.tsx
+msgid "Looking for a competency that isn't in any list? Use <0>All competencies</0>."
+msgstr "Vous cherchez une compétence qui n'est dans aucune liste ? Utilisez <0>Toutes les compétences</0>."
+
+#: src/features/admin-lists/components/MoveDialog.tsx
+msgid "Move"
+msgstr "Déplacer"
+
+#: src/features/admin-lists/components/MoveDialog.tsx
+msgid "Move {label}"
+msgstr "Déplacer {label}"
+
+#: src/features/admin-lists/components/TreeRow.tsx
+msgid "Move down"
+msgstr "Descendre"
+
+#: src/features/admin-lists/components/TreeRow.tsx
+msgid "Move to…"
+msgstr "Déplacer vers…"
+
+#: src/features/admin-lists/components/MoveDialog.tsx
+msgid "Move under"
+msgstr "Déplacer sous"
+
+#: src/features/admin-lists/components/TreeRow.tsx
+msgid "Move up"
+msgstr "Monter"
+
+#: src/features/admin-lists/components/ListEditorHeader.tsx
+msgid "New competency"
+msgstr "Nouvelle compétence"
+
+#: src/features/admin-lists/components/NewCompetencyDialog.tsx
+msgid "New competency in {listTitle}"
+msgstr "Nouvelle compétence dans {listTitle}"
+
+#: src/features/admin-lists/components/NewListDialog.tsx
+#: src/features/admin-lists/pages/ListsPage.tsx
+msgid "New list"
+msgstr "Nouvelle liste"
+
+#: src/features/admin-lists/components/AddExistingDialog.tsx
+msgid "No competencies match."
+msgstr "Aucune compétence ne correspond."
+
+#: src/features/admin-lists/components/ListsTable.tsx
+msgid "No groups"
+msgstr "Aucun groupe"
+
+#: src/features/admin-lists/components/ListsTable.tsx
+msgid "No lists match."
+msgstr "Aucune liste ne correspond."
+
+#: src/features/admin-lists/components/ListEditorHeader.tsx
+msgid "Not assigned to any group yet."
+msgstr "Pas encore assignée à un groupe."
+
+#: src/features/admin-lists/components/AddExistingDialog.tsx
+msgid "Not in any list"
+msgstr "Dans aucune liste"
+
+#: src/features/admin-lists/pages/ListsPage.tsx
+msgid "One list per skill set. Open a list to edit its competencies."
+msgstr "Une liste par ensemble de compétences. Ouvrez une liste pour modifier ses compétences."
+
+#: src/features/admin-lists/pages/ListEditorContainer.tsx
+msgid "Only headings can hold items. Choose a heading."
+msgstr "Seuls les titres peuvent contenir des éléments. Choisissez un titre."
+
+#: src/features/admin-lists/components/RemoveNodeDialog.tsx
+msgid "Patrollers on this list stop seeing them straight away."
+msgstr "Les patrouilleurs de cette liste cessent de les voir immédiatement."
+
+#: src/features/admin-lists/components/NewCompetencyDialog.tsx
+msgid "Recertification period (days)"
+msgstr "Période de recertification (jours)"
+
+#: src/features/admin-lists/components/RemoveNodeDialog.tsx
+msgid "Remove {code}"
+msgstr "Retirer {code}"
+
+#: src/features/admin-lists/components/RemoveNodeDialog.tsx
+msgid "Remove {code} and {competencyCount} competencies"
+msgstr "Retirer {code} et {competencyCount} compétences"
+
+#: src/features/admin-lists/components/RemoveNodeDialog.tsx
+msgid "Remove {code} and everything under it?"
+msgstr "Retirer {code} et tout ce qu'il contient ?"
+
+#: src/features/admin-lists/components/RemoveNodeDialog.tsx
+msgid "Remove {label} from {listTitle}?"
+msgstr "Retirer {label} de {listTitle} ?"
+
+#: src/features/admin-lists/components/TreeRow.tsx
+msgid "Remove from list"
+msgstr "Retirer de la liste"
+
+#: src/features/admin-lists/components/TreeRow.tsx
+msgid "Rename"
+msgstr "Renommer"
+
+#: src/features/admin-lists/components/HeadingDialog.tsx
+msgid "Rename heading"
+msgstr "Renommer le titre"
+
+#: src/features/admin-lists/components/ListEditorHeader.tsx
+#: src/features/admin-lists/components/RenameListDialog.tsx
+msgid "Rename list"
+msgstr "Renommer la liste"
+
+#: src/features/admin-lists/components/AddExistingDialog.tsx
+msgid "Results"
+msgstr "Résultats"
+
+#: src/features/admin-lists/components/HeadingDialog.tsx
+#: src/features/admin-lists/components/RenameListDialog.tsx
+msgid "Save"
+msgstr "Enregistrer"
+
+#: src/features/admin-lists/components/AddExistingDialog.tsx
+msgid "Search all competencies"
+msgstr "Rechercher dans toutes les compétences"
+
+#: src/features/admin-lists/pages/ListsPage.tsx
+msgid "Search lists"
+msgstr "Rechercher des listes"
+
+#: src/features/admin-lists/components/NewCompetencyDialog.tsx
+msgid "Short title"
+msgstr "Titre court"
+
+#: src/features/admin-lists/components/NewCompetencyDialog.tsx
+msgid "Signing authority"
+msgstr "Autorité de signature"
+
+#: src/features/admin-lists/components/ListsTable.tsx
+msgid "Status"
+msgstr "Statut"
+
+#: src/features/admin-lists/pages/ListEditorContainer.tsx
+msgid "The change couldn't be saved. Please try again."
+msgstr "La modification n'a pas pu être enregistrée. Veuillez réessayer."
+
+#: src/features/admin-lists/components/RemoveNodeDialog.tsx
+msgid "The heading {label} and its {competencyCount} competencies leave {listTitle} now."
+msgstr "Le titre {label} et ses {competencyCount} compétences quittent {listTitle} dès maintenant."
+
+#: src/features/admin-lists/pages/ListsContainer.tsx
+msgid "The list couldn't be created. Please try again."
+msgstr "La liste n'a pas pu être créée. Veuillez réessayer."
+
+#: src/features/admin-lists/components/ListTree.tsx
+msgid "This list is empty. Add a heading, or add competencies."
+msgstr "Cette liste est vide. Ajoutez un titre ou des compétences."
+
+#: src/features/admin-lists/components/HeadingDialog.tsx
+#: src/features/admin-lists/components/ListDetailsFields.tsx
+#: src/features/admin-lists/components/NewCompetencyDialog.tsx
+msgid "Title"
+msgstr "Titre"
+
+#: src/features/admin-lists/components/ParentPicker.tsx
+msgid "Top level of the list"
+msgstr "Premier niveau de la liste"
+
+#: src/features/admin-lists/components/HeadingDialog.tsx
+msgid "Under"
+msgstr "Sous"
+
+#: src/features/admin-lists/components/AddExistingDialog.tsx
+#: src/features/admin-lists/components/NewCompetencyDialog.tsx
+msgid "Under heading"
+msgstr "Sous le titre"
+
+#: src/features/admin-lists/components/NewCompetencyDialog.tsx
+msgid "Use a whole number from 1 to 36500."
+msgstr "Utilisez un nombre entier de 1 à 36500."
+
+#: src/features/admin-lists/components/NewCompetencyDialog.tsx
+msgid "Uses the title when empty."
+msgstr "Utilise le titre si vide."
+
+#: src/features/admin-lists/components/NewCompetencyDialog.tsx
+msgid "You can add the description and resources after it's created."
+msgstr "Vous pourrez ajouter la description et les ressources après la création."

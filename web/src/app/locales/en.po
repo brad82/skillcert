@@ -24,7 +24,7 @@ msgstr "Administration"
 msgid "Administrator"
 msgstr "Administrator"
 
-#: src/app/routes/_authenticated/admin/competencies.tsx
+#: src/app/routes/_authenticated/admin/competencies/index.tsx
 #: src/app/shell/admin/AdminNav.tsx
 msgid "All competencies"
 msgstr "All competencies"
@@ -42,7 +42,10 @@ msgstr "Basket"
 msgid "Candidate"
 msgstr "Candidate"
 
-#: src/app/routes/_authenticated/admin/lists.tsx
+#: src/app/routes/_authenticated/admin/competencies/$competencyId.tsx
+msgid "Competency"
+msgstr "Competency"
+
 #: src/app/shell/admin/AdminNav.tsx
 msgid "Competency lists"
 msgstr "Competency lists"

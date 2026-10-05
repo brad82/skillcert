@@ -7,6 +7,10 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Language: en\n"
 
+#: src/shared/lib/reviewers.ts
+msgid "Anyone (self or higher)"
+msgstr "Anyone (self or higher)"
+
 #: src/shared/components/ConfirmDialog.tsx
 msgid "Cancel"
 msgstr "Cancel"
@@ -41,6 +45,10 @@ msgstr "Expiring soon"
 msgid "Instructor"
 msgstr "Instructor"
 
+#: src/shared/lib/reviewers.ts
+msgid "Instructor or higher"
+msgstr "Instructor or higher"
+
 #: src/shared/components/StatusChip.tsx
 msgid "Not certified"
 msgstr "Not certified"
@@ -57,6 +65,10 @@ msgstr "Not compliant · {toGo, plural, one {# to go} other {# to go}}"
 msgid "Peer"
 msgstr "Peer"
 
+#: src/shared/lib/reviewers.ts
+msgid "Peer or higher"
+msgstr "Peer or higher"
+
 #: src/shared/components/StatusChip.tsx
 msgid "Pending"
 msgstr "Pending"
@@ -68,6 +80,10 @@ msgstr "Self"
 #: src/shared/lib/reviewers.ts
 msgid "Supervisor"
 msgstr "Supervisor"
+
+#: src/shared/lib/reviewers.ts
+msgid "Supervisor only"
+msgstr "Supervisor only"
 
 #: src/shared/components/ThemeModeToggle.tsx
 msgid "Switch to dark mode"
