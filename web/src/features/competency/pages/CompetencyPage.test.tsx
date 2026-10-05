@@ -62,7 +62,7 @@ describe('CompetencyPage', () => {
     expect(links[0]).toHaveAttribute('target', '_blank')
     expect(within(screen.getByRole('region', { name: 'Video' })).getByRole('link')).toBeInTheDocument()
 
-    await user.click(screen.getByRole('tab', { name: 'History (3)' }))
+    await user.click(screen.getByRole('tab', { name: 'History' }))
     expect(onTabChange).toHaveBeenCalledWith('history')
   })
 

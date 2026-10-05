@@ -174,6 +174,12 @@ Source: `docs/AFA Skills Record - Revised v3.pdf`.
    - Classifications carry a `Rank` (Instructor 10, Supervisor 20).
    - Every writer of revision content (seeding, admin editing in Phase 4, CSV import) runs it through `ReviewHierarchy.CloseUpward`, so stored permissions are already closed and the sign-off check stays exact.
 6. **Candidate app screens** follow the wireframes recorded in `docs/candidate-app.md`. All five bottom-nav tabs show from Phase 2; Events and Records are "coming soon" until Phases 6 and 3. Typed peer names and CSP# from the wireframes are not built.
+7. **The server decides how a reviewer signs** (`ReviewHierarchy.ReviewerFor`): the lowest level the chosen user holds that every skill in the sitting permits. The candidate picks a person, never a method.
+   - So a Supervisor who is also an Instructor signs Instructor-level skills as Instructor, with no confirmation step; and anyone signs Peer-level skills as a Peer.
+   - One sitting = one reviewer level. Mixed baskets are split by lowest level (basket 4a), or merged under the highest level.
+   - Self and Peer sign-offs carry no signature; a classified reviewer must sign.
+8. **A sitting is identified by its signature.** Supervisor claims are confirmed or rejected per signature (`/api/approvals/{signatureId}/…`), which is exactly "candidate + ReviewedAt + signature" from spec §11, without storing a batch.
+   - Anyone named as reviewer on pending claims sees a Home banner leading to the queue, whether or not they still hold the classification.
 
 ## 3. Spec defaults still to finalize
 | Item | Decide in |
@@ -247,7 +253,7 @@ Source: `docs/AFA Skills Record - Revised v3.pdf`.
 ### Phase 2: Candidate sign-off + supervisor confirmation (2–3 wks)
 **Goal:** a candidate signs off skills on their phone, and a supervisor confirms or rejects claims.
 
-- [ ] Claude Design screens:
+- [x] Claude Design screens (wireframes; see `docs/candidate-app.md`):
   - My lists tree
   - competency detail
   - basket + method picker + signature
@@ -256,29 +262,29 @@ Source: `docs/AFA Skills Record - Revised v3.pdf`.
 - [x] API: `GET /api/me/lists` returns the tree with currency per competency (batch evaluation, no N+1 queries).
 - [x] API: competency detail and my review history (`GET /api/me/competencies/{id}`: lapses from `CurrencyLapses`, same-sitting skills; `GET /api/me/signatures/{id}`, own reviews only).
 - [x] UI: My lists tree with §13 presentation states, including Expiring Soon as display-only. Competency detail with resources and permitted methods.
-- [ ] UI: sign-off basket (client state). Adding currently-valid competencies for reassessment is allowed.
-- [ ] API: `POST /api/signoffs`. In one transaction it:
+- [x] UI: sign-off basket (client state). Adding currently-valid competencies for reassessment is allowed.
+- [x] API: `POST /api/signoffs`. In one transaction it:
   - resolves the current revision
   - checks that every competency permits the selected method
   - rejects duplicate pairs
   - sets a single server ReviewedAt
   - stores one shared ReviewSignature
   - snapshots ReviewerName
-- [ ] Methods:
+- [x] Methods (decision §2.7):
   - Self: own user id, no signature
   - Peer: another registered user, no signature
   - Instructor: pick a classified user, signature required → NotRequired (trust-based, see §2)
   - Supervisor: pick a classified user, signature required → Pending
-- [ ] Signature: canvas → stroke JSON → server renders SVG (§1.5).
-- [ ] Approval queue API + UI:
+- [x] Signature: canvas → stroke JSON → server renders SVG (§1.5).
+- [x] Approval queue API + UI (decision §2.8):
   - shows only claims naming the current user
   - groups by candidate / ReviewedAt / signature
   - confirm or reject a whole group atomically; reject needs a reason
   - Rejected is final
   - an administrator cannot act for a reviewer
   - removing a classification keeps the right to decide existing claims
-- [ ] Integration tests: method compatibility, duplicates, authorization (other users and admins get 403), one-time transitions, retrospective achievement date.
-- [ ] Playwright: candidate signs off via Supervisor → supervisor confirms → candidate sees Current.
+- [x] Integration tests: method compatibility, duplicates, authorization (other users and admins get 403), one-time transitions, retrospective achievement date.
+- [x] Playwright: candidate signs off via Supervisor → supervisor confirms → candidate sees Current. (`tests/e2e/specs/signoff.spec.ts`, one candidate per browser project)
 
 **Done when:**
 - All 4 methods work end-to-end on a phone viewport and match the approved screens.

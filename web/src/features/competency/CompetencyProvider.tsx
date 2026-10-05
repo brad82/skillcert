@@ -48,8 +48,8 @@ export function useCompetencyHeader() {
 }
 
 export function useCompetencyTabs() {
-  const { tab, onTabChange, competency } = useCompetencyContext()
-  return { tab, onTabChange, resourceCount: competency.resources.length, historyCount: competency.history.length }
+  const { tab, onTabChange } = useCompetencyContext()
+  return { tab, onTabChange }
 }
 
 /** Everything on the Overview tab (wireframe 3c). */

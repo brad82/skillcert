@@ -68,6 +68,7 @@ Bottom nav, always 5 tabs: **Home · Skills · Basket · Events · Records**.
   - "Add to basket" when not current
   - "Add to basket for reassessment" when current
   - disabled "Waiting for confirmation" when pending
+  - "Remove from basket" when it's already in the basket (not in the wireframe)
 
 ## 04 Basket: 4a, grouped by who can sign
 
@@ -91,6 +92,15 @@ Bottom nav, always 5 tabs: **Home · Skills · Basket · Events · Records**.
       then the signature pad (clear), then "Submit & hand back".
 3. **Result:** "N reviews recorded", with outcome chips. For a Supervisor sign-off: "Waiting for
    <name> to confirm" and the Pending chip. Then "Back to basket".
+
+The whole flow is full-screen (no app bar or bottom nav), so the reviewer never sees the candidate's tabs.
+Self and Peer reviewers skip the signature pad (development plan §2.7).
+
+## Approval queue (no wireframe)
+
+`/approvals`, reached from a Home banner ("N sign-offs are waiting for your confirmation"). One card per
+sitting: candidate, date, skills with their verdicts, comment and the signature, then **Reject** (reason
+required, final) or **Confirm all**.
 
 ## 06 Events: 6a (Phase 6)
 

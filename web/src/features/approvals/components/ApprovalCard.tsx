@@ -11,6 +11,7 @@ import type { ApprovalGroupDto } from '@shared/api/model'
 import { useLocale } from '@shared/i18n/AppI18nProvider'
 import { formatDate } from '@shared/lib/dates'
 import { approvalSignatureUrl } from '../model/approvalsQuery'
+import { byCode } from '../model/byCode'
 import { useApprovalActions } from '../ApprovalsProvider'
 
 type Props = {
@@ -59,7 +60,7 @@ export function ApprovalCard({ group }: Props) {
           </Typography>
         </div>
         <Box>
-          {group.items.map((item) => (
+          {byCode(group.items).map((item) => (
             <Box key={item.reviewId} sx={styles.item}>
               <Typography component="span" sx={styles.code}>
                 {item.code}

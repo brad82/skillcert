@@ -97,8 +97,8 @@ msgid "Expires"
 msgstr "Expire"
 
 #: src/features/competency/components/Header/DetailTabs.tsx
-msgid "History ({historyCount})"
-msgstr "Historique ({historyCount})"
+msgid "History"
+msgstr "Historique"
 
 #: src/features/competency/components/Overview/KeyFacts.tsx
 msgid "Last signed"
@@ -145,8 +145,8 @@ msgid "Remove from basket"
 msgstr "Retirer du panier"
 
 #: src/features/competency/components/Header/DetailTabs.tsx
-msgid "Resources ({resourceCount})"
-msgstr "Ressources ({resourceCount})"
+msgid "Resources"
+msgstr "Ressources"
 
 #. placeholder {0}: review.revisionNumber
 #: src/features/competency/components/History/HistoryEntry.tsx

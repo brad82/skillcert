@@ -6,4 +6,13 @@ export const demoUsers = {
   admin: { email: 'admin@skillcert.test', name: 'Alex Admin' },
   // Used for the wrong-password check; the same test then signs in to reset the lockout counter.
   lockoutProbe: { email: 'candidate09@skillcert.test', name: 'Candidate 09' },
+  // Has no seeded claims waiting, so the sign-off spec's queue holds only its own sittings.
+  supervisor: { email: 'supervisor2@skillcert.test', name: 'Sofia Supervisor' },
 } as const
+
+/** One candidate per Playwright project: projects run in parallel against the same seeded data. */
+export const signOffCandidates: Record<string, { email: string; name: string }> = {
+  phone: { email: 'candidate06@skillcert.test', name: 'Candidate 06' },
+  iphone: { email: 'candidate08@skillcert.test', name: 'Candidate 08' },
+  desktop: { email: 'candidate10@skillcert.test', name: 'Candidate 10' },
+}

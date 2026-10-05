@@ -10,14 +10,15 @@ import Typography from '@mui/material/Typography'
 import { useAssessment } from '../SignOffProvider'
 
 const assessStyles = () => ({
-  item: { display: 'flex', alignItems: 'center', gap: 2, py: 2, borderBottom: 1, borderColor: 'divider', flexWrap: 'wrap' },
-  code: (theme: Theme) => ({ ...theme.typography.code, color: 'text.secondary', minWidth: 44 }),
-  title: { flexGrow: 1, minWidth: 160 },
+  item: { display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 2, py: 3, borderBottom: 1, borderColor: 'divider' },
+  heading: { display: 'flex', alignItems: 'baseline', gap: 2 },
+  code: (theme: Theme) => ({ ...theme.typography.code, color: 'text.secondary', minWidth: 44, flexShrink: 0 }),
+  // Selected wins over the theme's hover state too, so a just-tapped choice keeps its status colours.
   notCompetent: (theme: Theme) => ({
-    '&.Mui-selected': { bgcolor: theme.palette.status.notCompetent.bg, color: theme.palette.status.notCompetent.fg },
+    '&.Mui-selected, &.Mui-selected:hover': { bgcolor: theme.palette.status.notCompetent.bg, color: theme.palette.status.notCompetent.fg },
   }),
   competent: (theme: Theme) => ({
-    '&.Mui-selected': { bgcolor: theme.palette.status.current.bg, color: theme.palette.status.current.fg },
+    '&.Mui-selected, &.Mui-selected:hover': { bgcolor: theme.palette.status.current.bg, color: theme.palette.status.current.fg },
   }),
 })
 
@@ -35,12 +36,14 @@ export function Assess() {
       <Box>
         {items.map((item) => (
           <Box key={item.competencyId} sx={styles.item}>
-            <Typography component="span" sx={styles.code}>
-              {item.code}
-            </Typography>
-            <Typography component="span" variant="body2" sx={styles.title}>
-              {item.title}
-            </Typography>
+            <Box sx={styles.heading}>
+              <Typography component="span" sx={styles.code}>
+                {item.code}
+              </Typography>
+              <Typography component="span" variant="body2">
+                {item.title}
+              </Typography>
+            </Box>
             <ToggleButtonGroup
               exclusive
               size="small"
