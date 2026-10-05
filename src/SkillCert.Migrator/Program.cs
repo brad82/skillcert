@@ -17,6 +17,7 @@ builder.Services.ConfigureDbContext<SkillCertDbContext>(
     o => o.UseNpgsql(SkillCertDbContextOptions.ConfigureNpgsql));
 
 builder.Services.AddSkillCertIdentityCore();
+builder.Services.AddSingleton(TimeProvider.System);
 builder.Services.AddScoped<DemoUserSeeder>();
 
 using var host = builder.Build();

@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using SkillCert.Infrastructure.Identity;
+using SkillCert.Infrastructure.Persistence;
 
 namespace SkillCert.Api.Features.Auth;
 
@@ -19,7 +21,10 @@ public static class AuthEndpoints
     }
 
     private static async Task<Results<NoContent, ValidationProblem, UnauthorizedHttpResult>> LoginAsync(
-        LoginRequest request, SignInManager<ApplicationUser> signInManager)
+        LoginRequest request,
+        SignInManager<ApplicationUser> signInManager,
+        SkillCertDbContext db,
+        CancellationToken cancellationToken)
     {
         if (string.IsNullOrWhiteSpace(request.Email) || string.IsNullOrWhiteSpace(request.Password))
         {
@@ -29,9 +34,23 @@ public static class AuthEndpoints
             });
         }
 
-        // UserName is the email for every account, so a password sign-in by email works directly.
+        var account = await signInManager.UserManager.FindByEmailAsync(request.Email.Trim());
+        if (account is null)
+        {
+            return TypedResults.Unauthorized();
+        }
+
+        // Deactivated users keep their history but can no longer sign in (spec §5).
+        var subjectId = account.Id.ToString();
+        var isActive = await db.DomainUsers.AnyAsync(
+            u => u.ExternalSubjectId == subjectId && u.IsActive, cancellationToken);
+        if (!isActive)
+        {
+            return TypedResults.Unauthorized();
+        }
+
         var result = await signInManager.PasswordSignInAsync(
-            request.Email.Trim(), request.Password, isPersistent: true, lockoutOnFailure: true);
+            account, request.Password, isPersistent: true, lockoutOnFailure: true);
 
         return result.Succeeded ? TypedResults.NoContent() : TypedResults.Unauthorized();
     }

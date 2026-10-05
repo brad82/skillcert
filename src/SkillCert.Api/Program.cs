@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using SkillCert.Api.Features.Auth;
+using SkillCert.Api.Features.CurrentUser;
 using SkillCert.Infrastructure.Identity;
 using SkillCert.Infrastructure.Persistence;
 
@@ -52,6 +53,7 @@ app.UseAuthorization();
 
 app.MapDefaultEndpoints();
 app.MapAuthEndpoints();
+app.MapMeEndpoints();
 
 app.Run();
 

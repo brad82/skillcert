@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using SkillCert.Infrastructure.Persistence;
@@ -11,9 +12,11 @@ using SkillCert.Infrastructure.Persistence;
 namespace SkillCert.Infrastructure.Persistence.Migrations
 {
     [DbContext(typeof(SkillCertDbContext))]
-    partial class SkillCertDbContextModelSnapshot : ModelSnapshot
+    [Migration("20261005023155_AddUsersAndReviewerClassifications")]
+    partial class AddUsersAndReviewerClassifications
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
