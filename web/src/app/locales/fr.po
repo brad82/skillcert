@@ -43,10 +43,6 @@ msgstr "Panier"
 msgid "Candidate"
 msgstr "Candidat"
 
-#: src/app/routes/_authenticated/admin/competencies/$competencyId.tsx
-msgid "Competency"
-msgstr "Compétence"
-
 #: src/app/shell/admin/AdminNav.tsx
 msgid "Competency lists"
 msgstr "Listes de compétences"

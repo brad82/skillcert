@@ -42,10 +42,6 @@ msgstr "Basket"
 msgid "Candidate"
 msgstr "Candidate"
 
-#: src/app/routes/_authenticated/admin/competencies/$competencyId.tsx
-msgid "Competency"
-msgstr "Competency"
-
 #: src/app/shell/admin/AdminNav.tsx
 msgid "Competency lists"
 msgstr "Competency lists"

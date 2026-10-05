@@ -6,3 +6,410 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: en\n"
+
+#. placeholder {0}: draft.links.length
+#: src/features/admin-competencies/components/ResourcesTab.tsx
+msgid "({0} of 20)"
+msgstr "({0} of 20)"
+
+#: src/features/admin-competencies/components/EditorTabs.tsx
+msgid "(changed)"
+msgstr "(changed)"
+
+#: src/features/admin-competencies/components/EditorFooter.tsx
+msgid "{changeCount, plural, one {# unsaved change. You'll review it before anything is saved.} other {# unsaved changes. You'll review them before anything is saved.}}"
+msgstr "{changeCount, plural, one {# unsaved change. You'll review it before anything is saved.} other {# unsaved changes. You'll review them before anything is saved.}}"
+
+#. placeholder {0}: competency.lists.length
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "{code} is shared by {0} lists: {lists}. Saving changes it in all of them."
+msgstr "{code} is shared by {0} lists: {lists}. Saving changes it in all of them."
+
+#. placeholder {0}: otherLists.map((l) => l.title).join(', ')
+#: src/features/admin-competencies/components/CompetencyHeader.tsx
+msgid "<0>Shared by {listCount} lists:</0> {0}. Changes apply to all of them."
+msgstr "<0>Shared by {listCount} lists:</0> {0}. Changes apply to all of them."
+
+#: src/features/admin-competencies/components/CertificationTab.tsx
+msgid "1 to 36500. Leave empty if the skill never expires."
+msgstr "1 to 36500. Leave empty if the skill never expires."
+
+#: src/features/admin-competencies/components/CompetencyHeader.tsx
+msgid "Active"
+msgstr "Active"
+
+#: src/features/admin-competencies/components/ResourcesTab.tsx
+msgid "Add link"
+msgstr "Add link"
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "All candidates will be required to demonstrate competency immediately. Use this for time-sensitive or critical policy updates."
+msgstr "All candidates will be required to demonstrate competency immediately. Use this for time-sensitive or critical policy updates."
+
+#: src/features/admin-competencies/components/CompetencyHeader.tsx
+msgid "All competencies"
+msgstr "All competencies"
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "Back"
+msgstr "Back"
+
+#: src/features/admin-competencies/model/changeLabels.ts
+msgid "Certification"
+msgstr "Certification"
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "Changed"
+msgstr "Changed"
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "Changed items"
+msgstr "Changed items"
+
+#: src/features/admin-competencies/components/CertificationTab.tsx
+msgid "Changing anything here always publishes a new revision, because it changes who is current."
+msgstr "Changing anything here always publishes a new revision, because it changes who is current."
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "Check these are the changes you meant to make."
+msgstr "Check these are the changes you meant to make."
+
+#: src/features/admin-competencies/components/CompetencyHeader.tsx
+msgid "Competency lists"
+msgstr "Competency lists"
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "Continue"
+msgstr "Continue"
+
+#: src/features/admin-competencies/components/CompetencyHeader.tsx
+msgid "Deactivate"
+msgstr "Deactivate"
+
+#: src/features/admin-competencies/components/DeactivateDialog.tsx
+msgid "Deactivate {code}"
+msgstr "Deactivate {code}"
+
+#: src/features/admin-competencies/components/DeactivateDialog.tsx
+msgid "Deactivate {code} {title}?"
+msgstr "Deactivate {code} {title}?"
+
+#. placeholder {0}: c.code
+#: src/features/admin-competencies/pages/CompetencyEditorContainer.tsx
+msgid "Deactivated {0}. It takes no new sign-offs."
+msgstr "Deactivated {0}. It takes no new sign-offs."
+
+#: src/features/admin-competencies/components/DetailsTab.tsx
+#: src/features/admin-competencies/model/changeLabels.ts
+msgid "Description"
+msgstr "Description"
+
+#: src/features/admin-competencies/model/changeLabels.ts
+msgid "Details"
+msgstr "Details"
+
+#: src/features/admin-competencies/components/EditorFooter.tsx
+msgid "Discard"
+msgstr "Discard"
+
+#: src/features/admin-competencies/components/ResourcesTab.tsx
+msgid "Each link needs a title and a full address starting with https://"
+msgstr "Each link needs a title and a full address starting with https://"
+
+#: src/features/admin-competencies/components/DetailsTab.tsx
+msgid "Enter a title."
+msgstr "Enter a title."
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "Every candidate's sign-off on {code} stops counting the moment you publish."
+msgstr "Every candidate's sign-off on {code} stops counting the moment you publish."
+
+#: src/features/admin-competencies/components/DeactivateDialog.tsx
+msgid "Every sign-off and review already made."
+msgstr "Every sign-off and review already made."
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "Existing sign-offs stay current until they expire. Each person is then assessed against the newest revision. Use this for clarifications and improvements that don't need anyone retrained straight away."
+msgstr "Existing sign-offs stay current until they expire. Each person is then assessed against the newest revision. Use this for clarifications and improvements that don't need anyone retrained straight away."
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "Go back"
+msgstr "Go back"
+
+#: src/features/admin-competencies/components/RevisionHistory.tsx
+msgid "History"
+msgstr "History"
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "How should this be saved?"
+msgstr "How should this be saved?"
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "I understand everyone signed off on {code} will need to be reassessed."
+msgstr "I understand everyone signed off on {code} will need to be reassessed."
+
+#: src/features/admin-competencies/components/CompetencyHeader.tsx
+msgid "Inactive"
+msgstr "Inactive"
+
+#. placeholder {0}: competency.lists.length
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "It is shared by {0} lists ({lists}), so your choice applies to candidates on all of them."
+msgstr "It is shared by {0} lists ({lists}), so your choice applies to candidates on all of them."
+
+#: src/features/admin-competencies/components/DeactivateDialog.tsx
+msgid "Its place in {lists} lists."
+msgstr "Its place in {lists} lists."
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "Keep editing"
+msgstr "Keep editing"
+
+#: src/features/admin-competencies/components/RevisionHistory.tsx
+msgid "Kept existing sign-offs"
+msgstr "Kept existing sign-offs"
+
+#: src/features/admin-competencies/components/ResourcesTab.tsx
+msgid "Later"
+msgstr "Later"
+
+#: src/features/admin-competencies/components/ResourcesTab.tsx
+msgid "Link {n} address"
+msgstr "Link {n} address"
+
+#: src/features/admin-competencies/components/ResourcesTab.tsx
+msgid "Link {n} title"
+msgstr "Link {n} title"
+
+#: src/features/admin-competencies/components/ResourcesTab.tsx
+#: src/features/admin-competencies/model/changeLabels.ts
+msgid "Links"
+msgstr "Links"
+
+#: src/features/admin-competencies/components/EditorFooter.tsx
+msgid "No unsaved changes."
+msgstr "No unsaved changes."
+
+#: src/features/admin-competencies/components/DeactivateDialog.tsx
+msgid "Nobody can be signed off on {code}."
+msgstr "Nobody can be signed off on {code}."
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "Not available: recertification and signing authority can only change in a new revision."
+msgstr "Not available: recertification and signing authority can only change in a new revision."
+
+#: src/features/admin-competencies/components/RevisionHistory.tsx
+msgid "Not in any list."
+msgstr "Not in any list."
+
+#: src/features/admin-competencies/components/RevisionHistory.tsx
+msgid "Open in the audit log"
+msgstr "Open in the audit log"
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "Publish a new revision"
+msgstr "Publish a new revision"
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "Publish a new revision and require reassessment?"
+msgstr "Publish a new revision and require reassessment?"
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "Publish a new revision of {code}"
+msgstr "Publish a new revision of {code}"
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "Publish and require reassessment"
+msgstr "Publish and require reassessment"
+
+#: src/features/admin-competencies/components/EditorFooter.tsx
+msgid "Publish changes…"
+msgstr "Publish changes…"
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "Publish new revision"
+msgstr "Publish new revision"
+
+#. placeholder {0}: c.current.number
+#: src/features/admin-competencies/pages/CompetencyEditorContainer.tsx
+msgid "Published revision {0}."
+msgstr "Published revision {0}."
+
+#: src/features/admin-competencies/components/CompetencyHeader.tsx
+msgid "Reactivate"
+msgstr "Reactivate"
+
+#. placeholder {0}: c.code
+#: src/features/admin-competencies/pages/CompetencyEditorContainer.tsx
+msgid "Reactivated {0}."
+msgstr "Reactivated {0}."
+
+#: src/features/admin-competencies/pages/CompetencyEditorContainer.tsx
+msgid "Recertification and signing authority can only change in a new revision."
+msgstr "Recertification and signing authority can only change in a new revision."
+
+#: src/features/admin-competencies/model/changeLabels.ts
+msgid "Recertification period"
+msgstr "Recertification period"
+
+#: src/features/admin-competencies/components/CertificationTab.tsx
+msgid "Recertification period (days)"
+msgstr "Recertification period (days)"
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "Recommended"
+msgstr "Recommended"
+
+#: src/features/admin-competencies/components/ResourcesTab.tsx
+msgid "Remove link {n}"
+msgstr "Remove link {n}"
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "Require reassessment now"
+msgstr "Require reassessment now"
+
+#: src/features/admin-competencies/components/RevisionHistory.tsx
+msgid "Required reassessment"
+msgstr "Required reassessment"
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "Required. There is no default."
+msgstr "Required. There is no default."
+
+#: src/features/admin-competencies/model/changeLabels.ts
+msgid "Resources"
+msgstr "Resources"
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "Review at their next recertification"
+msgstr "Review at their next recertification"
+
+#. placeholder {0}: competency.current.title
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "Review changes to {code} {0}"
+msgstr "Review changes to {code} {0}"
+
+#. placeholder {0}: r.number
+#: src/features/admin-competencies/components/RevisionHistory.tsx
+msgid "Revision {0}"
+msgstr "Revision {0}"
+
+#. placeholder {0}: r.number
+#: src/features/admin-competencies/components/RevisionHistory.tsx
+msgid "Revision {0} · current"
+msgstr "Revision {0} · current"
+
+#. placeholder {0}: current.number
+#. placeholder {1}: formatDate(current.publishedAt, locale)
+#: src/features/admin-competencies/components/CompetencyHeader.tsx
+msgid "Revision {0}, published {1}"
+msgstr "Revision {0}, published {1}"
+
+#: src/features/admin-competencies/components/RevisionHistory.tsx
+msgid "Revisions"
+msgstr "Revisions"
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "Save as an edit"
+msgstr "Save as an edit"
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "Save edit"
+msgstr "Save edit"
+
+#. placeholder {0}: c.current.number
+#: src/features/admin-competencies/pages/CompetencyEditorContainer.tsx
+msgid "Saved to revision {0}."
+msgstr "Saved to revision {0}."
+
+#: src/features/admin-competencies/components/DetailsTab.tsx
+#: src/features/admin-competencies/model/changeLabels.ts
+msgid "Short title"
+msgstr "Short title"
+
+#: src/features/admin-competencies/model/changeLabels.ts
+msgid "Signing authority"
+msgstr "Signing authority"
+
+#: src/features/admin-competencies/components/CertificationTab.tsx
+msgid "Signing authority: lowest level that can sign"
+msgstr "Signing authority: lowest level that can sign"
+
+#: src/features/admin-competencies/pages/CompetencyEditorContainer.tsx
+msgid "Some fields aren't valid. Check each tab and try again."
+msgstr "Some fields aren't valid. Check each tab and try again."
+
+#: src/features/admin-competencies/pages/CompetencyEditorContainer.tsx
+msgid "The change couldn't be saved. Please try again."
+msgstr "The change couldn't be saved. Please try again."
+
+#: src/features/admin-competencies/components/DetailsTab.tsx
+msgid "The paper record's wording, shown under its heading. Uses the title when empty."
+msgstr "The paper record's wording, shown under its heading. Uses the title when empty."
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "Their old sign-offs stay in their history."
+msgstr "Their old sign-offs stay in their history."
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "They all show Not certified until signed off again."
+msgstr "They all show Not certified until signed off again."
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "This applies on every list that uses {code}: {lists}."
+msgstr "This applies on every list that uses {code}: {lists}."
+
+#: src/features/admin-competencies/components/DetailsTab.tsx
+#: src/features/admin-competencies/model/changeLabels.ts
+msgid "Title"
+msgstr "Title"
+
+#. placeholder {0}: competency.current.number
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "Updates revision {0} in place. Nobody's sign-offs change."
+msgstr "Updates revision {0} in place. Nobody's sign-offs change."
+
+#: src/features/admin-competencies/components/ResourcesTab.tsx
+msgid "Uploading videos and documents comes in a later release."
+msgstr "Uploading videos and documents comes in a later release."
+
+#: src/features/admin-competencies/components/ResourcesTab.tsx
+msgid "Use a full address starting with https://"
+msgstr "Use a full address starting with https://"
+
+#: src/features/admin-competencies/components/CertificationTab.tsx
+msgid "Use a whole number from 1 to 36500."
+msgstr "Use a whole number from 1 to 36500."
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "Use when the skill itself has changed. You'll choose what happens to existing sign-offs next."
+msgstr "Use when the skill itself has changed. You'll choose what happens to existing sign-offs next."
+
+#: src/features/admin-competencies/components/RevisionHistory.tsx
+msgid "Used in lists"
+msgstr "Used in lists"
+
+#: src/features/admin-competencies/components/ResourcesTab.tsx
+msgid "Videos and documents"
+msgstr "Videos and documents"
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "What happens to people already signed off?"
+msgstr "What happens to people already signed off?"
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "You are creating a new revision of this skill."
+msgstr "You are creating a new revision of this skill."
+
+#: src/features/admin-competencies/components/DeactivateDialog.tsx
+msgid "You can reactivate it at any time."
+msgstr "You can reactivate it at any time."
+
+#. placeholder {0}: changes.length
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "You changed {0} items"
+msgstr "You changed {0} items"
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "You changed 1 item"
+msgstr "You changed 1 item"

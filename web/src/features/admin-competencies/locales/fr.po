@@ -6,3 +6,410 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: fr\n"
+
+#. placeholder {0}: draft.links.length
+#: src/features/admin-competencies/components/ResourcesTab.tsx
+msgid "({0} of 20)"
+msgstr "({0} sur 20)"
+
+#: src/features/admin-competencies/components/EditorTabs.tsx
+msgid "(changed)"
+msgstr "(modifié)"
+
+#: src/features/admin-competencies/components/EditorFooter.tsx
+msgid "{changeCount, plural, one {# unsaved change. You'll review it before anything is saved.} other {# unsaved changes. You'll review them before anything is saved.}}"
+msgstr "{changeCount, plural, one {# modification non enregistrée. Vous la passerez en revue avant tout enregistrement.} other {# modifications non enregistrées. Vous les passerez en revue avant tout enregistrement.}}"
+
+#. placeholder {0}: competency.lists.length
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "{code} is shared by {0} lists: {lists}. Saving changes it in all of them."
+msgstr "{code} est partagée par {0} listes : {lists}. L'enregistrement la modifie dans toutes."
+
+#. placeholder {0}: otherLists.map((l) => l.title).join(', ')
+#: src/features/admin-competencies/components/CompetencyHeader.tsx
+msgid "<0>Shared by {listCount} lists:</0> {0}. Changes apply to all of them."
+msgstr "<0>Partagée par {listCount} listes :</0> {0}. Les modifications s'appliquent à toutes."
+
+#: src/features/admin-competencies/components/CertificationTab.tsx
+msgid "1 to 36500. Leave empty if the skill never expires."
+msgstr "De 1 à 36500. Laissez vide si la compétence n'expire jamais."
+
+#: src/features/admin-competencies/components/CompetencyHeader.tsx
+msgid "Active"
+msgstr "Actif"
+
+#: src/features/admin-competencies/components/ResourcesTab.tsx
+msgid "Add link"
+msgstr "Ajouter un lien"
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "All candidates will be required to demonstrate competency immediately. Use this for time-sensitive or critical policy updates."
+msgstr "Tous les candidats devront démontrer leur compétence immédiatement. À utiliser pour les mises à jour urgentes ou critiques."
+
+#: src/features/admin-competencies/components/CompetencyHeader.tsx
+msgid "All competencies"
+msgstr "Toutes les compétences"
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "Back"
+msgstr "Retour"
+
+#: src/features/admin-competencies/model/changeLabels.ts
+msgid "Certification"
+msgstr "Certification"
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "Changed"
+msgstr "Modifié"
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "Changed items"
+msgstr "Éléments modifiés"
+
+#: src/features/admin-competencies/components/CertificationTab.tsx
+msgid "Changing anything here always publishes a new revision, because it changes who is current."
+msgstr "Toute modification ici publie toujours une nouvelle révision, car elle change qui est à jour."
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "Check these are the changes you meant to make."
+msgstr "Vérifiez que ce sont bien les modifications voulues."
+
+#: src/features/admin-competencies/components/CompetencyHeader.tsx
+msgid "Competency lists"
+msgstr "Listes de compétences"
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "Continue"
+msgstr "Continuer"
+
+#: src/features/admin-competencies/components/CompetencyHeader.tsx
+msgid "Deactivate"
+msgstr "Désactiver"
+
+#: src/features/admin-competencies/components/DeactivateDialog.tsx
+msgid "Deactivate {code}"
+msgstr "Désactiver {code}"
+
+#: src/features/admin-competencies/components/DeactivateDialog.tsx
+msgid "Deactivate {code} {title}?"
+msgstr "Désactiver {code} {title} ?"
+
+#. placeholder {0}: c.code
+#: src/features/admin-competencies/pages/CompetencyEditorContainer.tsx
+msgid "Deactivated {0}. It takes no new sign-offs."
+msgstr "{0} désactivée. Elle n'accepte plus de nouvelles validations."
+
+#: src/features/admin-competencies/components/DetailsTab.tsx
+#: src/features/admin-competencies/model/changeLabels.ts
+msgid "Description"
+msgstr "Description"
+
+#: src/features/admin-competencies/model/changeLabels.ts
+msgid "Details"
+msgstr "Détails"
+
+#: src/features/admin-competencies/components/EditorFooter.tsx
+msgid "Discard"
+msgstr "Abandonner"
+
+#: src/features/admin-competencies/components/ResourcesTab.tsx
+msgid "Each link needs a title and a full address starting with https://"
+msgstr "Chaque lien doit avoir un titre et une adresse complète commençant par https://"
+
+#: src/features/admin-competencies/components/DetailsTab.tsx
+msgid "Enter a title."
+msgstr "Saisissez un titre."
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "Every candidate's sign-off on {code} stops counting the moment you publish."
+msgstr "La validation de chaque candidat pour {code} cesse de compter dès la publication."
+
+#: src/features/admin-competencies/components/DeactivateDialog.tsx
+msgid "Every sign-off and review already made."
+msgstr "Chaque validation et évaluation déjà faite."
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "Existing sign-offs stay current until they expire. Each person is then assessed against the newest revision. Use this for clarifications and improvements that don't need anyone retrained straight away."
+msgstr "Les validations existantes restent à jour jusqu'à leur expiration. Chaque personne est ensuite évaluée selon la révision la plus récente. À utiliser pour des clarifications et améliorations qui ne demandent pas de reformation immédiate."
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "Go back"
+msgstr "Revenir"
+
+#: src/features/admin-competencies/components/RevisionHistory.tsx
+msgid "History"
+msgstr "Historique"
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "How should this be saved?"
+msgstr "Comment enregistrer ces modifications ?"
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "I understand everyone signed off on {code} will need to be reassessed."
+msgstr "Je comprends que toutes les personnes validées pour {code} devront être réévaluées."
+
+#: src/features/admin-competencies/components/CompetencyHeader.tsx
+msgid "Inactive"
+msgstr "Inactive"
+
+#. placeholder {0}: competency.lists.length
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "It is shared by {0} lists ({lists}), so your choice applies to candidates on all of them."
+msgstr "Elle est partagée par {0} listes ({lists}) : votre choix s'applique aux candidats de toutes ces listes."
+
+#: src/features/admin-competencies/components/DeactivateDialog.tsx
+msgid "Its place in {lists} lists."
+msgstr "Sa place dans {lists} listes."
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "Keep editing"
+msgstr "Continuer à modifier"
+
+#: src/features/admin-competencies/components/RevisionHistory.tsx
+msgid "Kept existing sign-offs"
+msgstr "Validations existantes conservées"
+
+#: src/features/admin-competencies/components/ResourcesTab.tsx
+msgid "Later"
+msgstr "Plus tard"
+
+#: src/features/admin-competencies/components/ResourcesTab.tsx
+msgid "Link {n} address"
+msgstr "Adresse du lien {n}"
+
+#: src/features/admin-competencies/components/ResourcesTab.tsx
+msgid "Link {n} title"
+msgstr "Titre du lien {n}"
+
+#: src/features/admin-competencies/components/ResourcesTab.tsx
+#: src/features/admin-competencies/model/changeLabels.ts
+msgid "Links"
+msgstr "Liens"
+
+#: src/features/admin-competencies/components/EditorFooter.tsx
+msgid "No unsaved changes."
+msgstr "Aucune modification non enregistrée."
+
+#: src/features/admin-competencies/components/DeactivateDialog.tsx
+msgid "Nobody can be signed off on {code}."
+msgstr "Personne ne peut être validé pour {code}."
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "Not available: recertification and signing authority can only change in a new revision."
+msgstr "Non disponible : la recertification et l'autorité de signature ne changent que dans une nouvelle révision."
+
+#: src/features/admin-competencies/components/RevisionHistory.tsx
+msgid "Not in any list."
+msgstr "Dans aucune liste."
+
+#: src/features/admin-competencies/components/RevisionHistory.tsx
+msgid "Open in the audit log"
+msgstr "Ouvrir dans le journal d'audit"
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "Publish a new revision"
+msgstr "Publier une nouvelle révision"
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "Publish a new revision and require reassessment?"
+msgstr "Publier une nouvelle révision et exiger une réévaluation ?"
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "Publish a new revision of {code}"
+msgstr "Publier une nouvelle révision de {code}"
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "Publish and require reassessment"
+msgstr "Publier et exiger une réévaluation"
+
+#: src/features/admin-competencies/components/EditorFooter.tsx
+msgid "Publish changes…"
+msgstr "Publier les modifications…"
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "Publish new revision"
+msgstr "Publier la nouvelle révision"
+
+#. placeholder {0}: c.current.number
+#: src/features/admin-competencies/pages/CompetencyEditorContainer.tsx
+msgid "Published revision {0}."
+msgstr "Révision {0} publiée."
+
+#: src/features/admin-competencies/components/CompetencyHeader.tsx
+msgid "Reactivate"
+msgstr "Réactiver"
+
+#. placeholder {0}: c.code
+#: src/features/admin-competencies/pages/CompetencyEditorContainer.tsx
+msgid "Reactivated {0}."
+msgstr "{0} réactivée."
+
+#: src/features/admin-competencies/pages/CompetencyEditorContainer.tsx
+msgid "Recertification and signing authority can only change in a new revision."
+msgstr "La recertification et l'autorité de signature ne changent que dans une nouvelle révision."
+
+#: src/features/admin-competencies/model/changeLabels.ts
+msgid "Recertification period"
+msgstr "Période de recertification"
+
+#: src/features/admin-competencies/components/CertificationTab.tsx
+msgid "Recertification period (days)"
+msgstr "Période de recertification (jours)"
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "Recommended"
+msgstr "Recommandé"
+
+#: src/features/admin-competencies/components/ResourcesTab.tsx
+msgid "Remove link {n}"
+msgstr "Retirer le lien {n}"
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "Require reassessment now"
+msgstr "Exiger une réévaluation maintenant"
+
+#: src/features/admin-competencies/components/RevisionHistory.tsx
+msgid "Required reassessment"
+msgstr "Réévaluation exigée"
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "Required. There is no default."
+msgstr "Obligatoire. Il n'y a pas de choix par défaut."
+
+#: src/features/admin-competencies/model/changeLabels.ts
+msgid "Resources"
+msgstr "Ressources"
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "Review at their next recertification"
+msgstr "Réévaluer à la prochaine recertification"
+
+#. placeholder {0}: competency.current.title
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "Review changes to {code} {0}"
+msgstr "Revoir les modifications de {code} {0}"
+
+#. placeholder {0}: r.number
+#: src/features/admin-competencies/components/RevisionHistory.tsx
+msgid "Revision {0}"
+msgstr "Révision {0}"
+
+#. placeholder {0}: r.number
+#: src/features/admin-competencies/components/RevisionHistory.tsx
+msgid "Revision {0} · current"
+msgstr "Révision {0} · actuelle"
+
+#. placeholder {0}: current.number
+#. placeholder {1}: formatDate(current.publishedAt, locale)
+#: src/features/admin-competencies/components/CompetencyHeader.tsx
+msgid "Revision {0}, published {1}"
+msgstr "Révision {0}, publiée le {1}"
+
+#: src/features/admin-competencies/components/RevisionHistory.tsx
+msgid "Revisions"
+msgstr "Révisions"
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "Save as an edit"
+msgstr "Enregistrer comme correction"
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "Save edit"
+msgstr "Enregistrer la correction"
+
+#. placeholder {0}: c.current.number
+#: src/features/admin-competencies/pages/CompetencyEditorContainer.tsx
+msgid "Saved to revision {0}."
+msgstr "Enregistré dans la révision {0}."
+
+#: src/features/admin-competencies/components/DetailsTab.tsx
+#: src/features/admin-competencies/model/changeLabels.ts
+msgid "Short title"
+msgstr "Titre court"
+
+#: src/features/admin-competencies/model/changeLabels.ts
+msgid "Signing authority"
+msgstr "Autorité de signature"
+
+#: src/features/admin-competencies/components/CertificationTab.tsx
+msgid "Signing authority: lowest level that can sign"
+msgstr "Autorité de signature : niveau le plus bas pouvant signer"
+
+#: src/features/admin-competencies/pages/CompetencyEditorContainer.tsx
+msgid "Some fields aren't valid. Check each tab and try again."
+msgstr "Certains champs ne sont pas valides. Vérifiez chaque onglet et réessayez."
+
+#: src/features/admin-competencies/pages/CompetencyEditorContainer.tsx
+msgid "The change couldn't be saved. Please try again."
+msgstr "La modification n'a pas pu être enregistrée. Veuillez réessayer."
+
+#: src/features/admin-competencies/components/DetailsTab.tsx
+msgid "The paper record's wording, shown under its heading. Uses the title when empty."
+msgstr "Le libellé du dossier papier, affiché sous son titre. Utilise le titre si vide."
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "Their old sign-offs stay in their history."
+msgstr "Leurs anciennes validations restent dans leur historique."
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "They all show Not certified until signed off again."
+msgstr "Ils sont tous « Non certifié » jusqu'à une nouvelle validation."
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "This applies on every list that uses {code}: {lists}."
+msgstr "Cela s'applique à chaque liste qui utilise {code} : {lists}."
+
+#: src/features/admin-competencies/components/DetailsTab.tsx
+#: src/features/admin-competencies/model/changeLabels.ts
+msgid "Title"
+msgstr "Titre"
+
+#. placeholder {0}: competency.current.number
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "Updates revision {0} in place. Nobody's sign-offs change."
+msgstr "Met à jour la révision {0} telle quelle. Aucune validation ne change."
+
+#: src/features/admin-competencies/components/ResourcesTab.tsx
+msgid "Uploading videos and documents comes in a later release."
+msgstr "Le téléversement de vidéos et de documents viendra dans une version ultérieure."
+
+#: src/features/admin-competencies/components/ResourcesTab.tsx
+msgid "Use a full address starting with https://"
+msgstr "Utilisez une adresse complète commençant par https://"
+
+#: src/features/admin-competencies/components/CertificationTab.tsx
+msgid "Use a whole number from 1 to 36500."
+msgstr "Utilisez un nombre entier de 1 à 36500."
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "Use when the skill itself has changed. You'll choose what happens to existing sign-offs next."
+msgstr "À utiliser quand la compétence elle-même a changé. Vous choisirez ensuite le sort des validations existantes."
+
+#: src/features/admin-competencies/components/RevisionHistory.tsx
+msgid "Used in lists"
+msgstr "Utilisée dans les listes"
+
+#: src/features/admin-competencies/components/ResourcesTab.tsx
+msgid "Videos and documents"
+msgstr "Vidéos et documents"
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "What happens to people already signed off?"
+msgstr "Qu'advient-il des personnes déjà validées ?"
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "You are creating a new revision of this skill."
+msgstr "Vous créez une nouvelle révision de cette compétence."
+
+#: src/features/admin-competencies/components/DeactivateDialog.tsx
+msgid "You can reactivate it at any time."
+msgstr "Vous pouvez la réactiver à tout moment."
+
+#. placeholder {0}: changes.length
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "You changed {0} items"
+msgstr "Vous avez modifié {0} éléments"
+
+#: src/features/admin-competencies/components/ReviewDialog.tsx
+msgid "You changed 1 item"
+msgstr "Vous avez modifié 1 élément"
