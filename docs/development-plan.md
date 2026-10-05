@@ -111,7 +111,7 @@ Cross-cutting rules:
 |---|---|---|
 | Orchestration | .NET Aspire AppHost | Docker Compose on one VPS |
 | Database | Postgres container (Aspire) | Postgres container (compose) |
-| PDF blob store | MinIO container (Aspire) | DigitalOcean Spaces (S3 API) |
+| PDF blob store | RustFS container `rustfs/rustfs:1.0.1` (Aspire); the MinIO image was removed from Docker Hub | DigitalOcean Spaces (S3 API) |
 | TLS / reverse proxy | n/a | Caddy (automatic Let's Encrypt), serves the SPA static files and proxies `/api` |
 | Migrations | Migrator resource in Aspire | One-shot `migrator` service (efbundle); `api` depends on it with `service_completed_successfully` |
 | Backups | n/a | None; demo data can be rebuilt from seed |
@@ -121,7 +121,7 @@ Cross-cutting rules:
   1. `ci.yml` (PRs and pushes): `dotnet test`, web lint + type-check + build, Playwright smoke tests.
   2. `deploy.yml` (push to `main`): build the `api`, `web` and `migrator` images and push them to GHCR tagged with the commit SHA.
   3. Deploy job: SSH to the VPS (key in Actions secrets), set the image tag, run `docker compose pull && docker compose up -d`. The VPS pulls the images; no binaries are copied.
-- **Blob store:** `IBlobStore` on the AWS S3 SDK (works with MinIO and Spaces). Endpoint, bucket and keys come from config.
+- **Blob store:** `IBlobStore` on the AWS S3 SDK (works with RustFS and Spaces). Endpoint, bucket and keys come from config.
 
 ### 1.7 Authentication
 - Phases 0–6: ASP.NET Identity with cookie auth and dev-seeded fake users.
@@ -179,7 +179,7 @@ Source: `docs/AFA Skills Record - Revised v3.pdf`.
 **Goal:** an empty app that runs locally and on the demo server, with login.
 
 - [x] Create the solution and projects as in §1.2. Add Central Package Management and `Directory.Build.props` (nullable enabled, warnings as errors).
-- [ ] Aspire AppHost: Postgres, MinIO, Migrator, Api, Vite web. ServiceDefaults with health checks.
+- [x] Aspire AppHost: Postgres, RustFS (S3), Migrator, Api. ServiceDefaults with health checks. (The Vite web resource is added with the web shell task.)
 - [ ] EF Core DbContext + first migration. `/health` endpoint.
 - [ ] ASP.NET Identity (cookie auth). Dev seeder creates: 1 admin, 2 instructors, 2 supervisors, 10 candidates.
 - [ ] Domain `User` entity linked to the Identity user by `ExternalSubjectId`. `GET /api/me` returns the user and their capabilities.
@@ -295,7 +295,7 @@ Source: `docs/AFA Skills Record - Revised v3.pdf`.
 **Done when:**
 - The PDF is visually reviewed against the AFA record.
 - All archival tests pass.
-- Archives appear in MinIO locally and in Spaces on the demo.
+- Archives appear in RustFS locally and in Spaces on the demo.
 
 ### Phase 4: Admin configuration + audit + CSV import (3 wks)
 **Goal:** administrators manage users, competencies, revisions and lists, and every change is audited.
