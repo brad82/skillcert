@@ -190,7 +190,7 @@ Source: `docs/AFA Skills Record - Revised v3.pdf`.
   - [x] generate `makeTheme(mode)` in `web/src/shared/lib/theme.ts` from `tokens.json` (copied to `web/src/shared/lib/design-tokens.json`)
   - moved to Phase 2: build the status chip in code, then run `/design-sync` to bring it into Claude Design
 - [x] Template feature slice (endpoint + validator + handler + integration test) to copy for every later feature. (See `docs/api-architecture.md`; reference `Features/Auth/Login.cs`.)
-- [ ] Test projects: Domain.Tests, Api.Tests (Testcontainers), e2e Playwright login smoke test. (Api.Tests with Testcontainers done in task 8; Domain.Tests still a placeholder; Playwright not started.)
+- [x] Test projects: Domain.Tests, Api.Tests (Testcontainers), e2e Playwright login smoke test. (`tests/e2e`: phone + desktop projects; run against a live stack with `E2E_BASE_URL`.)
 - [ ] `ci.yml`: build, test, lint, Playwright.
 - [ ] `deploy/` files: compose (api, migrator, postgres, caddy, `TZ` set), Caddyfile, `.env.example`.
 - [ ] `deploy.yml`: build images → GHCR → SSH `compose pull && up -d`. Provision the VPS (Docker, deploy user, SSH key, DNS) and the DO Spaces bucket.

@@ -31,7 +31,7 @@ export function IdentityCard() {
         <Typography variant="overline" color="text.secondary">
           <Trans>Signed in as</Trans>
         </Typography>
-        <Typography variant="h5" component="h1">
+        <Typography variant="h1">
           {displayName}
         </Typography>
         <Typography color="text.secondary" gutterBottom>

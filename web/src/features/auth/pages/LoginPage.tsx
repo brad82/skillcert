@@ -13,7 +13,7 @@ export function LoginPage() {
 
   return (
     <LoginLayout>
-      <Typography variant="h5" component="h1" gutterBottom>
+      <Typography variant="h1" gutterBottom>
         <Trans>Sign in to SkillCert</Trans>
       </Typography>
       {/* noValidate: the Zod-backed model drives the messages, not the browser. */}

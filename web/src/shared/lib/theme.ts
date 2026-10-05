@@ -171,7 +171,10 @@ export function makeTheme(mode: PaletteMode) {
       },
       MuiChip: { styleOverrides: { root: { borderRadius: radius.pill } } },
       MuiCard: { defaultProps: { variant: 'outlined' } },
-      MuiAppBar: { defaultProps: { color: 'primary', elevation: 0 } },
+      // The brand book puts the record red on the app bar in both themes; MUI greys it in dark unless told.
+      MuiAppBar: { defaultProps: { color: 'primary', elevation: 0, enableColorOnDark: true } },
+      // The design system defines no shadows.
+      MuiButton: { defaultProps: { disableElevation: true } },
     },
   })
 }
