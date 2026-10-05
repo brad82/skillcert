@@ -7,6 +7,8 @@ public static class MyRecordFeature
     {
         var group = app.MapGroup("/api/me").WithTags("MyRecord");
         GetMyListsEndpoint.Map(group);
+        GetMyCompetencyEndpoint.Map(group);
+        GetMySignatureEndpoint.Map(group);
         return app;
     }
 }

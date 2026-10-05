@@ -76,12 +76,13 @@ public sealed class DemoCatalogSeeder(SkillCertDbContext db, TimeProvider timePr
                     ReviewHierarchy.CloseUpward(new RevisionContent(
                         node.Title,
                         node.ShortTitle,
-                        Description: null,
+                        node.Description,
                         node.RecertificationDays ?? definition.Defaults.RecertificationDays,
                         AllowsSelfReview: methods.Contains("Self"),
                         AllowsPeerReview: methods.Contains("Peer"),
                         methods.Where(classificationIds.ContainsKey).Select(m => classificationIds[m]).ToList(),
-                        Resources: []), classifications),
+                        (node.Resources ?? []).Select(r => new RevisionResource(r.Title, new Uri(r.Url), Enum.Parse<ResourceType>(r.Type))).ToList()),
+                        classifications),
                     at,
                     byUserId: null);
                 db.Competencies.Add(competency);
@@ -89,5 +90,4 @@ public sealed class DemoCatalogSeeder(SkillCertDbContext db, TimeProvider timePr
             }
         }
     }
-
 }

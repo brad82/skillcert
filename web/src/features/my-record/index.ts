@@ -1,2 +1,3 @@
 export { myListsQueryOptions } from './model/myListsQuery'
+export { myCompetencyQueryOptions, signatureUrl } from './model/myCompetencyQuery'
 export { buildListTree, countStates, distinctCompetencies, type ListTreeNode, type StateCounts } from './model/listTree'

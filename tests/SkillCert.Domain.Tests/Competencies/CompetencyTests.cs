@@ -92,6 +92,20 @@ public sealed class CompetencyTests
     }
 
     [Fact]
+    public void A_revision_published_from_the_current_content_owns_its_own_resources()
+    {
+        var video = new RevisionResource("CPR video", new Uri("https://example.org/cpr"), ResourceType.Video);
+        var competency = Competency.Create("4.3.1", Content.Revision() with { Resources = [video] }, Sept1, null);
+        var first = competency.CurrentRevision;
+
+        var second = competency.PublishRevision(
+            Content.Revision() with { Resources = first.Resources }, invalidatesPreviousReviews: false, Sept1.AddDays(1), null);
+
+        Assert.Equal(first.Resources, second.Resources); // same values
+        Assert.False(ReferenceEquals(first.Resources[0], second.Resources[0])); // separate owned rows
+    }
+
+    [Fact]
     public void Resources_must_be_absolute_http_urls()
     {
         Assert.Throws<ArgumentException>(() =>

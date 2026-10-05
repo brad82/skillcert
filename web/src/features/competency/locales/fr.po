@@ -1,0 +1,209 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2026-10-04 23:18-0600\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: fr\n"
+
+#. placeholder {0}: -days
+#: src/features/competency/components/Overview/KeyFacts.tsx
+msgid "{0, plural, one {# day ago} other {# days ago}}"
+msgstr "{0, plural, one {il y a # jour} other {il y a # jours}}"
+
+#. placeholder {0}: period.count
+#: src/features/competency/components/Overview/KeyFacts.tsx
+msgid "{0, plural, one {Every # day} other {Every # days}}"
+msgstr "{0, plural, one {Tous les # jour} other {Tous les # jours}}"
+
+#. placeholder {0}: period.count
+#: src/features/competency/components/Overview/KeyFacts.tsx
+msgid "{0, plural, one {Every # year} other {Every # years}}"
+msgstr "{0, plural, one {Chaque année} other {Tous les # ans}}"
+
+#. placeholder {0}: resource.title
+#: src/features/competency/components/Resources/ResourcesTab.tsx
+msgid "{0} (opens in a new tab)"
+msgstr "{0} (s'ouvre dans un nouvel onglet)"
+
+#: src/features/competency/components/Overview/KeyFacts.tsx
+msgid "{days, plural, one {# day left} other {# days left}}"
+msgstr "{days, plural, one {# jour restant} other {# jours restants}}"
+
+#: src/features/competency/components/Overview/KeyFacts.tsx
+msgid "{revisionNumber} · published {publishedOn}"
+msgstr "{revisionNumber} · publiée le {publishedOn}"
+
+#: src/features/competency/components/BasketAction.tsx
+msgid "Add to basket"
+msgstr "Ajouter au panier"
+
+#: src/features/competency/components/BasketAction.tsx
+msgid "Add to basket for reassessment"
+msgstr "Ajouter au panier pour réévaluation"
+
+#: src/features/competency/components/Header/DetailHeader.tsx
+#: src/features/competency/pages/CompetencyNotFound.tsx
+msgid "Back to skills"
+msgstr "Retour aux compétences"
+
+#: src/features/competency/components/Overview/KeyFacts.tsx
+msgid "By"
+msgstr "Par"
+
+#: src/features/competency/components/Overview/OverviewTab.tsx
+msgid "Can be signed by: <0>{lowest} or higher</0>"
+msgstr "Peut être validée par : <0>{lowest} ou supérieur</0>"
+
+#: src/features/competency/components/History/ReviewSheet.tsx
+msgid "Close"
+msgstr "Fermer"
+
+#: src/features/competency/components/History/ReviewSheet.tsx
+msgid "Comment"
+msgstr "Commentaire"
+
+#: src/features/competency/components/History/reviewText.ts
+msgid "Competent"
+msgstr "Compétent"
+
+#: src/features/competency/components/History/ReviewSheet.tsx
+msgid "Confirmation"
+msgstr "Confirmation"
+
+#: src/features/competency/components/History/reviewText.ts
+msgid "Confirmed"
+msgstr "Confirmée"
+
+#: src/features/competency/components/Overview/OverviewTab.tsx
+msgid "Description"
+msgstr "Description"
+
+#: src/features/competency/components/Resources/ResourcesTab.tsx
+msgid "Document"
+msgstr "Document"
+
+#: src/features/competency/components/History/HistoryEntry.tsx
+msgid "Earlier sign-offs no longer count."
+msgstr "Les validations antérieures ne comptent plus."
+
+#: src/features/competency/components/History/HistoryEntry.tsx
+msgid "Expired"
+msgstr "Expiré"
+
+#: src/features/competency/components/Overview/KeyFacts.tsx
+msgid "Expires"
+msgstr "Expire"
+
+#: src/features/competency/components/Header/DetailTabs.tsx
+msgid "History ({historyCount})"
+msgstr "Historique ({historyCount})"
+
+#: src/features/competency/components/Overview/KeyFacts.tsx
+msgid "Last signed"
+msgstr "Dernière validation"
+
+#: src/features/competency/components/Overview/KeyFacts.tsx
+msgid "Never"
+msgstr "Jamais"
+
+#: src/features/competency/components/Overview/KeyFacts.tsx
+msgid "No expiry"
+msgstr "Sans expiration"
+
+#: src/features/competency/components/Resources/ResourcesTab.tsx
+msgid "No resources for this skill."
+msgstr "Aucune ressource pour cette compétence."
+
+#: src/features/competency/components/History/reviewText.ts
+msgid "Not competent"
+msgstr "Non compétent"
+
+#: src/features/competency/components/History/HistoryTab.tsx
+msgid "Not reviewed yet."
+msgstr "Pas encore évaluée."
+
+#: src/features/competency/components/Header/DetailTabs.tsx
+msgid "Overview"
+msgstr "Aperçu"
+
+#: src/features/competency/components/Overview/OverviewTab.tsx
+msgid "Part of"
+msgstr "Fait partie de"
+
+#: src/features/competency/components/Overview/KeyFacts.tsx
+msgid "Recertify"
+msgstr "Recertification"
+
+#: src/features/competency/components/History/reviewText.ts
+msgid "Rejected"
+msgstr "Refusée"
+
+#: src/features/competency/components/BasketAction.tsx
+msgid "Remove from basket"
+msgstr "Retirer du panier"
+
+#: src/features/competency/components/Header/DetailTabs.tsx
+msgid "Resources ({resourceCount})"
+msgstr "Ressources ({resourceCount})"
+
+#. placeholder {0}: review.revisionNumber
+#: src/features/competency/components/History/HistoryEntry.tsx
+#: src/features/competency/components/History/ReviewSheet.tsx
+msgid "Rev {0}"
+msgstr "Rév. {0}"
+
+#: src/features/competency/components/History/ReviewSheet.tsx
+msgid "Review detail"
+msgstr "Détail de l'évaluation"
+
+#: src/features/competency/components/History/ReviewSheet.tsx
+msgid "Reviewer"
+msgstr "Évaluateur"
+
+#: src/features/competency/components/Overview/KeyFacts.tsx
+msgid "Revision"
+msgstr "Révision"
+
+#: src/features/competency/components/History/HistoryEntry.tsx
+msgid "Revision {revisionNumber} published"
+msgstr "Révision {revisionNumber} publiée"
+
+#: src/features/competency/components/History/ReviewSheet.tsx
+msgid "Signature"
+msgstr "Signature"
+
+#. placeholder {0}: review.reviewerName
+#: src/features/competency/components/History/ReviewSheet.tsx
+msgid "Signature of {0}"
+msgstr "Signature de {0}"
+
+#: src/features/competency/components/Overview/PendingNotice.tsx
+msgid "Signed {signedOn} by {name} ({method}). Becomes Current once {name} confirms."
+msgstr "Validée le {signedOn} par {name} ({method}). Deviendra à jour dès que {name} confirmera."
+
+#: src/features/competency/components/History/ReviewSheet.tsx
+msgid "Signed in the same sitting"
+msgstr "Validées lors de la même séance"
+
+#: src/features/competency/pages/CompetencyNotFound.tsx
+msgid "Skill not found"
+msgstr "Compétence introuvable"
+
+#: src/features/competency/pages/CompetencyNotFound.tsx
+msgid "This skill isn't part of your required records."
+msgstr "Cette compétence ne fait pas partie de vos dossiers requis."
+
+#: src/features/competency/components/Resources/ResourcesTab.tsx
+msgid "Video"
+msgstr "Vidéo"
+
+#: src/features/competency/components/BasketAction.tsx
+#: src/features/competency/components/History/reviewText.ts
+msgid "Waiting for confirmation"
+msgstr "En attente de confirmation"
+
+#: src/features/competency/components/Resources/ResourcesTab.tsx
+msgid "Web page"
+msgstr "Page web"

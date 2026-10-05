@@ -26,6 +26,8 @@ internal sealed record AfaNode(
     string Code,
     string Title,
     string? ShortTitle,
+    string? Description,
+    IReadOnlyList<AfaResource>? Resources,
     int? RecertificationDays,
     IReadOnlyList<string>? PermittedMethods,
     IReadOnlyList<AfaNode>? Children)
@@ -33,3 +35,5 @@ internal sealed record AfaNode(
     [JsonIgnore]
     public bool IsHeading => Type == "heading";
 }
+
+internal sealed record AfaResource(string Type, string Title, string Url);

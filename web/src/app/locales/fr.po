@@ -59,10 +59,6 @@ msgstr "Recharger"
 msgid "Sign out"
 msgstr "Se déconnecter"
 
-#: src/app/routes/_authenticated/skills_.$competencyId.tsx
-msgid "Skill detail"
-msgstr ""
-
 #: src/app/shell/BottomNav.tsx
 msgid "Skills"
 msgstr "Compétences"

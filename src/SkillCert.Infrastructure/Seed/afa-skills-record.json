@@ -7,7 +7,8 @@
   "defaults": {
     "_note": "Demo values only, not confirmed policy. Override per competency where needed.",
     "recertificationDays": 365,
-    "permittedMethods": ["Instructor", "Supervisor"]
+    "permittedMethods": ["Instructor", "Supervisor"],
+    "_resourcesNote": "Descriptions and resources on a few competencies (4.1.1, 4.3.1, 4.4.1) are demo content; resource URLs are placeholders."
   },
   "nodes": [
     {
@@ -23,7 +24,7 @@
         {
           "type": "heading", "code": "4.1", "title": "Airway management",
           "children": [
-            { "type": "competency", "code": "4.1.1", "shortTitle": "Basic procedures for opening and maintaining airway (Head tilt-chin lift, Jaw thrust)", "title": "Airway – open and maintain (head tilt-chin lift, jaw thrust)" },
+            { "type": "competency", "code": "4.1.1", "shortTitle": "Basic procedures for opening and maintaining airway (Head tilt-chin lift, Jaw thrust)", "title": "Airway – open and maintain (head tilt-chin lift, jaw thrust)", "description": "Open and hold the airway of an unresponsive casualty using head tilt-chin lift, or jaw thrust when spinal injury is suspected.", "resources": [{ "type": "WebPage", "title": "Opening the airway (demo link)", "url": "https://example.org/afa/airway-opening" }] },
             { "type": "competency", "code": "4.1.2", "shortTitle": "Use of airway adjuncts for opening and maintaining airway", "title": "Airway – use of airway adjuncts" },
             { "type": "competency", "code": "4.1.3", "shortTitle": "Clearing an airway (suction)", "title": "Airway – clearing by suction" },
             { "type": "competency", "code": "4.1.4", "shortTitle": "Clearing an airway (foreign body airway obstruction, adult and child)", "title": "Airway – foreign body obstruction, adult and child" },
@@ -41,7 +42,7 @@
         {
           "type": "heading", "code": "4.3", "title": "Cardiopulmonary resuscitation (CPR)",
           "children": [
-            { "type": "competency", "code": "4.3.1", "shortTitle": "One-rescuer adult CPR", "title": "CPR – one-rescuer adult" },
+            { "type": "competency", "code": "4.3.1", "shortTitle": "One-rescuer adult CPR", "title": "CPR – one-rescuer adult", "description": "Single-rescuer adult CPR at the correct rate, depth and compression-to-ventilation ratio, with minimal interruptions.", "resources": [{ "type": "Video", "title": "Adult CPR walkthrough (demo link)", "url": "https://example.org/afa/adult-cpr-video" }, { "type": "WebPage", "title": "CPR quick reference (demo link)", "url": "https://example.org/afa/cpr-quick-reference" }, { "type": "Document", "title": "Resuscitation guideline summary (demo link)", "url": "https://example.org/afa/resuscitation-guideline.pdf" }] },
             { "type": "competency", "code": "4.3.2", "shortTitle": "Two-rescuer adult CPR", "title": "CPR – two-rescuer adult" },
             { "type": "competency", "code": "4.3.3", "shortTitle": "One-rescuer child CPR", "title": "CPR – one-rescuer child" },
             { "type": "competency", "code": "4.3.4", "shortTitle": "Two-rescuer child CPR", "title": "CPR – two-rescuer child" },
@@ -52,7 +53,7 @@
         {
           "type": "heading", "code": "4.4", "title": "Automatic external defibrillation (AED)",
           "children": [
-            { "type": "competency", "code": "4.4.1", "shortTitle": "Application and use of an AED", "title": "AED – application and use" }
+            { "type": "competency", "code": "4.4.1", "shortTitle": "Application and use of an AED", "title": "AED – application and use", "description": "Operate an automated external defibrillator: pad placement, analysis and shock delivery, integrated with CPR.", "resources": [{ "type": "Video", "title": "AED operation (demo link)", "url": "https://example.org/afa/aed-operation-video" }, { "type": "Document", "title": "AED pad placement card (demo link)", "url": "https://example.org/afa/aed-pads.pdf" }] }
           ]
         }
       ]

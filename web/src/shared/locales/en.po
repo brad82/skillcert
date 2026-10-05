@@ -28,6 +28,10 @@ msgstr "Expires {0}"
 msgid "Expiring soon"
 msgstr "Expiring soon"
 
+#: src/shared/lib/reviewers.ts
+msgid "Instructor"
+msgstr "Instructor"
+
 #: src/shared/components/StatusChip.tsx
 msgid "Not certified"
 msgstr "Not certified"
@@ -36,9 +40,21 @@ msgstr "Not certified"
 msgid "Not competent"
 msgstr "Not competent"
 
+#: src/shared/lib/reviewers.ts
+msgid "Peer"
+msgstr "Peer"
+
 #: src/shared/components/StatusChip.tsx
 msgid "Pending"
 msgstr "Pending"
+
+#: src/shared/lib/reviewers.ts
+msgid "Self"
+msgstr "Self"
+
+#: src/shared/lib/reviewers.ts
+msgid "Supervisor"
+msgstr "Supervisor"
 
 #: src/shared/components/ThemeModeToggle.tsx
 msgid "Switch to dark mode"

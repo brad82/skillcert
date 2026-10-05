@@ -86,8 +86,9 @@ public sealed class CompetencyRevision
         AllowsSelfReview = content.AllowsSelfReview;
         AllowsPeerReview = content.AllowsPeerReview;
 
+        // Fresh instances: content is often built from another revision's resources, and each revision owns its own.
         _resources.Clear();
-        _resources.AddRange(content.Resources);
+        _resources.AddRange(content.Resources.Select(r => new RevisionResource(r.Title, r.Url, r.Type)));
 
         _permittedClassifications.RemoveAll(p => !content.PermittedClassificationIds.Contains(p.ReviewerClassificationId));
         foreach (var classificationId in content.PermittedClassificationIds.Distinct())

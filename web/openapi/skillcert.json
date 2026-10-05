@@ -108,10 +108,91 @@
           }
         }
       }
+    },
+    "/api/me/competencies/{competencyId}": {
+      "get": {
+        "tags": [
+          "MyRecord"
+        ],
+        "operationId": "GetMyCompetency",
+        "parameters": [
+          {
+            "name": "competencyId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MyCompetencyResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/me/signatures/{signatureId}": {
+      "get": {
+        "tags": [
+          "MyRecord"
+        ],
+        "operationId": "GetMySignature",
+        "parameters": [
+          {
+            "name": "signatureId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Not Found"
+          },
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
     }
   },
   "components": {
     "schemas": {
+      "ConfirmationStatus": {
+        "enum": [
+          "NotRequired",
+          "Pending",
+          "Confirmed",
+          "Rejected"
+        ]
+      },
       "CurrencyDto": {
         "required": [
           "status",
@@ -261,6 +342,120 @@
           }
         }
       },
+      "MyCompetencyPathDto": {
+        "required": [
+          "listId",
+          "listTitle",
+          "headings"
+        ],
+        "type": "object",
+        "properties": {
+          "listId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "listTitle": {
+            "type": "string"
+          },
+          "headings": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "MyCompetencyResponse": {
+        "required": [
+          "asOf",
+          "competencyId",
+          "code",
+          "title",
+          "shortTitle",
+          "description",
+          "currency",
+          "lowestReviewer",
+          "revision",
+          "effectiveReview",
+          "pendingReview",
+          "partOf",
+          "resources",
+          "history"
+        ],
+        "type": "object",
+        "properties": {
+          "asOf": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "competencyId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "code": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "shortTitle": {
+            "type": "string"
+          },
+          "description": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "currency": {
+            "$ref": "#/components/schemas/CurrencyDto"
+          },
+          "lowestReviewer": {
+            "$ref": "#/components/schemas/ReviewLevelDto"
+          },
+          "revision": {
+            "$ref": "#/components/schemas/MyRevisionDto"
+          },
+          "effectiveReview": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/MyReviewDto"
+              }
+            ]
+          },
+          "pendingReview": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/MyReviewDto"
+              }
+            ]
+          },
+          "partOf": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MyCompetencyPathDto"
+            }
+          },
+          "resources": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MyResourceDto"
+            }
+          },
+          "history": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MyHistoryEntryDto"
+            }
+          }
+        }
+      },
       "MyCompetencySummaryDto": {
         "required": [
           "competencyId",
@@ -292,6 +487,48 @@
             "$ref": "#/components/schemas/ReviewLevelDto"
           }
         }
+      },
+      "MyHistoryEntryDto": {
+        "required": [
+          "kind",
+          "at",
+          "review",
+          "revisionNumber"
+        ],
+        "type": "object",
+        "properties": {
+          "kind": {
+            "$ref": "#/components/schemas/MyHistoryEntryKind"
+          },
+          "at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "review": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/MyReviewDto"
+              }
+            ]
+          },
+          "revisionNumber": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "format": "int32"
+          }
+        }
+      },
+      "MyHistoryEntryKind": {
+        "enum": [
+          "Review",
+          "Expired",
+          "Invalidated"
+        ]
       },
       "MyListCountsDto": {
         "required": [
@@ -439,6 +676,160 @@
           }
         }
       },
+      "MyResourceDto": {
+        "required": [
+          "title",
+          "url",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "type": {
+            "$ref": "#/components/schemas/ResourceType"
+          }
+        }
+      },
+      "MyReviewDto": {
+        "required": [
+          "id",
+          "outcome",
+          "reviewedAt",
+          "reviewerName",
+          "method",
+          "classificationCode",
+          "revisionNumber",
+          "confirmationStatus",
+          "decidedAt",
+          "rejectionReason",
+          "comment",
+          "signatureId",
+          "signedWith"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "outcome": {
+            "$ref": "#/components/schemas/ReviewOutcome"
+          },
+          "reviewedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "reviewerName": {
+            "type": "string"
+          },
+          "method": {
+            "$ref": "#/components/schemas/ReviewMethod"
+          },
+          "classificationCode": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "revisionNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "confirmationStatus": {
+            "$ref": "#/components/schemas/ConfirmationStatus"
+          },
+          "decidedAt": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time"
+          },
+          "rejectionReason": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "comment": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "signatureId": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "uuid"
+          },
+          "signedWith": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MySignedWithDto"
+            }
+          }
+        }
+      },
+      "MyRevisionDto": {
+        "required": [
+          "number",
+          "publishedAt",
+          "recertificationDays"
+        ],
+        "type": "object",
+        "properties": {
+          "number": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "publishedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "recertificationDays": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "format": "int32"
+          }
+        }
+      },
+      "MySignedWithDto": {
+        "required": [
+          "competencyId",
+          "code",
+          "shortTitle"
+        ],
+        "type": "object",
+        "properties": {
+          "competencyId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "code": {
+            "type": "string"
+          },
+          "shortTitle": {
+            "type": "string"
+          }
+        }
+      },
+      "ResourceType": {
+        "enum": [
+          "WebPage",
+          "Video",
+          "Document"
+        ]
+      },
       "ReviewLevelDto": {
         "required": [
           "method",
@@ -467,6 +858,12 @@
           "Self",
           "Peer",
           "Classified"
+        ]
+      },
+      "ReviewOutcome": {
+        "enum": [
+          "Competent",
+          "NotCompetent"
         ]
       }
     }

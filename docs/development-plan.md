@@ -253,9 +253,9 @@ Source: `docs/AFA Skills Record - Revised v3.pdf`.
   - basket + method picker + signature
   - review history
   - approval queue
-- [ ] API: `GET /api/me/lists` returns the tree with currency per competency (batch evaluation, no N+1 queries).
-- [ ] API: competency detail and my review history.
-- [ ] UI: My lists tree with §13 presentation states, including Expiring Soon as display-only. Competency detail with resources and permitted methods.
+- [x] API: `GET /api/me/lists` returns the tree with currency per competency (batch evaluation, no N+1 queries).
+- [x] API: competency detail and my review history (`GET /api/me/competencies/{id}`: lapses from `CurrencyLapses`, same-sitting skills; `GET /api/me/signatures/{id}`, own reviews only).
+- [x] UI: My lists tree with §13 presentation states, including Expiring Soon as display-only. Competency detail with resources and permitted methods.
 - [ ] UI: sign-off basket (client state). Adding currently-valid competencies for reassessment is allowed.
 - [ ] API: `POST /api/signoffs`. In one transaction it:
   - resolves the current revision
