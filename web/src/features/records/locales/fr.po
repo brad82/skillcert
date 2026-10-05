@@ -1,0 +1,37 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2026-10-05 09:39-0600\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: fr\n"
+
+#: src/features/records/components/ArchivedRecords.tsx
+msgid "A copy is saved here automatically each time you become compliant with a record."
+msgstr "Une copie est enregistrée ici automatiquement chaque fois que vous devenez conforme à un dossier."
+
+#: src/features/records/components/ArchivedRecords.tsx
+msgid "Archived records"
+msgstr "Dossiers archivés"
+
+#: src/features/records/components/ArchivedRecords.tsx
+msgid "Completed {completed} · saved {saved}"
+msgstr "Complété le {completed} · enregistré le {saved}"
+
+#. placeholder {0}: archive.listTitle
+#: src/features/records/components/ArchivedRecords.tsx
+msgid "Download {0}, completed {completed}"
+msgstr "Télécharger {0}, complété le {completed}"
+
+#: src/features/records/components/CurrentRecords.tsx
+msgid "Download current record (PDF)"
+msgstr "Télécharger le dossier actuel (PDF)"
+
+#: src/features/records/pages/RecordsPage.tsx
+msgid "Records"
+msgstr "Dossiers"
+
+#: src/features/records/components/CurrentRecords.tsx
+msgid "You have no required skills records yet."
+msgstr "Vous n'avez pas encore de dossier de compétences requis."

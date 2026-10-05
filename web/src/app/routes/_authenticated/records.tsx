@@ -1,7 +1,12 @@
-import { Trans } from '@lingui/react/macro'
 import { createFileRoute } from '@tanstack/react-router'
-import { ComingSoonPage } from '../../shell/ComingSoonPage'
+import { myArchivedRecordsQueryOptions, myListsQueryOptions } from '@features/my-record'
+import { RecordsContainer } from '@features/records'
 
 export const Route = createFileRoute('/_authenticated/records')({
-  component: () => <ComingSoonPage title={<Trans>Records</Trans>} />,
+  loader: ({ context }) =>
+    Promise.all([
+      context.queryClient.ensureQueryData(myListsQueryOptions()),
+      context.queryClient.ensureQueryData(myArchivedRecordsQueryOptions()),
+    ]),
+  component: RecordsContainer,
 })

@@ -4,12 +4,15 @@ import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 import LinearProgress from '@mui/material/LinearProgress'
 import type { Theme } from '@mui/material/styles'
+import type { ReactNode } from 'react'
 import Typography from '@mui/material/Typography'
 import { CircleCheck, TriangleAlert } from 'lucide-react'
 import type { MyListDto } from '@shared/api/model'
 
 type Props = {
   list: MyListDto
+  /** Shown under the progress bar, e.g. the Records tab's download button. */
+  action?: ReactNode
 }
 
 const complianceCardStyles = (compliant: boolean) => ({
@@ -26,10 +29,11 @@ const complianceCardStyles = (compliant: boolean) => ({
     flexShrink: 0,
   }),
   progress: { mt: 3, height: 8, borderRadius: 999 },
+  action: { mt: 4 },
 })
 
-/** One required list: compliant or how many to go (spec §21: compliant only when every competency is Current). */
-export function ComplianceCard({ list }: Props) {
+/** One required list (Home 1b, Records 7a): compliant or how many to go (spec §21: compliant only when every competency is Current). */
+export function ComplianceCard({ list, action }: Props) {
   const compliant = list.isCompliant
   const toGo = list.counts.total - list.counts.current
   const styles = complianceCardStyles(compliant)
@@ -60,6 +64,7 @@ export function ComplianceCard({ list }: Props) {
           sx={styles.progress}
           aria-label={list.title}
         />
+        {action && <Box sx={styles.action}>{action}</Box>}
       </CardContent>
     </Card>
   )

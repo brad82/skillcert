@@ -12,11 +12,6 @@ msgstr ""
 msgid "{count, plural, one {# sign-off is waiting for your confirmation.} other {# sign-offs are waiting for your confirmation.}}"
 msgstr "{count, plural, one {# validation attend votre confirmation.} other {# validations attendent votre confirmation.}}"
 
-#. placeholder {0}: list.counts.total
-#: src/features/home/components/ComplianceCard.tsx
-msgid "Compliant · all {0} current"
-msgstr "Conforme · les {0} sont à jour"
-
 #: src/features/home/components/StatusTiles.tsx
 msgid "Expired"
 msgstr "Expiré"
@@ -32,10 +27,6 @@ msgstr "Bonjour {firstName}"
 #: src/features/home/components/StatusTiles.tsx
 msgid "Not certified"
 msgstr "Non certifié"
-
-#: src/features/home/components/ComplianceCard.tsx
-msgid "Not compliant · {toGo, plural, one {# to go} other {# to go}}"
-msgstr "Non conforme · {toGo, plural, one {# restante} other {# restantes}}"
 
 #: src/features/home/components/StatusTiles.tsx
 msgid "Pending"

@@ -12,6 +12,11 @@ msgstr ""
 msgid "Change language"
 msgstr "Changer de langue"
 
+#. placeholder {0}: list.counts.total
+#: src/shared/components/ComplianceCard.tsx
+msgid "Compliant · all {0} current"
+msgstr "Conforme · les {0} sont à jour"
+
 #: src/shared/components/StatusChip.tsx
 msgid "Current"
 msgstr "À jour"
@@ -40,6 +45,10 @@ msgstr "Non certifié"
 #: src/shared/components/StatusChip.tsx
 msgid "Not competent"
 msgstr "Non compétent"
+
+#: src/shared/components/ComplianceCard.tsx
+msgid "Not compliant · {toGo, plural, one {# to go} other {# to go}}"
+msgstr "Non conforme · {toGo, plural, one {# restante} other {# restantes}}"
 
 #: src/shared/lib/reviewers.ts
 msgid "Peer"

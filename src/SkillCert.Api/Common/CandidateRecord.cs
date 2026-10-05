@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using SkillCert.Domain.Competencies;
+using SkillCert.Domain.Compliance;
 using SkillCert.Domain.Currency;
 using SkillCert.Domain.Lists;
 using SkillCert.Domain.Requirements;
@@ -53,11 +54,16 @@ public sealed class CandidateRecord
         currency.Status == CurrencyStatus.Current && currency.ExpiresAt is { } expiresAt && expiresAt - AsOf <= ExpiringSoonWindow;
 
     /// <summary>Spec §21: a non-empty list is compliant only when every competency in it is Current.</summary>
-    public bool IsCompliant(CompetencyList list)
-    {
-        var ids = list.CompetencyIds.ToList();
-        return ids.Count > 0 && ids.All(id => Currency[id].IsCurrent);
-    }
+    public bool IsCompliant(CompetencyList list) =>
+        ListCompliance.IsCompliant(list.CompetencyIds.Select(id => Currency[id]).ToList());
+
+    /// <summary>When the candidate completed the list as it stands now (evidence-based); null while not compliant.</summary>
+    public DateTimeOffset? CompletionDate(CompetencyList list) =>
+        ListCompliance.CompletionDate(
+            list.CompetencyIds.Select(id => new CompetencyEvidence(
+                Reviews.Where(r => r.CompetencyId == id).Select(ReviewEvidence.From).ToList(),
+                Policies(Competencies[id]))).ToList(),
+            AsOf);
 
     public static IReadOnlyCollection<RevisionPolicy> Policies(Competency competency) =>
         competency.Revisions

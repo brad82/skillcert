@@ -3,6 +3,7 @@ using FluentValidation;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Identity;
+using SkillCert.Api.Archival;
 using SkillCert.Api.Features.Approvals;
 using SkillCert.Api.Features.Auth;
 using SkillCert.Api.Common;
@@ -11,6 +12,7 @@ using SkillCert.Api.Features.MyRecord;
 using SkillCert.Api.Features.SignOffs;
 using SkillCert.Infrastructure.Identity;
 using SkillCert.Infrastructure.Persistence;
+using SkillCert.Infrastructure.Storage;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -64,6 +66,12 @@ builder.Services.ConfigureApplicationCookie(options =>
 builder.Services.AddAuthorization();
 builder.Services.AddValidatorsFromAssemblyContaining<Program>();
 builder.Services.AddSingleton(TimeProvider.System);
+
+// Archived training records (spec §22): blob storage, and the nightly compliance run.
+builder.Services.AddBlobStore(builder.Configuration);
+builder.Services.AddScoped<TrainingRecordArchiver>();
+builder.Services.AddSingleton(ArchivalOptions.From(builder.Configuration));
+builder.Services.AddHostedService<NightlyArchivalService>();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<CurrentUserAccessor>();
 builder.Services.ConfigureHttpJsonOptions(options =>

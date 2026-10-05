@@ -45,7 +45,6 @@ msgstr "Instructeur"
 msgid "Light mode"
 msgstr "Mode clair"
 
-#: src/app/routes/_authenticated/records.tsx
 #: src/app/shell/BottomNav.tsx
 msgid "Records"
 msgstr "Dossiers"

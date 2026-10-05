@@ -9,6 +9,9 @@ public static class MyRecordFeature
         GetMyListsEndpoint.Map(group);
         GetMyCompetencyEndpoint.Map(group);
         GetMySignatureEndpoint.Map(group);
+        GetMyCurrentRecordEndpoint.Map(group);
+        GetMyArchivedRecordsEndpoint.Map(group);
+        GetMyArchivedRecordEndpoint.Map(group);
         return app;
     }
 }

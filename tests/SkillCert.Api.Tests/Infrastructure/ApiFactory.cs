@@ -2,8 +2,10 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using SkillCert.Infrastructure.Persistence;
 using SkillCert.Infrastructure.Seed;
+using SkillCert.Infrastructure.Storage;
 using Testcontainers.PostgreSql;
 
 namespace SkillCert.Api.Tests.Infrastructure;
@@ -16,6 +18,9 @@ namespace SkillCert.Api.Tests.Infrastructure;
 public sealed class ApiFactory : WebApplicationFactory<Program>, IAsyncLifetime
 {
     public const string DemoPassword = "SkillCert-test-2026";
+
+    /// <summary>The API's blob storage for this run, so tests can arrange and inspect archived PDFs.</summary>
+    public MemoryBlobStore Blobs { get; } = new();
 
     private readonly PostgreSqlContainer _postgres = new PostgreSqlBuilder("postgres:18.3").Build();
 
@@ -37,6 +42,9 @@ public sealed class ApiFactory : WebApplicationFactory<Program>, IAsyncLifetime
     {
         builder.UseEnvironment("Development");
         builder.UseSetting("ConnectionStrings:skillcert", _postgres.GetConnectionString());
+        // Archival tests drive TrainingRecordArchiver with their own clock and blob store.
+        builder.UseSetting("Archival:Enabled", "false");
+        builder.ConfigureServices(services => services.Replace(ServiceDescriptor.Singleton<IBlobStore>(Blobs)));
     }
 
     /// <summary>Runs <paramref name="action"/> against the database in its own scope.</summary>

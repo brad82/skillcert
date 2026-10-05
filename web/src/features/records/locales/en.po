@@ -1,0 +1,37 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2026-10-05 09:39-0600\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: en\n"
+
+#: src/features/records/components/ArchivedRecords.tsx
+msgid "A copy is saved here automatically each time you become compliant with a record."
+msgstr "A copy is saved here automatically each time you become compliant with a record."
+
+#: src/features/records/components/ArchivedRecords.tsx
+msgid "Archived records"
+msgstr "Archived records"
+
+#: src/features/records/components/ArchivedRecords.tsx
+msgid "Completed {completed} · saved {saved}"
+msgstr "Completed {completed} · saved {saved}"
+
+#. placeholder {0}: archive.listTitle
+#: src/features/records/components/ArchivedRecords.tsx
+msgid "Download {0}, completed {completed}"
+msgstr "Download {0}, completed {completed}"
+
+#: src/features/records/components/CurrentRecords.tsx
+msgid "Download current record (PDF)"
+msgstr "Download current record (PDF)"
+
+#: src/features/records/pages/RecordsPage.tsx
+msgid "Records"
+msgstr "Records"
+
+#: src/features/records/components/CurrentRecords.tsx
+msgid "You have no required skills records yet."
+msgstr "You have no required skills records yet."

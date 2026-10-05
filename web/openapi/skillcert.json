@@ -182,6 +182,98 @@
         }
       }
     },
+    "/api/me/lists/{listId}/record": {
+      "get": {
+        "tags": [
+          "MyRecord"
+        ],
+        "operationId": "GetMyCurrentRecord",
+        "parameters": [
+          {
+            "name": "listId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Not Found"
+          },
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/me/records": {
+      "get": {
+        "tags": [
+          "MyRecord"
+        ],
+        "operationId": "GetMyArchivedRecords",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MyArchivedRecordsResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/me/records/{recordId}": {
+      "get": {
+        "tags": [
+          "MyRecord"
+        ],
+        "operationId": "GetMyArchivedRecord",
+        "parameters": [
+          {
+            "name": "recordId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Not Found"
+          },
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
     "/api/signoffs/reviewers": {
       "get": {
         "tags": [
@@ -708,6 +800,51 @@
           },
           "password": {
             "type": "string"
+          }
+        }
+      },
+      "MyArchivedRecordDto": {
+        "required": [
+          "id",
+          "listId",
+          "listTitle",
+          "completionDate",
+          "generatedAt"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "listId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "listTitle": {
+            "type": "string"
+          },
+          "completionDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "generatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "MyArchivedRecordsResponse": {
+        "required": [
+          "records"
+        ],
+        "type": "object",
+        "properties": {
+          "records": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MyArchivedRecordDto"
+            }
           }
         }
       },

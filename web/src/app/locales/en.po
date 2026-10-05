@@ -44,7 +44,6 @@ msgstr "Instructor"
 msgid "Light mode"
 msgstr "Light mode"
 
-#: src/app/routes/_authenticated/records.tsx
 #: src/app/shell/BottomNav.tsx
 msgid "Records"
 msgstr "Records"
