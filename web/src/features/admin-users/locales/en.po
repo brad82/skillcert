@@ -1,0 +1,187 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2026-10-05 21:27+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: en\n"
+
+#: src/features/admin-users/components/UserConfirmDialog.tsx
+msgid "{firstName} can still confirm or reject claims that already name them."
+msgstr "{firstName} can still confirm or reject claims that already name them."
+
+#: src/features/admin-users/components/UserConfirmDialog.tsx
+msgid "{firstName} can't be chosen as a reviewer."
+msgstr "{firstName} can't be chosen as a reviewer."
+
+#: src/features/admin-users/components/UserConfirmDialog.tsx
+msgid "{firstName} can't sign in."
+msgstr "{firstName} can't sign in."
+
+#: src/features/admin-users/components/UserPanel.tsx
+msgid "A deactivated user can't sign in or be chosen as a reviewer. Their history stays."
+msgstr "A deactivated user can't sign in or be chosen as a reviewer. Their history stays."
+
+#: src/features/admin-users/components/UsersTable.tsx
+msgid "Actions"
+msgstr "Actions"
+
+#: src/features/admin-users/components/UserPanel.tsx
+#: src/features/admin-users/components/UsersTable.tsx
+msgid "Active"
+msgstr "Active"
+
+#: src/features/admin-users/components/UserFilters.tsx
+msgid "Active and deactivated"
+msgstr "Active and deactivated"
+
+#: src/features/admin-users/components/UserFilters.tsx
+msgid "Active only"
+msgstr "Active only"
+
+#: src/features/admin-users/components/UserPanel.tsx
+msgid "Administrator"
+msgstr "Administrator"
+
+#: src/features/admin-users/components/UserConfirmDialog.tsx
+msgid "Candidates can't send {firstName} new reviews that need {classification}."
+msgstr "Candidates can't send {firstName} new reviews that need {classification}."
+
+#: src/features/admin-users/components/UserPanel.tsx
+msgid "Choose a user to see their details."
+msgstr "Choose a user to see their details."
+
+#: src/features/admin-users/components/UserPanel.tsx
+#: src/features/admin-users/components/UsersTable.tsx
+msgid "Created"
+msgstr "Created"
+
+#: src/features/admin-users/components/UsersTable.tsx
+msgid "Deactivate"
+msgstr "Deactivate"
+
+#: src/features/admin-users/components/UserConfirmDialog.tsx
+#: src/features/admin-users/components/UserPanel.tsx
+msgid "Deactivate {firstName}"
+msgstr "Deactivate {firstName}"
+
+#: src/features/admin-users/components/UserConfirmDialog.tsx
+msgid "Deactivate {name}?"
+msgstr "Deactivate {name}?"
+
+#: src/features/admin-users/components/UserPanel.tsx
+#: src/features/admin-users/components/UsersTable.tsx
+msgid "Deactivated"
+msgstr "Deactivated"
+
+#: src/features/admin-users/components/UserFilters.tsx
+msgid "Deactivated only"
+msgstr "Deactivated only"
+
+#: src/features/admin-users/components/UserPanel.tsx
+#: src/features/admin-users/components/UsersTable.tsx
+msgid "Groups"
+msgstr "Groups"
+
+#: src/features/admin-users/components/UsersTable.tsx
+msgid "Name"
+msgstr "Name"
+
+#: src/features/admin-users/components/UserPanel.tsx
+msgid "No"
+msgstr "No"
+
+#: src/features/admin-users/components/UsersTable.tsx
+msgid "No users match."
+msgstr "No users match."
+
+#: src/features/admin-users/components/ClassificationChips.tsx
+#: src/features/admin-users/components/UserPanel.tsx
+#: src/features/admin-users/components/UsersTable.tsx
+msgid "None"
+msgstr "None"
+
+#: src/features/admin-users/components/UsersTable.tsx
+msgid "Reactivate"
+msgstr "Reactivate"
+
+#: src/features/admin-users/components/UserPanel.tsx
+msgid "Reactivate {firstName}"
+msgstr "Reactivate {firstName}"
+
+#: src/features/admin-users/components/UserConfirmDialog.tsx
+msgid "Remove {classification}"
+msgstr "Remove {classification}"
+
+#: src/features/admin-users/components/UserConfirmDialog.tsx
+msgid "Remove {classification} from {name}?"
+msgstr "Remove {classification} from {name}?"
+
+#: src/features/admin-users/components/UserPanel.tsx
+msgid "Removing a classification stops new reviews under it. {firstName} can still confirm or reject claims that already name them."
+msgstr "Removing a classification stops new reviews under it. {firstName} can still confirm or reject claims that already name them."
+
+#: src/features/admin-users/components/UserPanel.tsx
+#: src/features/admin-users/components/UsersTable.tsx
+msgid "Reviewer classifications"
+msgstr "Reviewer classifications"
+
+#: src/features/admin-users/components/UserFilters.tsx
+msgid "Search by name or email"
+msgstr "Search by name or email"
+
+#: src/features/admin-users/components/UserFilters.tsx
+msgid "Show"
+msgstr "Show"
+
+#: src/features/admin-users/components/UserConfirmDialog.tsx
+msgid "Sign-offs {firstName} already gave still count."
+msgstr "Sign-offs {firstName} already gave still count."
+
+#: src/features/admin-users/components/UserPanel.tsx
+#: src/features/admin-users/components/UsersTable.tsx
+msgid "Status"
+msgstr "Status"
+
+#: src/features/admin-users/pages/UsersContainer.tsx
+msgid "The change couldn't be saved. Please try again."
+msgstr "The change couldn't be saved. Please try again."
+
+#: src/features/admin-users/components/UserConfirmDialog.tsx
+msgid "Their record, sign-offs and every review they gave."
+msgstr "Their record, sign-offs and every review they gave."
+
+#: src/features/admin-users/components/UsersTable.tsx
+msgid "This is you"
+msgstr "This is you"
+
+#: src/features/admin-users/components/UsersTable.tsx
+#: src/features/admin-users/pages/UsersPage.tsx
+msgid "Users"
+msgstr "Users"
+
+#: src/features/admin-users/pages/UsersPage.tsx
+msgid "Users are deactivated, never deleted. Their history stays."
+msgstr "Users are deactivated, never deleted. Their history stays."
+
+#: src/features/admin-users/components/UserPanel.tsx
+msgid "View this user's history"
+msgstr "View this user's history"
+
+#: src/features/admin-users/components/UserPanel.tsx
+msgid "Yes"
+msgstr "Yes"
+
+#: src/features/admin-users/components/UserConfirmDialog.tsx
+msgid "You can assign {classification} again at any time."
+msgstr "You can assign {classification} again at any time."
+
+#: src/features/admin-users/components/UserConfirmDialog.tsx
+msgid "You can reactivate {firstName} at any time."
+msgstr "You can reactivate {firstName} at any time."
+
+#: src/features/admin-users/components/UserPanel.tsx
+#: src/features/admin-users/pages/UsersContainer.tsx
+msgid "You can't deactivate your own account."
+msgstr "You can't deactivate your own account."

@@ -12,9 +12,28 @@ msgstr ""
 msgid "Account"
 msgstr "Compte"
 
+#: src/app/shell/admin/AdminNav.tsx
+msgid "Admin sections"
+msgstr "Sections d'administration"
+
+#: src/app/shell/AccountMenu.tsx
+#: src/app/shell/admin/AdminNav.tsx
+msgid "Administration"
+msgstr "Administration"
+
 #: src/app/shell/AccountMenu.tsx
 msgid "Administrator"
 msgstr "Administrateur"
+
+#: src/app/routes/_authenticated/admin/competencies.tsx
+#: src/app/shell/admin/AdminNav.tsx
+msgid "All competencies"
+msgstr "Toutes les compétences"
+
+#: src/app/routes/_authenticated/admin/audit.tsx
+#: src/app/shell/admin/AdminNav.tsx
+msgid "Audit log"
+msgstr "Journal d'audit"
 
 #: src/app/shell/BottomNav.tsx
 msgid "Basket"
@@ -24,14 +43,32 @@ msgstr "Panier"
 msgid "Candidate"
 msgstr "Candidat"
 
+#: src/app/routes/_authenticated/admin/lists.tsx
+#: src/app/shell/admin/AdminNav.tsx
+msgid "Competency lists"
+msgstr "Listes de compétences"
+
+#: src/app/routes/_authenticated/admin/import.tsx
+#: src/app/shell/admin/AdminNav.tsx
+msgid "CSV import"
+msgstr "Import CSV"
+
 #: src/app/shell/AccountMenu.tsx
 msgid "Dark mode"
 msgstr "Mode sombre"
+
+#: src/app/shell/admin/AdminNav.tsx
+msgid "Dashboard"
+msgstr "Tableau de bord"
 
 #: src/app/routes/_authenticated/events.tsx
 #: src/app/shell/BottomNav.tsx
 msgid "Events"
 msgstr "Événements"
+
+#: src/app/shell/admin/AdminNav.tsx
+msgid "Groups"
+msgstr "Groupes"
 
 #: src/app/shell/BottomNav.tsx
 msgid "Home"
@@ -44,6 +81,23 @@ msgstr "Instructeur"
 #: src/app/shell/AccountMenu.tsx
 msgid "Light mode"
 msgstr "Mode clair"
+
+#: src/app/shell/admin/AdminShell.tsx
+msgid "My record"
+msgstr "Mon dossier"
+
+#: src/app/shell/admin/AdminShell.tsx
+msgid "Open menu"
+msgstr "Ouvrir le menu"
+
+#: src/app/shell/admin/AdminNav.tsx
+msgid "Opportunities"
+msgstr "Occasions"
+
+#. placeholder {0}: item.phase
+#: src/app/shell/admin/AdminNav.tsx
+msgid "Phase {0}"
+msgstr "Phase {0}"
 
 #: src/app/shell/BottomNav.tsx
 msgid "Records"
@@ -72,3 +126,7 @@ msgstr "Superviseur"
 #: src/app/shell/ComingSoonPage.tsx
 msgid "This part of SkillCert is coming soon."
 msgstr "Cette partie de SkillCert arrive bientôt."
+
+#: src/app/shell/admin/AdminNav.tsx
+msgid "Users"
+msgstr "Utilisateurs"

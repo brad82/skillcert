@@ -8,6 +8,10 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Language: fr\n"
 
+#: src/shared/components/ConfirmDialog.tsx
+msgid "Cancel"
+msgstr "Annuler"
+
 #: src/shared/components/LanguageSwitcher.tsx
 msgid "Change language"
 msgstr "Changer de langue"
@@ -73,3 +77,11 @@ msgstr "Passer au mode sombre"
 #: src/shared/components/ThemeModeToggle.tsx
 msgid "Switch to light mode"
 msgstr "Passer au mode clair"
+
+#: src/shared/components/ConfirmDialog.tsx
+msgid "What is kept"
+msgstr "Ce qui est conservé"
+
+#: src/shared/components/ConfirmDialog.tsx
+msgid "What stops"
+msgstr "Ce qui s'arrête"

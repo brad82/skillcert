@@ -8,7 +8,8 @@ import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
-import { CircleUser, Languages, LogOut, Moon, Sun } from 'lucide-react'
+import { CircleUser, Languages, LogOut, Moon, Settings, Sun } from 'lucide-react'
+import { Link } from '@tanstack/react-router'
 import { useState } from 'react'
 import { type Capability, useCurrentUser } from '@features/current-user'
 import { useLocale } from '@shared/i18n/AppI18nProvider'
@@ -23,7 +24,7 @@ const capabilityLabels = { Administrator: msg`Administrator`, Instructor: msg`In
 
 /** Who is signed in, what they can do, and the per-device settings: language, theme, sign out. */
 export function AccountMenu({ signingOut, onSignOut }: Props) {
-  const { displayName, email, capabilities } = useCurrentUser()
+  const { displayName, email, capabilities, hasCapability } = useCurrentUser()
   const { locale, setLocale } = useLocale()
   const { mode, toggleMode } = useThemeMode()
   const { i18n, t } = useLingui()
@@ -52,6 +53,12 @@ export function AccountMenu({ signingOut, onSignOut }: Props) {
           </Stack>
         </Stack>
         <Divider />
+        {hasCapability('Administrator') && (
+          <MenuItem component={Link} to="/admin" onClick={close}>
+            <ListItemIcon><Settings size={18} aria-hidden /></ListItemIcon>
+            <Trans>Administration</Trans>
+          </MenuItem>
+        )}
         <MenuItem lang={locale === 'en' ? 'fr' : 'en'} onClick={() => { setLocale(locale === 'en' ? 'fr' : 'en'); close() }}>
           <ListItemIcon><Languages size={18} aria-hidden /></ListItemIcon>
           {locale === 'en' ? 'Français' : 'English'}
