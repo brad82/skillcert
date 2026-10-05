@@ -184,10 +184,11 @@ Source: `docs/AFA Skills Record - Revised v3.pdf`.
 - [x] ASP.NET Identity (cookie auth). Dev seeder creates: 1 admin, 2 instructors, 2 supervisors, 10 candidates.
 - [x] Domain `User` entity linked to the Identity user by `ExternalSubjectId`. `GET /api/me` returns the user and their capabilities. (ReviewerClassification and user assignments from spec §7 were brought forward from Phase 1 to provide Instructor/Supervisor capabilities.)
 - [x] Web shell: Vite + React + TS, TanStack Router + Query, Orval generation from OpenAPI, login page, app shell, PWA manifest.
-- [ ] Claude Design:
-  - create the SkillCert design-system project and define the tokens
-  - generate `theme.ts`
-  - sync the status-chip component to prove the round trip
+- [ ] Claude Design (design-first; `/design-sync` waits until shared components exist in code):
+  - [x] create the SkillCert design system and define the tokens: https://claude.ai/artifact/7AzLQcJz1v5Nk6J3zG7xor
+  - [ ] review the tokens and brand book in Claude Design
+  - [ ] generate `makeTheme(mode)` in `web/src/shared/lib/theme.ts` from `tokens.json`
+  - moved to Phase 2: build the status chip in code, then run `/design-sync` to bring it into Claude Design
 - [ ] Template feature slice (endpoint + validator + handler + integration test) to copy for every later feature.
 - [ ] Test projects: Domain.Tests, Api.Tests (Testcontainers), e2e Playwright login smoke test.
 - [ ] `ci.yml`: build, test, lint, Playwright.
