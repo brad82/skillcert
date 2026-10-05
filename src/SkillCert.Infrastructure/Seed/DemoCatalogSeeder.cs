@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using SkillCert.Domain.Competencies;
 using SkillCert.Domain.Groups;
 using SkillCert.Domain.Lists;
+using SkillCert.Domain.Reviewers;
 using SkillCert.Infrastructure.Persistence;
 
 namespace SkillCert.Infrastructure.Seed;
@@ -30,7 +31,8 @@ public sealed class DemoCatalogSeeder(SkillCertDbContext db, TimeProvider timePr
 
         // A year before "now", so the generated review history has published revisions to assess against.
         var at = timeProvider.GetUtcNow().AddDays(-450);
-        var classificationIds = await db.ReviewerClassifications.ToDictionaryAsync(c => c.Code, c => c.Id, cancellationToken);
+        var classifications = await db.ReviewerClassifications.ToListAsync(cancellationToken);
+        var classificationIds = classifications.ToDictionary(c => c.Code, c => c.Id);
 
         var list = new CompetencyList(definition.List.Title, "Advanced First Aid practical skills record.", at);
         AddNodes(definition.Nodes, parentNodeId: null);
@@ -71,7 +73,7 @@ public sealed class DemoCatalogSeeder(SkillCertDbContext db, TimeProvider timePr
                 var methods = node.PermittedMethods ?? definition.Defaults.PermittedMethods;
                 var competency = Competency.Create(
                     node.Code,
-                    new RevisionContent(
+                    ReviewHierarchy.CloseUpward(new RevisionContent(
                         node.Title,
                         node.ShortTitle,
                         Description: null,
@@ -79,7 +81,7 @@ public sealed class DemoCatalogSeeder(SkillCertDbContext db, TimeProvider timePr
                         AllowsSelfReview: methods.Contains("Self"),
                         AllowsPeerReview: methods.Contains("Peer"),
                         methods.Where(classificationIds.ContainsKey).Select(m => classificationIds[m]).ToList(),
-                        Resources: []),
+                        Resources: []), classifications),
                     at,
                     byUserId: null);
                 db.Competencies.Add(competency);

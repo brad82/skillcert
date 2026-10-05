@@ -13,8 +13,9 @@ public sealed class ReviewerClassification
     {
     }
 
-    public ReviewerClassification(Guid id, string code, string name, AffirmationPolicy affirmationPolicy)
+    public ReviewerClassification(Guid id, string code, string name, AffirmationPolicy affirmationPolicy, int rank)
     {
+        ArgumentOutOfRangeException.ThrowIfNegativeOrZero(rank);
         ArgumentException.ThrowIfNullOrWhiteSpace(code);
         ArgumentException.ThrowIfNullOrWhiteSpace(name);
 
@@ -22,6 +23,7 @@ public sealed class ReviewerClassification
         Code = code;
         Name = name;
         AffirmationPolicy = affirmationPolicy;
+        Rank = rank;
     }
 
     public Guid Id { get; private set; }
@@ -31,4 +33,10 @@ public sealed class ReviewerClassification
     public string Name { get; private set; } = null!;
 
     public AffirmationPolicy AffirmationPolicy { get; private set; }
+
+    /// <summary>
+    /// Position in the review hierarchy (POC decision, development plan §2.5): Self &lt; Peer &lt; every classification,
+    /// and classifications ordered by rank (Instructor 10 &lt; Supervisor 20). Permitting a level permits every higher one.
+    /// </summary>
+    public int Rank { get; private set; }
 }

@@ -170,6 +170,11 @@ Source: `docs/AFA Skills Record - Revised v3.pdf`.
    - **Breaking revisions:** invalidate all older-revision evidence. That includes Not Competent reviews, which then read Not Certified / RevisionInvalidated.
    - **Demo history:** fixed per-candidate profiles plus a fixed `Random(42)` instead of Bogus, because the real AFA list and named demo users made Bogus unnecessary. The seed switch is `Seed:DemoData`.
 
+5. **Review hierarchy: Self < Peer < Instructor < Supervisor.** Permitting a level permits every higher one (from the candidate wireframes, basket 4a: "Instructor or higher"). This replaces the spec §7/§9 reading, where each competency lists its methods with nothing implied.
+   - Classifications carry a `Rank` (Instructor 10, Supervisor 20).
+   - Every writer of revision content (seeding, admin editing in Phase 4, CSV import) runs it through `ReviewHierarchy.CloseUpward`, so stored permissions are already closed and the sign-off check stays exact.
+6. **Candidate app screens** follow the wireframes recorded in `docs/candidate-app.md`. All five bottom-nav tabs show from Phase 2; Events and Records are "coming soon" until Phases 6 and 3. Typed peer names and CSP# from the wireframes are not built.
+
 ## 3. Spec defaults still to finalize
 | Item | Decide in |
 |---|---|

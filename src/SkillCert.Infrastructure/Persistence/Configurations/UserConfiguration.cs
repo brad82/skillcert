@@ -53,8 +53,8 @@ internal sealed class ReviewerClassificationConfiguration : IEntityTypeConfigura
         // Seeded reference data (spec §7): Instructor is Automatic, Supervisor needs reviewer confirmation.
         builder.HasData(
             new ReviewerClassification(
-                ReviewerClassification.InstructorId, "Instructor", "Instructor", AffirmationPolicy.Automatic),
+                ReviewerClassification.InstructorId, "Instructor", "Instructor", AffirmationPolicy.Automatic, rank: 10),
             new ReviewerClassification(
-                ReviewerClassification.SupervisorId, "Supervisor", "Supervisor", AffirmationPolicy.ReviewerConfirmation));
+                ReviewerClassification.SupervisorId, "Supervisor", "Supervisor", AffirmationPolicy.ReviewerConfirmation, rank: 20));
     }
 }

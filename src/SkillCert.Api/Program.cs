@@ -14,9 +14,12 @@ builder.AddNpgsqlDbContext<SkillCertDbContext>(
     SkillCertDbContextOptions.ConnectionName,
     configureDbContextOptions: SkillCertDbContextOptions.Configure);
 
-builder.Services.AddDataProtection()
-    .SetApplicationName("SkillCert")
-    .PersistKeysToDbContext<SkillCertDbContext>();
+var dataProtection = builder.Services.AddDataProtection().SetApplicationName("SkillCert");
+// The build also starts the app (without a database) to write the OpenAPI document; only persist keys when there is one.
+if (builder.Configuration.GetConnectionString(SkillCertDbContextOptions.ConnectionName) is not null)
+{
+    dataProtection.PersistKeysToDbContext<SkillCertDbContext>();
+}
 
 // Caddy terminates TLS and proxies to the API on the compose network; trust its forwarded scheme and client IP.
 builder.Services.Configure<ForwardedHeadersOptions>(options =>
