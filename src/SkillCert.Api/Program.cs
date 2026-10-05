@@ -3,7 +3,13 @@ using FluentValidation;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Identity;
+using SkillCert.Api.Admin;
 using SkillCert.Api.Archival;
+using SkillCert.Api.Features.AdminAudit;
+using SkillCert.Api.Features.AdminCompetencies;
+using SkillCert.Api.Features.AdminImport;
+using SkillCert.Api.Features.AdminLists;
+using SkillCert.Api.Features.AdminUsers;
 using SkillCert.Api.Features.Approvals;
 using SkillCert.Api.Features.Auth;
 using SkillCert.Api.Common;
@@ -70,6 +76,8 @@ builder.Services.AddSingleton(TimeProvider.System);
 // Archived training records (spec §22): blob storage, and the nightly compliance run.
 builder.Services.AddBlobStore(builder.Configuration);
 builder.Services.AddScoped<TrainingRecordArchiver>();
+builder.Services.AddScoped<AuditLog>();
+builder.Services.AddScoped<AdministratorFilter>();
 builder.Services.AddSingleton(ArchivalOptions.From(builder.Configuration));
 builder.Services.AddHostedService<NightlyArchivalService>();
 builder.Services.AddHttpContextAccessor();
@@ -100,6 +108,11 @@ app.MapCurrentUserFeature();
 app.MapMyRecordFeature();
 app.MapSignOffsFeature();
 app.MapApprovalsFeature();
+app.MapAdminUsersFeature();
+app.MapAdminCompetenciesFeature();
+app.MapAdminListsFeature();
+app.MapAdminImportFeature();
+app.MapAdminAuditFeature();
 
 app.Run();
 

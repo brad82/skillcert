@@ -186,11 +186,15 @@ Source: `docs/AFA Skills Record - Revised v3.pdf`.
    - Without S3 settings (the CI stack) the nightly run logs "skipped"; current-record downloads still work.
    - Locally, Aspire sets `Archival:RunOnStartup` so archives appear in RustFS without waiting for 2 a.m.
    - Candidates see archives on the Records tab (wireframe 7a). Administrator manual archives and organization-wide record access come with Phase 5.
+10. **Admin (Phase 4).**
+   - **API first, wireframes next.** The admin API is complete and described for wireframing in `docs/admin-api.md`. The admin screens are built from the Claude Design wireframes that follow.
+   - **CSV format** (spec §26 encoding): the spec's header plus `ShortTitle` and `Resources`. Method columns take Y or blank, and the lowest marked level counts (decision §2.5). Resources are `Title|URL|Type` separated by `;`. Imported competencies are published as revision 1 immediately.
+   - **Editorial edits** may change titles, description and resources only. Recertification and who can sign are policy, so they need a new revision (409 `competency.policy-change`).
+   - **Admin gate:** `/api/admin/*` requires `IsAdministrator`. An admin can't deactivate their own account. Audit entries are written in the same transaction as the change.
 
 ## 3. Spec defaults still to finalize
 | Item | Decide in |
 |---|---|
-| CSV method/resource column encoding; whether imported revisions publish immediately (spec §26) | Phase 4 |
 | Registration windows, re-registering after Withdraw, attendance correction, cancelling an unused Draft (spec §15, §17) | Phase 6 |
 | CiviCRM user provisioning (first login vs pre-created) and claim mapping | Phase 7 |
 
@@ -324,26 +328,27 @@ Source: `docs/AFA Skills Record - Revised v3.pdf`.
 ### Phase 4: Admin configuration + audit + CSV import (3 wks)
 **Goal:** administrators manage users, competencies, revisions and lists, and every change is audited.
 
-- [ ] Claude Design screens: admin shell, users, competency editor (edit vs publish), list tree editor, CSV preview, audit viewer.
-- [ ] Audit log: actor, timestamp, action, entity type/id, before/after JSON. Written by an interceptor or explicit service for configuration entities only.
-- [ ] Users admin: list, view, deactivate (no delete). Assign/remove reviewer classifications.
-- [ ] Competencies admin:
+- [ ] Claude Design screens: admin shell, users, competency editor (edit vs publish), list tree editor, CSV preview, audit viewer. Brief: `docs/admin-api.md`.
+- [ ] Admin UI built from those wireframes (users, competencies, list tree editor, CSV import, audit viewer).
+- [x] Audit log: actor, timestamp, action, entity type/id, before/after JSON. Written by an interceptor or explicit service for configuration entities only.
+- [x] Users admin (API): list, view, deactivate (no delete). Assign/remove reviewer classifications.
+- [x] Competencies admin (API):
   - create
   - **Edit current revision** (editorial fix, audited, no invalidation)
   - **Publish new revision** (explicit breaking/non-breaking choice, recertification changes)
   - manage resources and permitted methods
   - deactivate
-- [ ] List admin:
+- [x] List admin (API; the RichTreeView + dnd-kit editor comes with the UI):
   - create/rename lists
   - tree editor (RichTreeView + dnd-kit) with headings, reordering and adding from the competency library
   - server enforces one occurrence per list and no cycles
-- [ ] CSV import (spec §26):
+- [x] CSV import (spec §26, API):
   - upload → whole-file validation → preview of rows/warnings/errors
   - any error or existing-code conflict blocks the import
   - create competencies and initial revisions atomically
   - finalize the encoding (see §3)
-- [ ] Audit viewer: filter by entity, actor and date.
-- [ ] Tests: publishing breaking vs non-breaking changes currency as expected; an editorial edit doesn't; a CSV with one duplicate imports nothing; non-admins get 403.
+- [x] Audit viewer API: filter by entity, actor and date (`GET /api/admin/audit`). Screen with the admin UI.
+- [x] Tests: publishing breaking vs non-breaking changes currency as expected; an editorial edit doesn't; a CSV with one duplicate imports nothing; non-admins get 403.
 
 **Done when:** every audited action appears in the viewer, the CSV tests pass, and the screens match the approved designs.
 

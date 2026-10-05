@@ -14,6 +14,12 @@ const featureByTag: Record<string, string> = {
   MyRecord: 'my-record',
   SignOffs: 'sign-off',
   Approvals: 'approvals',
+  // Admin (Phase 4): API built; screens follow the Claude Design wireframes.
+  AdminUsers: 'admin-users',
+  AdminCompetencies: 'admin-competencies',
+  AdminLists: 'admin-lists',
+  AdminImport: 'admin-import',
+  AdminAudit: 'admin-audit',
 }
 
 const camel = (name: string) => name.replace(/-(\w)/g, (_, c: string) => c.toUpperCase())
