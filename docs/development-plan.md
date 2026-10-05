@@ -180,7 +180,7 @@ Source: `docs/AFA Skills Record - Revised v3.pdf`.
 
 - [x] Create the solution and projects as in §1.2. Add Central Package Management and `Directory.Build.props` (nullable enabled, warnings as errors).
 - [x] Aspire AppHost: Postgres, RustFS (S3), Migrator, Api. ServiceDefaults with health checks. (The Vite web resource is added with the web shell task.)
-- [ ] EF Core DbContext + first migration. `/health` endpoint.
+- [x] EF Core DbContext + first migration. `/health` endpoint. (Migrator applies migrations on start; snake_case naming; `dotnet ef` via local tool manifest.)
 - [ ] ASP.NET Identity (cookie auth). Dev seeder creates: 1 admin, 2 instructors, 2 supervisors, 10 candidates.
 - [ ] Domain `User` entity linked to the Identity user by `ExternalSubjectId`. `GET /api/me` returns the user and their capabilities.
 - [ ] Web shell: Vite + React + TS, TanStack Router + Query, Orval generation from OpenAPI, login page, app shell, PWA manifest.

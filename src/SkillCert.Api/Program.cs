@@ -1,6 +1,11 @@
+using SkillCert.Infrastructure.Persistence;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.AddServiceDefaults();
+builder.AddNpgsqlDbContext<SkillCertDbContext>(
+    SkillCertDbContextOptions.ConnectionName,
+    configureDbContextOptions: SkillCertDbContextOptions.Configure);
 builder.Services.AddOpenApi();
 
 var app = builder.Build();
