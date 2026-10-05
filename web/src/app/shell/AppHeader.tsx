@@ -1,11 +1,7 @@
-import { Trans } from '@lingui/react/macro'
 import AppBar from '@mui/material/AppBar'
-import Button from '@mui/material/Button'
 import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
-import { useCurrentUser } from '@features/current-user'
-import { LanguageSwitcher } from '@shared/components/LanguageSwitcher'
-import { ThemeModeToggle } from '@shared/components/ThemeModeToggle'
+import { AccountMenu } from './AccountMenu'
 
 type Props = {
   signingOut: boolean
@@ -13,29 +9,20 @@ type Props = {
 }
 
 const appHeaderStyles = () => ({
-  toolbar: { gap: 2 },
+  bar: { pt: 'env(safe-area-inset-top, 0px)' },
   title: { flexGrow: 1 },
-  name: { display: { xs: 'none', sm: 'block' }, mx: 2 },
 })
 
 export function AppHeader({ signingOut, onSignOut }: Props) {
-  const { displayName } = useCurrentUser()
   const styles = appHeaderStyles()
 
   return (
-    <AppBar position="sticky" elevation={0}>
-      <Toolbar sx={styles.toolbar}>
-        <Typography variant="h6" component="span" sx={styles.title}>
+    <AppBar position="sticky" sx={styles.bar}>
+      <Toolbar>
+        <Typography variant="h3" component="span" sx={styles.title}>
           SkillCert
         </Typography>
-        <Typography variant="body2" sx={styles.name}>
-          {displayName}
-        </Typography>
-        <LanguageSwitcher />
-        <ThemeModeToggle />
-        <Button color="inherit" onClick={onSignOut} disabled={signingOut}>
-          <Trans>Sign out</Trans>
-        </Button>
+        <AccountMenu signingOut={signingOut} onSignOut={onSignOut} />
       </Toolbar>
     </AppBar>
   )

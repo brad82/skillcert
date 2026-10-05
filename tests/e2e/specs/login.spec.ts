@@ -31,26 +31,29 @@ test('a wrong password is refused without saying which part was wrong', async ({
 
   // A successful sign-in resets the lockout counter so repeated runs never lock the account.
   await signIn(page, demoUsers.lockoutProbe.email)
-  await expect(page.getByRole('heading', { name: demoUsers.lockoutProbe.name })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Hi Candidate' })).toBeVisible()
 })
 
-test('a candidate signs in, sees who they are, and signs out', async ({ page }) => {
+test('a candidate signs in, lands on Home, and signs out from the account menu', async ({ page }) => {
   await page.goto('/login')
 
   await signIn(page, demoUsers.candidate.email)
 
   await expect(page).toHaveURL('/')
-  await expect(page.getByRole('heading', { name: demoUsers.candidate.name })).toBeVisible()
-  await expect(page.getByText('Candidate', { exact: true })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Hi Candidate' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'AFA Skills Record' })).toBeVisible()
 
-  await page.getByRole('button', { name: 'Sign out' }).click()
+  await page.getByRole('button', { name: 'Account' }).click()
+  await expect(page.getByText(demoUsers.candidate.name)).toBeVisible()
+  await page.getByRole('menuitem', { name: 'Sign out' }).click()
   await expect(page).toHaveURL(/\/login/)
 })
 
-test('an administrator sees the Administrator capability', async ({ page }) => {
+test('an administrator sees the Administrator capability in the account menu', async ({ page }) => {
   await page.goto('/login')
 
   await signIn(page, demoUsers.admin.email)
+  await page.getByRole('button', { name: 'Account' }).click()
 
   await expect(page.getByText('Administrator', { exact: true })).toBeVisible()
 })

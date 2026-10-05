@@ -1,0 +1,49 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2026-10-04 22:50-0600\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: en\n"
+
+#. placeholder {0}: list.counts.total
+#: src/features/home/components/ComplianceCard.tsx
+msgid "Compliant · all {0} current"
+msgstr "Compliant · all {0} current"
+
+#: src/features/home/components/StatusTiles.tsx
+msgid "Expired"
+msgstr "Expired"
+
+#: src/features/home/components/StatusTiles.tsx
+msgid "Expiring ≤ 30 days"
+msgstr "Expiring ≤ 30 days"
+
+#: src/features/home/pages/HomePage.tsx
+msgid "Hi {firstName}"
+msgstr "Hi {firstName}"
+
+#: src/features/home/components/StatusTiles.tsx
+msgid "Not certified"
+msgstr "Not certified"
+
+#: src/features/home/components/ComplianceCard.tsx
+msgid "Not compliant · {toGo, plural, one {# to go} other {# to go}}"
+msgstr "Not compliant · {toGo, plural, one {# to go} other {# to go}}"
+
+#: src/features/home/components/StatusTiles.tsx
+msgid "Pending"
+msgstr "Pending"
+
+#: src/features/home/components/NextEventCard.tsx
+msgid "Training events are coming soon."
+msgstr "Training events are coming soon."
+
+#: src/features/home/pages/HomePage.tsx
+msgid "You have no required skills records yet. An administrator adds you to a group to assign one."
+msgstr "You have no required skills records yet. An administrator adds you to a group to assign one."
+
+#: src/features/home/components/NextEventCard.tsx
+msgid "Your next event"
+msgstr "Your next event"

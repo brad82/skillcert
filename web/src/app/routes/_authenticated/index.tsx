@@ -1,6 +1,8 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { DashboardPage } from '@features/dashboard'
+import { HomeContainer } from '@features/home'
+import { myListsQueryOptions } from '@features/my-record'
 
 export const Route = createFileRoute('/_authenticated/')({
-  component: DashboardPage,
+  loader: ({ context }) => context.queryClient.ensureQueryData(myListsQueryOptions()),
+  component: HomeContainer,
 })

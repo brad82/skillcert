@@ -11,6 +11,35 @@ msgstr ""
 msgid "Change language"
 msgstr "Change language"
 
+#: src/shared/components/StatusChip.tsx
+msgid "Current"
+msgstr "Current"
+
+#: src/shared/components/StatusChip.tsx
+msgid "Expired"
+msgstr "Expired"
+
+#. placeholder {0}: formatDate(currency.expiresAt, locale)
+#: src/shared/components/StatusChip.tsx
+msgid "Expires {0}"
+msgstr "Expires {0}"
+
+#: src/shared/components/StatusChip.tsx
+msgid "Expiring soon"
+msgstr "Expiring soon"
+
+#: src/shared/components/StatusChip.tsx
+msgid "Not certified"
+msgstr "Not certified"
+
+#: src/shared/components/StatusChip.tsx
+msgid "Not competent"
+msgstr "Not competent"
+
+#: src/shared/components/StatusChip.tsx
+msgid "Pending"
+msgstr "Pending"
+
 #: src/shared/components/ThemeModeToggle.tsx
 msgid "Switch to dark mode"
 msgstr "Switch to dark mode"

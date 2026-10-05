@@ -7,14 +7,70 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Language: en\n"
 
+#: src/app/shell/AccountMenu.tsx
+msgid "Account"
+msgstr "Account"
+
+#: src/app/shell/AccountMenu.tsx
+msgid "Administrator"
+msgstr "Administrator"
+
+#: src/app/routes/_authenticated/basket.tsx
+#: src/app/shell/BottomNav.tsx
+msgid "Basket"
+msgstr "Basket"
+
+#: src/app/shell/AccountMenu.tsx
+msgid "Candidate"
+msgstr "Candidate"
+
+#: src/app/shell/AccountMenu.tsx
+msgid "Dark mode"
+msgstr "Dark mode"
+
+#: src/app/routes/_authenticated/events.tsx
+#: src/app/shell/BottomNav.tsx
+msgid "Events"
+msgstr "Events"
+
+#: src/app/shell/BottomNav.tsx
+msgid "Home"
+msgstr "Home"
+
+#: src/app/shell/AccountMenu.tsx
+msgid "Instructor"
+msgstr "Instructor"
+
+#: src/app/shell/AccountMenu.tsx
+msgid "Light mode"
+msgstr "Light mode"
+
+#: src/app/routes/_authenticated/records.tsx
+#: src/app/shell/BottomNav.tsx
+msgid "Records"
+msgstr "Records"
+
 #: src/app/shell/AppErrorScreen.tsx
 msgid "Reload"
 msgstr "Reload"
 
-#: src/app/shell/AppHeader.tsx
+#: src/app/shell/AccountMenu.tsx
 msgid "Sign out"
 msgstr "Sign out"
+
+#: src/app/routes/_authenticated/skills.tsx
+#: src/app/shell/BottomNav.tsx
+msgid "Skills"
+msgstr "Skills"
 
 #: src/app/shell/AppErrorScreen.tsx
 msgid "Something went wrong loading SkillCert."
 msgstr "Something went wrong loading SkillCert."
+
+#: src/app/shell/AccountMenu.tsx
+msgid "Supervisor"
+msgstr "Supervisor"
+
+#: src/app/shell/ComingSoonPage.tsx
+msgid "This part of SkillCert is coming soon."
+msgstr "This part of SkillCert is coming soon."
