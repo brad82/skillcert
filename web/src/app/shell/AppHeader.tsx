@@ -13,9 +13,9 @@ type Props = {
 }
 
 const appHeaderStyles = () => ({
-  toolbar: { gap: 1 },
+  toolbar: { gap: 2 },
   title: { flexGrow: 1 },
-  name: { display: { xs: 'none', sm: 'block' }, mx: 1 },
+  name: { display: { xs: 'none', sm: 'block' }, mx: 2 },
 })
 
 export function AppHeader({ signingOut, onSignOut }: Props) {

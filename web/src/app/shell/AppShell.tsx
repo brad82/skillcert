@@ -7,7 +7,7 @@ import { AppHeader } from './AppHeader'
 
 const appShellStyles = () => ({
   page: { minHeight: '100dvh', display: 'flex', flexDirection: 'column', bgcolor: 'background.default' },
-  main: { flexGrow: 1, p: { xs: 2, sm: 3 } },
+  main: { flexGrow: 1, p: { xs: 4, sm: 6 } },
 })
 
 /**

@@ -7,8 +7,8 @@ import { ThemeModeToggle } from '@shared/components/ThemeModeToggle'
 
 const loginLayoutStyles = () => ({
   page: { minHeight: '100dvh', display: 'flex', flexDirection: 'column', bgcolor: 'background.default' },
-  toolbar: { display: 'flex', justifyContent: 'flex-end', gap: 1, p: 1, color: 'text.secondary' },
-  body: { flexGrow: 1, display: 'grid', placeItems: 'center', px: 2, pb: 6 },
+  toolbar: { display: 'flex', justifyContent: 'flex-end', gap: 2, p: 2, color: 'text.secondary' },
+  body: { flexGrow: 1, display: 'grid', placeItems: 'center', px: 4, pb: 12 },
   card: { width: '100%', maxWidth: 400 },
 })
 

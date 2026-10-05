@@ -4,7 +4,7 @@ import { Languages } from 'lucide-react'
 import { useLocale } from '@shared/i18n/AppI18nProvider'
 
 const languageSwitcherStyles = () => ({
-  button: { minWidth: 0, gap: 0.75, color: 'inherit' },
+  button: { minWidth: 0, gap: 1, color: 'inherit' },
 })
 
 /** Toggles English ⇄ French. Labels name the target language in that language. */

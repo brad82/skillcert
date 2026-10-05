@@ -1,0 +1,340 @@
+{
+  "name": "SkillCert",
+  "version": 1,
+  "meta": {
+    "source": "github",
+    "repo": "brad82/skillcert",
+    "ref": "main",
+    "package": "web",
+    "paths": {
+      "tokens": [
+        "web/src/shared/lib/theme.ts"
+      ],
+      "docs": [
+        "docs/web-architecture.md",
+        "docs/AFA Skills Record - Revised v3.pdf"
+      ]
+    },
+    "synced": "2026-10-04",
+    "note": "First system: placeholder theme plus the AFA paper record's section bands. Status colours follow spec §12–13."
+  },
+  "color": {
+    "themes": [
+      {
+        "id": "light",
+        "name": "Light"
+      },
+      {
+        "id": "dark",
+        "name": "Dark"
+      }
+    ],
+    "tokens": [
+      {
+        "name": "surface",
+        "value": {
+          "light": "#fbfaf9",
+          "dark": "#161314"
+        },
+        "usage": "Page background behind everything."
+      },
+      {
+        "name": "surface-raised",
+        "value": {
+          "light": "#ffffff",
+          "dark": "#201b1c"
+        },
+        "usage": "Cards, sheets, the sign-off basket bar and dialogs."
+      },
+      {
+        "name": "ink",
+        "value": {
+          "light": "#1f1a1b",
+          "dark": "#f1ecec"
+        },
+        "usage": "Body text and headings on surface, surface-raised and brand-tint."
+      },
+      {
+        "name": "ink-muted",
+        "value": {
+          "light": "#5d5456",
+          "dark": "#b3a9ab"
+        },
+        "usage": "Secondary text: dates, reviewer names, helper text. 7:1 on surface in both themes."
+      },
+      {
+        "name": "line",
+        "value": {
+          "light": "#ddd5d6",
+          "dark": "#3a3233"
+        },
+        "usage": "Hairline dividers between list rows. Decorative only; never the sole edge of a control."
+      },
+      {
+        "name": "line-strong",
+        "value": {
+          "light": "#857a7c",
+          "dark": "#7d7274"
+        },
+        "usage": "Input and control borders. At least 3:1 on surface and surface-raised."
+      },
+      {
+        "name": "brand",
+        "value": {
+          "light": "#a6192e",
+          "dark": "#e0566a"
+        },
+        "usage": "The record red: top-level section bands, primary buttons, the app bar. Text on it uses brand-ink."
+      },
+      {
+        "name": "brand-ink",
+        "value": {
+          "light": "#ffffff",
+          "dark": "#1a0a0d"
+        },
+        "usage": "Text and icons on brand."
+      },
+      {
+        "name": "brand-tint",
+        "value": {
+          "light": "#f6dde1",
+          "dark": "#3a1a20"
+        },
+        "usage": "Sub-section bands in a competency list (e.g. 4.1 Airway management). Text on it is ink."
+      },
+      {
+        "name": "focus",
+        "value": {
+          "light": "#1d4f91",
+          "dark": "#9cc3f5"
+        },
+        "usage": "Keyboard focus ring, 2px outside the control."
+      },
+      {
+        "name": "status-current-bg",
+        "value": {
+          "light": "#dff1e6",
+          "dark": "#123524"
+        },
+        "usage": "Current chip fill. Always paired with the label and a check icon."
+      },
+      {
+        "name": "status-current-fg",
+        "value": {
+          "light": "#17603a",
+          "dark": "#8fd9ad"
+        },
+        "usage": "Current chip text and icon, on status-current-bg."
+      },
+      {
+        "name": "status-expired-bg",
+        "value": {
+          "light": "#fde8d4",
+          "dark": "#3a2410"
+        },
+        "usage": "Expired chip fill (recertification lapsed)."
+      },
+      {
+        "name": "status-expired-fg",
+        "value": {
+          "light": "#8a4500",
+          "dark": "#f5b97a"
+        },
+        "usage": "Expired chip text and icon, on status-expired-bg."
+      },
+      {
+        "name": "status-not-competent-bg",
+        "value": {
+          "light": "#8f1c24",
+          "dark": "#f19aa0"
+        },
+        "usage": "Not Current – Not Competent chip: a solid fill, so it differs from every other status by lightness, not hue alone."
+      },
+      {
+        "name": "status-not-competent-fg",
+        "value": {
+          "light": "#ffffff",
+          "dark": "#2a0a0d"
+        },
+        "usage": "Text and icon on status-not-competent-bg."
+      },
+      {
+        "name": "status-pending-bg",
+        "value": {
+          "light": "#dbe8fb",
+          "dark": "#13253f"
+        },
+        "usage": "Pending Confirmation chip fill: a supervisor has not yet confirmed."
+      },
+      {
+        "name": "status-pending-fg",
+        "value": {
+          "light": "#1d4f91",
+          "dark": "#9cc3f5"
+        },
+        "usage": "Pending chip text and icon, on status-pending-bg."
+      },
+      {
+        "name": "status-not-certified-bg",
+        "value": {
+          "light": "#efeaea",
+          "dark": "#2a2425"
+        },
+        "usage": "Not Certified chip fill: never reviewed, or invalidated by a breaking revision."
+      },
+      {
+        "name": "status-not-certified-fg",
+        "value": {
+          "light": "#4d4547",
+          "dark": "#cfc5c7"
+        },
+        "usage": "Not Certified chip text and icon."
+      }
+    ]
+  },
+  "type": {
+    "fonts": [],
+    "families": {
+      "sans": "\"Public Sans\", system-ui, -apple-system, \"Segoe UI\", sans-serif",
+      "mono": "\"IBM Plex Mono\", ui-monospace, \"SF Mono\", Menlo, monospace"
+    },
+    "groups": [
+      {
+        "name": "Headings",
+        "family": "sans",
+        "styles": [
+          {
+            "name": "page-title",
+            "fontSize": "24px",
+            "lineHeight": "30px",
+            "fontWeight": 700,
+            "usage": "One per screen: the list or page name.",
+            "sample": "AFA Skills Record"
+          },
+          {
+            "name": "section-title",
+            "fontSize": "18px",
+            "lineHeight": "24px",
+            "fontWeight": 700,
+            "usage": "Top-level section band text (3 Management of injured or ill patients).",
+            "sample": "4 Basic Life Support"
+          },
+          {
+            "name": "subsection-title",
+            "fontSize": "16px",
+            "lineHeight": "22px",
+            "fontWeight": 600,
+            "usage": "Sub-section band text on brand-tint.",
+            "sample": "4.3 Cardiopulmonary resuscitation (CPR)"
+          }
+        ]
+      },
+      {
+        "name": "Text",
+        "family": "sans",
+        "styles": [
+          {
+            "name": "body",
+            "fontSize": "16px",
+            "lineHeight": "24px",
+            "fontWeight": 400,
+            "usage": "Competency titles, descriptions, form fields. 16px keeps iOS from zooming inputs.",
+            "sample": "Ventilation – bag valve mask"
+          },
+          {
+            "name": "body-sm",
+            "fontSize": "14px",
+            "lineHeight": "20px",
+            "fontWeight": 400,
+            "usage": "Secondary lines: reviewer, method, helper text.",
+            "sample": "Signed off by Ines Instructor · Instructor"
+          },
+          {
+            "name": "label",
+            "fontSize": "12px",
+            "lineHeight": "16px",
+            "fontWeight": 600,
+            "letterSpacing": "0.04em",
+            "usage": "Uppercase column and chip labels (DATE, INITIALS, CURRENT).",
+            "sample": "DATE · INITIALS"
+          }
+        ]
+      },
+      {
+        "name": "Record",
+        "family": "mono",
+        "styles": [
+          {
+            "name": "code",
+            "fontSize": "14px",
+            "lineHeight": "20px",
+            "fontWeight": 500,
+            "usage": "Competency codes (4.3.1, 9.1a). Fixed width keeps codes aligned down a list.",
+            "sample": "4.3.2  10.2e  9.1a"
+          },
+          {
+            "name": "date",
+            "fontSize": "13px",
+            "lineHeight": "18px",
+            "fontWeight": 400,
+            "usage": "Sign-off and expiry dates, ISO order (2026-10-04), tabular figures.",
+            "sample": "2026-10-04  2027-10-04"
+          }
+        ]
+      }
+    ]
+  },
+  "spacing": {
+    "tokens": [
+      {
+        "name": "space-1",
+        "value": "4px",
+        "usage": "Icon-to-label gap inside chips."
+      },
+      {
+        "name": "space-2",
+        "value": "8px",
+        "usage": "Between stacked lines in a row; chip padding block."
+      },
+      {
+        "name": "space-3",
+        "value": "12px",
+        "usage": "List-row padding block; chip padding inline."
+      },
+      {
+        "name": "space-4",
+        "value": "16px",
+        "usage": "Page gutter on phones; card padding."
+      },
+      {
+        "name": "space-6",
+        "value": "24px",
+        "usage": "Between sections on a page; page gutter from 600px."
+      },
+      {
+        "name": "space-8",
+        "value": "32px",
+        "usage": "Top of page to first heading on desktop."
+      }
+    ]
+  },
+  "radius": {
+    "tokens": [
+      {
+        "name": "radius-sm",
+        "value": "4px",
+        "usage": "Section bands, inputs, table cells."
+      },
+      {
+        "name": "radius-md",
+        "value": "8px",
+        "usage": "Cards, buttons, dialogs, the basket bar."
+      },
+      {
+        "name": "radius-pill",
+        "value": "999px",
+        "usage": "Status chips and the basket count badge."
+      }
+    ]
+  }
+}

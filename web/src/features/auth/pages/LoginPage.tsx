@@ -17,7 +17,7 @@ export function LoginPage() {
         <Trans>Sign in to SkillCert</Trans>
       </Typography>
       {/* noValidate: the Zod-backed model drives the messages, not the browser. */}
-      <Stack component="form" spacing={1} onSubmit={onSubmit} noValidate>
+      <Stack component="form" spacing={2} onSubmit={onSubmit} noValidate>
         {error ? <Alert severity="error">{error}</Alert> : null}
         <EmailField />
         <PasswordField />

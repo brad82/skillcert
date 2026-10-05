@@ -16,7 +16,7 @@ const capabilityLabels: Record<Capability, MessageDescriptor> = {
 
 const identityCardStyles = () => ({
   card: { maxWidth: 480, mx: 'auto' },
-  chips: { mt: 2, flexWrap: 'wrap' },
+  chips: { mt: 4, flexWrap: 'wrap' },
 })
 
 /** Who is signed in, and what they can do. Every user is a candidate; other capabilities are additive. */
@@ -37,7 +37,7 @@ export function IdentityCard() {
         <Typography color="text.secondary" gutterBottom>
           {email}
         </Typography>
-        <Stack direction="row" spacing={1} sx={styles.chips} useFlexGap>
+        <Stack direction="row" spacing={2} sx={styles.chips} useFlexGap>
           <Chip label={<Trans>Candidate</Trans>} />
           {capabilities.map((capability) => {
             const label = capabilityLabels[capability as Capability]

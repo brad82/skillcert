@@ -160,8 +160,20 @@ between `App` and the header toggle.
 
 - MUI v7. Icons come from `lucide-react` (**not** `@mui/icons-material`), with
   `aria-hidden` when decorative.
-- **Theme:** `shared/lib/theme.ts` `makeTheme(mode)`. Its palette is a placeholder until the
-  Claude Design tokens land (Phase 0, task 7).
+- **Theme:** `shared/lib/theme.ts` `makeTheme(mode)` is built entirely from
+  `shared/lib/design-tokens.json`. That file is a copy of the SkillCert design system's
+  `project/tokens.json` (https://claude.ai/artifact/7AzLQcJz1v5Nk6J3zG7xor); to change a value,
+  change it in the design system and replace the file. Read the system's README for usage rules.
+  - **Spacing:** the MUI spacing unit is 4px, so `p: 4` is `space-4` (16px). Use only the token
+    steps: 1, 2, 3, 4, 6, 8.
+  - **Status colours:** `theme.palette.status.<current|expired|notCompetent|pending|notCertified>.{bg,fg}`.
+    Always pair a status colour with a label and an icon.
+  - **Type:** `h1` page-title, `h2` section-title, `h3` subsection-title, `body1` body,
+    `body2` body-sm, `overline` label, plus `code` (competency codes) and `date` (tabular dates).
+  - **Also on the theme:** `palette.brandTint`, `palette.lineStrong`, `palette.focus`, and
+    `theme.radius.{sm,md,pill}`.
+  - **Fonts:** Public Sans and IBM Plex Mono are self-hosted via `@fontsource`; no Google Fonts
+    request at runtime.
 - **Prefer theme tokens** (`'text.secondary'`, `'divider'`, `'background.default'`).
 - **Mode-dependent colour the theme can't express:** use `defineModePalette`
   (`shared/lib/palette.ts`). It takes `{ light, dark }` tables, or a

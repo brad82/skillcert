@@ -6,7 +6,7 @@ import Button from '@mui/material/Button'
 /** Shown when a route fails to load for a reason other than "not signed in". */
 export function AppErrorScreen() {
   return (
-    <Box sx={{ p: 3, maxWidth: 480, mx: 'auto' }}>
+    <Box sx={{ p: 6, maxWidth: 480, mx: 'auto' }}>
       <Alert
         severity="error"
         action={
