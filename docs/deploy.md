@@ -83,7 +83,7 @@ Then delete the local `skillcert-deploy` private key, or keep it in a password m
 
 ### 7. First deploy
 
-Push to `main`, or run **Deploy demo** by hand. Watch the logs on the server:
+Set the **repository** variable `DEPLOY_ENABLED` to `true` (Settings → Secrets and variables → Actions → Variables). Until then the deploy workflow is skipped. Then push to `main`, or run **Deploy demo** by hand. Watch the logs on the server:
 
 ```bash
 ssh deploy@<vps-ip> 'cd /opt/skillcert && docker compose ps && docker compose logs migrator api'

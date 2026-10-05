@@ -16,7 +16,8 @@ concurrency:
 jobs:
   images:
     name: Build and push ${{ matrix.image }}
-    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    # Skipped until the VPS is set up: set the repository variable DEPLOY_ENABLED=true (docs/deploy.md step 7).
+    if: vars.DEPLOY_ENABLED == 'true' && (github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success')
     runs-on: ubuntu-latest
     permissions:
       contents: read
