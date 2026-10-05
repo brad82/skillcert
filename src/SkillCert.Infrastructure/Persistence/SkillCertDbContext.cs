@@ -2,7 +2,11 @@ using Microsoft.AspNetCore.DataProtection.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using SkillCert.Domain.Competencies;
+using SkillCert.Domain.Groups;
+using SkillCert.Domain.Lists;
 using SkillCert.Domain.Reviewers;
+using SkillCert.Domain.Reviews;
 using SkillCert.Domain.Users;
 using SkillCert.Infrastructure.Identity;
 
@@ -14,6 +18,16 @@ public sealed class SkillCertDbContext(DbContextOptions<SkillCertDbContext> opti
     public DbSet<User> DomainUsers => Set<User>();
 
     public DbSet<ReviewerClassification> ReviewerClassifications => Set<ReviewerClassification>();
+
+    public DbSet<Competency> Competencies => Set<Competency>();
+
+    public DbSet<CompetencyList> CompetencyLists => Set<CompetencyList>();
+
+    public DbSet<UserGroup> UserGroups => Set<UserGroup>();
+
+    public DbSet<CompetencyReview> CompetencyReviews => Set<CompetencyReview>();
+
+    public DbSet<ReviewSignature> ReviewSignatures => Set<ReviewSignature>();
 
     /// <summary>ASP.NET data-protection keys (they encrypt the auth cookie), kept here so container restarts don't sign everyone out.</summary>
     public DbSet<DataProtectionKey> DataProtectionKeys => Set<DataProtectionKey>();
