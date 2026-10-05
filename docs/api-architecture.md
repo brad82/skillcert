@@ -77,6 +77,9 @@ email, a locked account and a deactivated user alike.
 Inject `TimeProvider` (registered as `TimeProvider.System`) and never call `DateTime.Now`.
 Server time is authoritative for `ReviewedAt`, expiry and the nightly job. Tests swap in a
 fake clock.
+An instant that is both stored and returned (e.g. `ReviewedAt`) comes from
+`time.GetUtcNowForStorage()`, truncated to Postgres's microsecond precision, so the response matches
+what a later read returns.
 
 ## Testing
 

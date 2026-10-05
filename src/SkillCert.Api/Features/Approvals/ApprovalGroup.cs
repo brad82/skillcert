@@ -38,7 +38,7 @@ internal static class ApprovalGroup
             return TypedResults.Forbid();
         }
 
-        var now = time.GetUtcNow();
+        var now = time.GetUtcNowForStorage();
         try
         {
             foreach (var review in reviews)

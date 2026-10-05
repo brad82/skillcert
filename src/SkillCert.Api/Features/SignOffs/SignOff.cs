@@ -122,7 +122,7 @@ public static class SignOffEndpoint
             return RuleProblems.Create(CompetencyReview.MethodNotPermitted, $"{reviewerUser.DisplayName} can't sign off all of these skills.");
         }
 
-        var reviewedAt = time.GetUtcNow();
+        var reviewedAt = time.GetUtcNowForStorage();
         try
         {
             var signature = request.Signature is { } drawn
