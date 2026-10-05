@@ -193,7 +193,7 @@ Source: `docs/AFA Skills Record - Revised v3.pdf`.
 - [x] Test projects: Domain.Tests, Api.Tests (Testcontainers), e2e Playwright login smoke test. (`tests/e2e`: phone + desktop projects; run against a live stack with `E2E_BASE_URL`.)
 - [x] `ci.yml`: build, test, lint, Playwright. (Also fails on OpenAPI or translation-catalog drift. The Playwright job runs against the compose stack; added with the deploy files.)
 - [x] `deploy/` files: compose (api, migrator, postgres, caddy, `TZ` set), Caddyfile, `.env.example`. (Plus `deploy/dotnet.Dockerfile`, `web/Dockerfile`, a build override and `.env.ci`; CI's e2e job runs Playwright against this stack. Data-protection keys persist in Postgres so restarts keep sessions.)
-- [ ] `deploy.yml`: build images → GHCR → SSH `compose pull && up -d`. Provision the VPS (Docker, deploy user, SSH key, DNS) and the DO Spaces bucket.
+- [~] `deploy.yml`: build images → GHCR → SSH `compose pull && up -d`. Provision the VPS (Docker, deploy user, SSH key, DNS) and the DO Spaces bucket. (Workflow written, see `docs/deploy.md`. Waiting on: VPS, DNS, GitHub `demo` environment secrets.)
 
 **Done when:**
 - `dotnet run --project src/SkillCert.AppHost` starts everything, and the Aspire dashboard shows all resources healthy.
