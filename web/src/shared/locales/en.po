@@ -1,0 +1,20 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2026-10-04 20:44-0600\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: en\n"
+
+#: src/shared/components/LanguageSwitcher.tsx
+msgid "Change language"
+msgstr "Change language"
+
+#: src/shared/components/ThemeModeToggle.tsx
+msgid "Switch to dark mode"
+msgstr "Switch to dark mode"
+
+#: src/shared/components/ThemeModeToggle.tsx
+msgid "Switch to light mode"
+msgstr "Switch to light mode"

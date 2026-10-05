@@ -1,0 +1,49 @@
+# French strings are machine-assisted drafts; review before release.
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2026-10-04 20:44-0600\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: fr\n"
+
+#: src/features/auth/components/Form/EmailField.tsx
+msgid "Email"
+msgstr "Courriel"
+
+#: src/features/auth/components/Form/EmailField.tsx
+msgid "Email is required"
+msgstr "Le courriel est requis"
+
+#: src/features/auth/pages/LoginContainer.tsx
+msgid "Email or password is incorrect, or the account is locked or inactive."
+msgstr "Le courriel ou le mot de passe est incorrect, ou le compte est verrouillé ou inactif."
+
+#: src/features/auth/components/Form/EmailField.tsx
+msgid "Enter a valid email address"
+msgstr "Entrez une adresse courriel valide"
+
+#: src/features/auth/components/Form/PasswordField.tsx
+msgid "Password"
+msgstr "Mot de passe"
+
+#: src/features/auth/components/Form/PasswordField.tsx
+msgid "Password is required"
+msgstr "Le mot de passe est requis"
+
+#: src/features/auth/components/Form/SubmitButton.tsx
+msgid "Sign in"
+msgstr "Se connecter"
+
+#: src/features/auth/pages/LoginPage.tsx
+msgid "Sign in to SkillCert"
+msgstr "Connexion à SkillCert"
+
+#: src/features/auth/components/Form/SubmitButton.tsx
+msgid "Signing in…"
+msgstr "Connexion…"
+
+#: src/features/auth/pages/LoginContainer.tsx
+msgid "We couldn't sign you in. Please try again."
+msgstr "Nous n'avons pas pu vous connecter. Veuillez réessayer."

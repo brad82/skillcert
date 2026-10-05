@@ -1,0 +1,21 @@
+# French strings are machine-assisted drafts; review before release.
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2026-10-04 20:44-0600\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: fr\n"
+
+#: src/app/shell/AppErrorScreen.tsx
+msgid "Reload"
+msgstr "Recharger"
+
+#: src/app/shell/AppHeader.tsx
+msgid "Sign out"
+msgstr "Se déconnecter"
+
+#: src/app/shell/AppErrorScreen.tsx
+msgid "Something went wrong loading SkillCert."
+msgstr "Une erreur s'est produite lors du chargement de SkillCert."

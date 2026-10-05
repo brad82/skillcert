@@ -12,8 +12,9 @@ export class ApiError extends Error {
 }
 
 /**
- * Fetch wrapper used by every Orval-generated call. The SPA and API share an origin
+ * Fetch wrapper behind every Orval-generated call. The SPA and API share an origin
  * (Vite proxy locally, Caddy on the demo), so the auth cookie is sent automatically.
+ * Knows nothing about error copy: containers map ApiError to user-facing text.
  */
 export async function apiFetch<T>(url: string, init?: RequestInit): Promise<T> {
   const response = await fetch(url, { ...init, credentials: 'same-origin' })
@@ -26,3 +27,6 @@ export async function apiFetch<T>(url: string, init?: RequestInit): Promise<T> {
 
   return body as T
 }
+
+export const isApiError = (error: unknown, ...statuses: number[]): error is ApiError =>
+  error instanceof ApiError && (statuses.length === 0 || statuses.includes(error.status))

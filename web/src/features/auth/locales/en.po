@@ -1,0 +1,48 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2026-10-04 20:44-0600\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: en\n"
+
+#: src/features/auth/components/Form/EmailField.tsx
+msgid "Email"
+msgstr "Email"
+
+#: src/features/auth/components/Form/EmailField.tsx
+msgid "Email is required"
+msgstr "Email is required"
+
+#: src/features/auth/pages/LoginContainer.tsx
+msgid "Email or password is incorrect, or the account is locked or inactive."
+msgstr "Email or password is incorrect, or the account is locked or inactive."
+
+#: src/features/auth/components/Form/EmailField.tsx
+msgid "Enter a valid email address"
+msgstr "Enter a valid email address"
+
+#: src/features/auth/components/Form/PasswordField.tsx
+msgid "Password"
+msgstr "Password"
+
+#: src/features/auth/components/Form/PasswordField.tsx
+msgid "Password is required"
+msgstr "Password is required"
+
+#: src/features/auth/components/Form/SubmitButton.tsx
+msgid "Sign in"
+msgstr "Sign in"
+
+#: src/features/auth/pages/LoginPage.tsx
+msgid "Sign in to SkillCert"
+msgstr "Sign in to SkillCert"
+
+#: src/features/auth/components/Form/SubmitButton.tsx
+msgid "Signing in…"
+msgstr "Signing in…"
+
+#: src/features/auth/pages/LoginContainer.tsx
+msgid "We couldn't sign you in. Please try again."
+msgstr "We couldn't sign you in. Please try again."

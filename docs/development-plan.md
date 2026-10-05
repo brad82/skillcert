@@ -32,11 +32,11 @@ Written: 4 October 2026.
 | Validation | FluentValidation |
 | ORM / DB | EF Core + Npgsql, PostgreSQL |
 | PDF | QuestPDF (Community licence) |
-| Frontend | Vite + React + TypeScript SPA, TanStack Router (file-based, type-safe) + TanStack Query |
-| API client | ASP.NET OpenAPI document → Orval-generated TanStack Query hooks (`npm run gen:api`) |
+| Frontend | Vite + React + TypeScript SPA, TanStack Router (file-based, thin routes) + TanStack Query. Structure and conventions: `docs/web-architecture.md` |
+| API client | ASP.NET OpenAPI document → Orval-generated TanStack Query hooks, one file per feature by API tag, plus Zod schemas (`npm run gen`) |
 | UI/UX design | Claude Design design system → MUI theme + components synced via `/design-sync` |
-| UI kit | MUI core + MUI X free (DataGrid, RichTreeView); dnd-kit for tree reordering; react-hook-form + zod for forms; `react-signature-canvas` for signatures |
-| Tests | xUnit (domain); xUnit + Testcontainers (integration); Playwright smoke test per phase demo |
+| UI kit | MUI core + MUI X free (DataGrid, RichTreeView); dnd-kit for tree reordering; controlled inputs + `model/` hooks + generated Zod for forms (no form library); lucide-react icons; Lingui i18n (English + French); `react-signature-canvas` for signatures |
+| Tests | xUnit (domain); xUnit + Testcontainers (integration); Vitest + Testing Library page test per web feature; Playwright smoke test per phase demo |
 
 ### 1.2 Project layout
 ```
@@ -47,7 +47,7 @@ src/
   SkillCert.Infrastructure/   DbContext, migrations, S3 blob store, QuestPDF renderer, audit interceptor
   SkillCert.Api/              Features/<Feature>/ slices, authorization policies, nightly hosted job
   SkillCert.Migrator/         EF Core migration bundle (efbundle) image
-web/                          Vite SPA; src/routes/ mirrors candidate, approvals, admin, opportunities
+web/                          Vite SPA; src/app (shell, routes), src/features/<name>, src/shared (see docs/web-architecture.md)
 tests/
   SkillCert.Domain.Tests/
   SkillCert.Api.Tests/        Testcontainers Postgres
@@ -64,7 +64,7 @@ Cross-cutting rules:
 
 ### 1.3 UI/UX workflow: Claude Design
 - A **SkillCert design-system project** in Claude Design is the source of truth for tokens (color, type, spacing, radius) and core components.
-- `web/src/theme.ts` (the MUI theme) is generated from those tokens.
+- `web/src/shared/lib/theme.ts` (`makeTheme(mode)`, light + dark) is generated from those tokens.
 - Shared components are kept in sync with the project via `/design-sync`, one component at a time:
   - status chip
   - competency tree row

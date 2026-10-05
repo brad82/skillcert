@@ -11,7 +11,9 @@ efbundle
 # Node
 node_modules/
 web/dist/
-web/src/api/generated/
+# Generated from the OpenAPI spec / route files; recreated by `npm run gen`
+web/src/**/*.gen.ts
+web/src/shared/api/model/
 playwright-report/
 test-results/
 

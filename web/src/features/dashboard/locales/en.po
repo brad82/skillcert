@@ -1,0 +1,28 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2026-10-04 20:44-0600\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: en\n"
+
+#: src/features/dashboard/components/IdentityCard.tsx
+msgid "Administrator"
+msgstr "Administrator"
+
+#: src/features/dashboard/components/IdentityCard.tsx
+msgid "Candidate"
+msgstr "Candidate"
+
+#: src/features/dashboard/components/IdentityCard.tsx
+msgid "Instructor"
+msgstr "Instructor"
+
+#: src/features/dashboard/components/IdentityCard.tsx
+msgid "Signed in as"
+msgstr "Signed in as"
+
+#: src/features/dashboard/components/IdentityCard.tsx
+msgid "Supervisor"
+msgstr "Supervisor"
