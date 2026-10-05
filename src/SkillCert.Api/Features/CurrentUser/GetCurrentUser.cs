@@ -5,20 +5,25 @@ using SkillCert.Infrastructure.Persistence;
 
 namespace SkillCert.Api.Features.CurrentUser;
 
-public static class CurrentUserEndpoints
+/// <param name="Capabilities">Additive capabilities (spec §18): "Administrator" plus held reviewer classification codes.</param>
+public sealed record CurrentUserResponse(Guid Id, string DisplayName, string Email, IReadOnlyList<string> Capabilities);
+
+/// <summary>
+/// GET /api/me — the signed-in user and their capabilities. 403 when the login account has no active
+/// domain user (deactivated, or never provisioned).
+/// </summary>
+public static class GetCurrentUserEndpoint
 {
     public const string AdministratorCapability = "Administrator";
 
-    /// <param name="Capabilities">Additive capabilities (spec §18): "Administrator" plus held reviewer classification codes.</param>
-    public sealed record MeResponse(Guid Id, string DisplayName, string Email, IReadOnlyList<string> Capabilities);
+    public static RouteHandlerBuilder Map(RouteGroupBuilder group) =>
+        group.MapGet("/me", HandleAsync)
+            .WithName("GetCurrentUser")
+            .Produces(StatusCodes.Status401Unauthorized)
+            .Produces(StatusCodes.Status403Forbidden)
+            .RequireAuthorization();
 
-    public static IEndpointRouteBuilder MapMeEndpoints(this IEndpointRouteBuilder app)
-    {
-        app.MapGet("/api/me", GetMeAsync).WithName("GetCurrentUser").WithTags("CurrentUser").RequireAuthorization();
-        return app;
-    }
-
-    private static async Task<Results<Ok<MeResponse>, ForbidHttpResult>> GetMeAsync(
+    internal static async Task<Results<Ok<CurrentUserResponse>, ForbidHttpResult>> HandleAsync(
         ClaimsPrincipal principal, SkillCertDbContext db, CancellationToken cancellationToken)
     {
         var subjectId = principal.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -41,7 +46,6 @@ public static class CurrentUserEndpoints
 
         if (me is null)
         {
-            // Signed in, but no active domain user: deactivated, or never provisioned.
             return TypedResults.Forbid();
         }
 
@@ -49,6 +53,6 @@ public static class CurrentUserEndpoints
             ? [AdministratorCapability, .. me.Classifications]
             : me.Classifications;
 
-        return TypedResults.Ok(new MeResponse(me.Id, me.DisplayName, me.Email, capabilities));
+        return TypedResults.Ok(new CurrentUserResponse(me.Id, me.DisplayName, me.Email, capabilities));
     }
 }

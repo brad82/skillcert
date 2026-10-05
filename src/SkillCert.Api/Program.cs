@@ -1,3 +1,4 @@
+using FluentValidation;
 using Microsoft.AspNetCore.Identity;
 using SkillCert.Api.Features.Auth;
 using SkillCert.Api.Features.CurrentUser;
@@ -39,6 +40,8 @@ builder.Services.ConfigureApplicationCookie(options =>
     };
 });
 builder.Services.AddAuthorization();
+builder.Services.AddValidatorsFromAssemblyContaining<Program>();
+builder.Services.AddSingleton(TimeProvider.System);
 builder.Services.AddOpenApi();
 
 var app = builder.Build();
@@ -52,8 +55,8 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapDefaultEndpoints();
-app.MapAuthEndpoints();
-app.MapMeEndpoints();
+app.MapAuthFeature();
+app.MapCurrentUserFeature();
 
 app.Run();
 

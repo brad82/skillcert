@@ -14,3 +14,8 @@ indent_size = 2
 # EF Core migrations are generated; keep analyzers off them.
 [**/Persistence/Migrations/*.cs]
 generated_code = true
+
+# Tests: underscored sentence names read as specs, and xUnit fixtures are named *Collection.
+[tests/**.cs]
+dotnet_diagnostic.CA1707.severity = none
+dotnet_diagnostic.CA1711.severity = none
