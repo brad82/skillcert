@@ -6,3 +6,236 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: fr\n"
+
+#: src/features/admin-import/components/UploadStep.tsx
+msgid ".csv, up to 1 MB. The file is checked straight away and nothing is imported until you confirm."
+msgstr ".csv, jusqu'à 1 Mo. Le fichier est vérifié immédiatement et rien n'est importé avant votre confirmation."
+
+#: src/features/admin-import/components/UploadStep.tsx
+msgid "(optional)"
+msgstr "(facultatif)"
+
+#. placeholder {0}: result.created
+#: src/features/admin-import/components/DoneStep.tsx
+msgid "{0, plural, one {Created # competency at revision 1:} other {Created # competencies at revision 1:}}"
+msgstr "{0, plural, one {# compétence créée en révision 1 :} other {# compétences créées en révision 1 :}}"
+
+#. placeholder {0}: counts.errors
+#: src/features/admin-import/components/PreviewStep.tsx
+msgid "{0, plural, one {Fix # error in your file, then go back and upload it again.} other {Fix # errors in your file, then go back and upload it again.}}"
+msgstr "{0, plural, one {Corrigez # erreur dans votre fichier, puis revenez le téléverser.} other {Corrigez # erreurs dans votre fichier, puis revenez le téléverser.}}"
+
+#. placeholder {0}: counts.rows
+#: src/features/admin-import/components/PreviewStep.tsx
+msgid "{0, plural, one {Import # competency} other {Import # competencies}}"
+msgstr "{0, plural, one {Importer # compétence} other {Importer # compétences}}"
+
+#. placeholder {0}: counts.rows
+#. placeholder {1}: counts.ready
+#. placeholder {2}: counts.errors
+#. placeholder {3}: counts.warnings
+#: src/features/admin-import/components/PreviewStep.tsx
+msgid "{0} rows checked · {1} ready · {2} with errors · {3} with warnings"
+msgstr "{0} lignes vérifiées · {1} prêtes · {2} avec erreurs · {3} avec avertissements"
+
+#: src/features/admin-import/components/UploadStep.tsx
+msgid "Add them to a list"
+msgstr "Les ajouter à une liste"
+
+#. placeholder {0}: counts.rows
+#: src/features/admin-import/components/PreviewStep.tsx
+msgid "All {0}"
+msgstr "Toutes {0}"
+
+#: src/features/admin-import/components/PreviewStep.tsx
+msgid "Back to upload"
+msgstr "Retour au téléversement"
+
+#: src/features/admin-import/components/PreviewStep.tsx
+msgid "Checks"
+msgstr "Vérifications"
+
+#: src/features/admin-import/components/UploadStep.tsx
+msgid "Choose a .csv file."
+msgstr "Choisissez un fichier .csv."
+
+#: src/features/admin-import/components/UploadStep.tsx
+msgid "Choose a CSV file"
+msgstr "Choisissez un fichier CSV"
+
+#: src/features/admin-import/components/UploadStep.tsx
+msgid "Choose file"
+msgstr "Choisir un fichier"
+
+#: src/features/admin-import/components/PreviewStep.tsx
+msgid "Code"
+msgstr "Code"
+
+#: src/features/admin-import/components/UploadStep.tsx
+msgid "Don't add to a list"
+msgstr "Ne pas ajouter à une liste"
+
+#: src/features/admin-import/components/UploadStep.tsx
+msgid "Download a template"
+msgstr "Télécharger un modèle"
+
+#: src/features/admin-import/components/UploadStep.tsx
+msgid "Drop your file here"
+msgstr "Déposez votre fichier ici"
+
+#: src/features/admin-import/pages/ImportPage.tsx
+msgid "Each row becomes a new competency at revision 1. All rows import together, or none do."
+msgstr "Chaque ligne devient une nouvelle compétence en révision 1. Toutes les lignes sont importées ensemble, ou aucune."
+
+#: src/features/admin-import/components/PreviewStep.tsx
+msgid "Error:"
+msgstr "Erreur :"
+
+#. placeholder {0}: counts.errors
+#: src/features/admin-import/components/PreviewStep.tsx
+msgid "Errors {0}"
+msgstr "Erreurs {0}"
+
+#: src/features/admin-import/components/UploadStep.tsx
+msgid "Example"
+msgstr "Exemple"
+
+#: src/features/admin-import/components/UploadStep.tsx
+msgid "File format"
+msgstr "Format du fichier"
+
+#: src/features/admin-import/components/ImportSteps.tsx
+msgid "Import"
+msgstr "Importer"
+
+#: src/features/admin-import/components/DoneStep.tsx
+msgid "Import another file"
+msgstr "Importer un autre fichier"
+
+#: src/features/admin-import/pages/ImportPage.tsx
+msgid "Import competencies from CSV"
+msgstr "Importer des compétences depuis un CSV"
+
+#: src/features/admin-import/components/PreviewStep.tsx
+msgid "Import is available once every error is fixed."
+msgstr "L'import est possible une fois toutes les erreurs corrigées."
+
+#: src/features/admin-import/components/UploadStep.tsx
+msgid "Leave RecertificationDays empty if the skill never expires."
+msgstr "Laissez RecertificationDays vide si la compétence n'expire jamais."
+
+#: src/features/admin-import/components/PreviewStep.tsx
+msgid "Line"
+msgstr "Ligne"
+
+#: src/features/admin-import/components/UploadStep.tsx
+msgid "List"
+msgstr "Liste"
+
+#: src/features/admin-import/components/PreviewStep.tsx
+msgid "Never expires"
+msgstr "N'expire jamais"
+
+#: src/features/admin-import/components/PreviewStep.tsx
+msgid "Nothing has been created. Warnings don't block the import."
+msgstr "Rien n'a été créé. Les avertissements ne bloquent pas l'import."
+
+#: src/features/admin-import/components/UploadStep.tsx
+msgid "Only Code and Title are required. Columns can be in any order."
+msgstr "Seuls Code et Title sont obligatoires. Les colonnes peuvent être dans n'importe quel ordre."
+
+#. placeholder {0}: target.title
+#: src/features/admin-import/components/DoneStep.tsx
+msgid "Open {0}"
+msgstr "Ouvrir {0}"
+
+#: src/features/admin-import/components/ImportSteps.tsx
+#: src/features/admin-import/components/PreviewStep.tsx
+msgid "Preview"
+msgstr "Aperçu"
+
+#: src/features/admin-import/components/PreviewStep.tsx
+msgid "Ready"
+msgstr "Prête"
+
+#: src/features/admin-import/components/PreviewStep.tsx
+msgid "Recertification (days)"
+msgstr "Recertification (jours)"
+
+#: src/features/admin-import/components/PreviewStep.tsx
+msgid "Resources"
+msgstr "Ressources"
+
+#: src/features/admin-import/components/UploadStep.tsx
+msgid "Resources: Title|URL|Type, separated by ;. Type is WebPage (the default), Video or Document."
+msgstr "Ressources : Title|URL|Type, séparées par ;. Type vaut WebPage (par défaut), Video ou Document."
+
+#: src/features/admin-import/components/UploadStep.tsx
+msgid "Review columns (SelfReview, PeerReview, InstructorReview, SupervisorReview) take Y or blank. The lowest Y counts; higher levels are implied."
+msgstr "Les colonnes d'évaluation (SelfReview, PeerReview, InstructorReview, SupervisorReview) prennent Y ou vide. Le Y le plus bas compte ; les niveaux supérieurs sont implicites."
+
+#: src/features/admin-import/components/PreviewStep.tsx
+msgid "Rows"
+msgstr "Lignes"
+
+#: src/features/admin-import/components/DoneStep.tsx
+msgid "See all competencies"
+msgstr "Voir toutes les compétences"
+
+#: src/features/admin-import/components/PreviewStep.tsx
+msgid "Show rows"
+msgstr "Afficher les lignes"
+
+#: src/features/admin-import/pages/ImportContainer.tsx
+msgid "Someone created one of these codes while you were previewing. Go back and upload the file again."
+msgstr "Quelqu'un a créé l'un de ces codes pendant votre aperçu. Revenez et téléversez le fichier de nouveau."
+
+#: src/features/admin-import/components/UploadStep.tsx
+msgid "That file is over 1 MB. Split it into smaller files."
+msgstr "Ce fichier dépasse 1 Mo. Divisez-le en fichiers plus petits."
+
+#: src/features/admin-import/pages/ImportContainer.tsx
+msgid "The competencies were created, but couldn't be added to the list. Add them from the list editor."
+msgstr "Les compétences ont été créées, mais n'ont pas pu être ajoutées à la liste. Ajoutez-les depuis l'éditeur de liste."
+
+#: src/features/admin-import/pages/ImportContainer.tsx
+msgid "The file couldn't be checked. Please try again."
+msgstr "Le fichier n'a pas pu être vérifié. Veuillez réessayer."
+
+#: src/features/admin-import/pages/ImportContainer.tsx
+msgid "The import failed and nothing was created. Please try again."
+msgstr "L'import a échoué et rien n'a été créé. Veuillez réessayer."
+
+#. placeholder {0}: target.title
+#: src/features/admin-import/components/DoneStep.tsx
+msgid "They were added to {0}."
+msgstr "Elles ont été ajoutées à {0}."
+
+#: src/features/admin-import/components/PreviewStep.tsx
+msgid "Title"
+msgstr "Titre"
+
+#: src/features/admin-import/components/UploadStep.tsx
+msgid "Top level of the list"
+msgstr "Premier niveau de la liste"
+
+#: src/features/admin-import/components/UploadStep.tsx
+msgid "Under heading"
+msgstr "Sous le titre"
+
+#: src/features/admin-import/components/ImportSteps.tsx
+msgid "Upload"
+msgstr "Téléverser"
+
+#: src/features/admin-import/components/PreviewStep.tsx
+msgid "Warning:"
+msgstr "Avertissement :"
+
+#. placeholder {0}: counts.warnings
+#: src/features/admin-import/components/PreviewStep.tsx
+msgid "Warnings {0}"
+msgstr "Avertissements {0}"
+
+#: src/features/admin-import/components/PreviewStep.tsx
+msgid "Who can sign"
+msgstr "Qui peut signer"

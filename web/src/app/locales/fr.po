@@ -25,12 +25,10 @@ msgstr "Administration"
 msgid "Administrator"
 msgstr "Administrateur"
 
-#: src/app/routes/_authenticated/admin/competencies/index.tsx
 #: src/app/shell/admin/AdminNav.tsx
 msgid "All competencies"
 msgstr "Toutes les compétences"
 
-#: src/app/routes/_authenticated/admin/audit.tsx
 #: src/app/shell/admin/AdminNav.tsx
 msgid "Audit log"
 msgstr "Journal d'audit"
@@ -47,7 +45,6 @@ msgstr "Candidat"
 msgid "Competency lists"
 msgstr "Listes de compétences"
 
-#: src/app/routes/_authenticated/admin/import.tsx
 #: src/app/shell/admin/AdminNav.tsx
 msgid "CSV import"
 msgstr "Import CSV"

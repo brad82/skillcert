@@ -265,5 +265,10 @@ export rules are off for `app/routes/**` and `*Provider.tsx`, because route file
   (`components/Form/*`), page test (`pages/LoginPage.test.tsx`)
 - `web/src/features/current-user/` — read-only app-state provider pattern
 - `web/src/app/{providers.tsx,router.ts,shell/AppShell.tsx,routes/}`
+- `web/src/app/shell/admin/` — the admin area's own chrome (MUI responsive drawer); `routes/_authenticated/admin.tsx`
+  gates it to administrators and sets `staticData.fullScreen` so the candidate shell steps aside
+- `web/src/shared/components/RouterLinks.tsx` — MUI `Link` / `Button` / `ListItemButton` made router links with
+  typed `to` (`createLink`); `ConfirmDialog.tsx` — the admin's ask-first dialog for destructive changes
+- `web/src/test/TestRouter.tsx` — wrap a page test in it when its components render router links
 - `web/src/shared/{api/client.ts,i18n/runtime.ts,lib/palette.ts}`
 - `web/orval.config.ts`, `web/lingui.config.ts`, `web/vite.config.ts`

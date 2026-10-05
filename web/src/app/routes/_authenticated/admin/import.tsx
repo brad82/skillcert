@@ -1,7 +1,8 @@
-import { Trans } from '@lingui/react/macro'
 import { createFileRoute } from '@tanstack/react-router'
-import { ComingSoonPage } from '../../../shell/ComingSoonPage'
+import { listsQueryOptions } from '@features/admin-lists'
+import { ImportContainer } from '@features/admin-import'
 
 export const Route = createFileRoute('/_authenticated/admin/import')({
-  component: () => <ComingSoonPage title={<Trans>CSV import</Trans>} />,
+  loader: ({ context }) => context.queryClient.ensureQueryData(listsQueryOptions()),
+  component: ImportContainer,
 })

@@ -25,6 +25,14 @@ msgstr "{changeCount, plural, one {# unsaved change. You'll review it before any
 msgid "{code} is shared by {0} lists: {lists}. Saving changes it in all of them."
 msgstr "{code} is shared by {0} lists: {lists}. Saving changes it in all of them."
 
+#: src/features/admin-competencies/components/Recertification.tsx
+msgid "{days, plural, one {Every day} other {Every # days}}"
+msgstr "{days, plural, one {Every day} other {Every # days}}"
+
+#: src/features/admin-competencies/components/Recertification.tsx
+msgid "{years, plural, one {Every year} other {Every # years}}"
+msgstr "{years, plural, one {Every year} other {Every # years}}"
+
 #. placeholder {0}: otherLists.map((l) => l.title).join(', ')
 #: src/features/admin-competencies/components/CompetencyHeader.tsx
 msgid "<0>Shared by {listCount} lists:</0> {0}. Changes apply to all of them."
@@ -34,6 +42,7 @@ msgstr "<0>Shared by {listCount} lists:</0> {0}. Changes apply to all of them."
 msgid "1 to 36500. Leave empty if the skill never expires."
 msgstr "1 to 36500. Leave empty if the skill never expires."
 
+#: src/features/admin-competencies/components/CompetenciesTable.tsx
 #: src/features/admin-competencies/components/CompetencyHeader.tsx
 msgid "Active"
 msgstr "Active"
@@ -46,7 +55,9 @@ msgstr "Add link"
 msgid "All candidates will be required to demonstrate competency immediately. Use this for time-sensitive or critical policy updates."
 msgstr "All candidates will be required to demonstrate competency immediately. Use this for time-sensitive or critical policy updates."
 
+#: src/features/admin-competencies/components/CompetenciesTable.tsx
 #: src/features/admin-competencies/components/CompetencyHeader.tsx
+#: src/features/admin-competencies/pages/CompetenciesPage.tsx
 msgid "All competencies"
 msgstr "All competencies"
 
@@ -73,6 +84,10 @@ msgstr "Changing anything here always publishes a new revision, because it chang
 #: src/features/admin-competencies/components/ReviewDialog.tsx
 msgid "Check these are the changes you meant to make."
 msgstr "Check these are the changes you meant to make."
+
+#: src/features/admin-competencies/components/CompetenciesTable.tsx
+msgid "Code"
+msgstr "Code"
 
 #: src/features/admin-competencies/components/CompetencyHeader.tsx
 msgid "Competency lists"
@@ -124,6 +139,10 @@ msgstr "Enter a title."
 msgid "Every candidate's sign-off on {code} stops counting the moment you publish."
 msgstr "Every candidate's sign-off on {code} stops counting the moment you publish."
 
+#: src/features/admin-competencies/pages/CompetenciesPage.tsx
+msgid "Every competency across all lists, in code order. To edit a skill, it's usually quicker to start from its <0>list</0>."
+msgstr "Every competency across all lists, in code order. To edit a skill, it's usually quicker to start from its <0>list</0>."
+
 #: src/features/admin-competencies/components/DeactivateDialog.tsx
 msgid "Every sign-off and review already made."
 msgstr "Every sign-off and review already made."
@@ -148,7 +167,17 @@ msgstr "How should this be saved?"
 msgid "I understand everyone signed off on {code} will need to be reassessed."
 msgstr "I understand everyone signed off on {code} will need to be reassessed."
 
+#: src/features/admin-competencies/pages/CompetenciesPage.tsx
+msgid "Import from CSV"
+msgstr "Import from CSV"
+
+#: src/features/admin-competencies/components/CompetenciesTable.tsx
+msgid "In lists"
+msgstr "In lists"
+
+#: src/features/admin-competencies/components/CompetenciesTable.tsx
 #: src/features/admin-competencies/components/CompetencyHeader.tsx
+#: src/features/admin-competencies/pages/CompetenciesPage.tsx
 msgid "Inactive"
 msgstr "Inactive"
 
@@ -186,6 +215,14 @@ msgstr "Link {n} title"
 msgid "Links"
 msgstr "Links"
 
+#: src/features/admin-competencies/components/Recertification.tsx
+msgid "Never expires"
+msgstr "Never expires"
+
+#: src/features/admin-competencies/components/CompetenciesTable.tsx
+msgid "No competencies match."
+msgstr "No competencies match."
+
 #: src/features/admin-competencies/components/EditorFooter.tsx
 msgid "No unsaved changes."
 msgstr "No unsaved changes."
@@ -197,6 +234,11 @@ msgstr "Nobody can be signed off on {code}."
 #: src/features/admin-competencies/components/ReviewDialog.tsx
 msgid "Not available: recertification and signing authority can only change in a new revision."
 msgstr "Not available: recertification and signing authority can only change in a new revision."
+
+#: src/features/admin-competencies/components/CompetenciesTable.tsx
+#: src/features/admin-competencies/pages/CompetenciesPage.tsx
+msgid "Not in any list"
+msgstr "Not in any list"
 
 #: src/features/admin-competencies/components/RevisionHistory.tsx
 msgid "Not in any list."
@@ -244,6 +286,10 @@ msgstr "Reactivate"
 msgid "Reactivated {0}."
 msgstr "Reactivated {0}."
 
+#: src/features/admin-competencies/components/CompetenciesTable.tsx
+msgid "Recertification"
+msgstr "Recertification"
+
 #: src/features/admin-competencies/pages/CompetencyEditorContainer.tsx
 msgid "Recertification and signing authority can only change in a new revision."
 msgstr "Recertification and signing authority can only change in a new revision."
@@ -289,6 +335,10 @@ msgstr "Review at their next recertification"
 msgid "Review changes to {code} {0}"
 msgstr "Review changes to {code} {0}"
 
+#: src/features/admin-competencies/components/CompetenciesTable.tsx
+msgid "Revision"
+msgstr "Revision"
+
 #. placeholder {0}: r.number
 #: src/features/admin-competencies/components/RevisionHistory.tsx
 msgid "Revision {0}"
@@ -322,10 +372,27 @@ msgstr "Save edit"
 msgid "Saved to revision {0}."
 msgstr "Saved to revision {0}."
 
+#: src/features/admin-competencies/pages/CompetenciesPage.tsx
+msgid "Search by code or title"
+msgstr "Search by code or title"
+
+#: src/features/admin-competencies/pages/CompetenciesPage.tsx
+msgid "Shared by 2 or more lists"
+msgstr "Shared by 2 or more lists"
+
 #: src/features/admin-competencies/components/DetailsTab.tsx
 #: src/features/admin-competencies/model/changeLabels.ts
 msgid "Short title"
 msgstr "Short title"
+
+#. placeholder {0}: c.shortTitle
+#: src/features/admin-competencies/components/CompetenciesTable.tsx
+msgid "Short: {0}"
+msgstr "Short: {0}"
+
+#: src/features/admin-competencies/pages/CompetenciesPage.tsx
+msgid "Show"
+msgstr "Show"
 
 #: src/features/admin-competencies/model/changeLabels.ts
 msgid "Signing authority"
@@ -338,6 +405,10 @@ msgstr "Signing authority: lowest level that can sign"
 #: src/features/admin-competencies/pages/CompetencyEditorContainer.tsx
 msgid "Some fields aren't valid. Check each tab and try again."
 msgstr "Some fields aren't valid. Check each tab and try again."
+
+#: src/features/admin-competencies/components/CompetenciesTable.tsx
+msgid "Status"
+msgstr "Status"
 
 #: src/features/admin-competencies/pages/CompetencyEditorContainer.tsx
 msgid "The change couldn't be saved. Please try again."
@@ -359,6 +430,7 @@ msgstr "They all show Not certified until signed off again."
 msgid "This applies on every list that uses {code}: {lists}."
 msgstr "This applies on every list that uses {code}: {lists}."
 
+#: src/features/admin-competencies/components/CompetenciesTable.tsx
 #: src/features/admin-competencies/components/DetailsTab.tsx
 #: src/features/admin-competencies/model/changeLabels.ts
 msgid "Title"
@@ -396,6 +468,10 @@ msgstr "Videos and documents"
 #: src/features/admin-competencies/components/ReviewDialog.tsx
 msgid "What happens to people already signed off?"
 msgstr "What happens to people already signed off?"
+
+#: src/features/admin-competencies/components/CompetenciesTable.tsx
+msgid "Who can sign"
+msgstr "Who can sign"
 
 #: src/features/admin-competencies/components/ReviewDialog.tsx
 msgid "You are creating a new revision of this skill."

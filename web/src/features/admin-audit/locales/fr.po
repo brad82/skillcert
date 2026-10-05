@@ -6,3 +6,173 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: fr\n"
+
+#: src/features/admin-audit/model/actionLabels.ts
+msgid "Added a heading"
+msgstr "Titre ajouté"
+
+#: src/features/admin-audit/model/actionLabels.ts
+msgid "Added competencies"
+msgstr "Compétences ajoutées"
+
+#: src/features/admin-audit/components/AuditTable.tsx
+msgid "After"
+msgstr "Après"
+
+#: src/features/admin-audit/components/AuditFiltersBar.tsx
+msgid "All types"
+msgstr "Tous les types"
+
+#: src/features/admin-audit/components/AuditFiltersBar.tsx
+msgid "Anyone"
+msgstr "N'importe qui"
+
+#: src/features/admin-audit/model/actionLabels.ts
+msgid "Assigned a classification"
+msgstr "Classification attribuée"
+
+#: src/features/admin-audit/components/AuditTable.tsx
+#: src/features/admin-audit/pages/AuditPage.tsx
+msgid "Audit log"
+msgstr "Journal d'audit"
+
+#: src/features/admin-audit/components/AuditTable.tsx
+msgid "Before"
+msgstr "Avant"
+
+#: src/features/admin-audit/components/AuditTable.tsx
+msgid "Changes"
+msgstr "Modifications"
+
+#: src/features/admin-audit/components/AuditFiltersBar.tsx
+msgid "Clear filters"
+msgstr "Effacer les filtres"
+
+#: src/features/admin-audit/model/actionLabels.ts
+msgid "Competency"
+msgstr "Compétence"
+
+#: src/features/admin-audit/model/actionLabels.ts
+msgid "Competency list"
+msgstr "Liste de compétences"
+
+#: src/features/admin-audit/model/actionLabels.ts
+msgid "Created a competency"
+msgstr "Compétence créée"
+
+#: src/features/admin-audit/model/actionLabels.ts
+msgid "Created a list"
+msgstr "Liste créée"
+
+#: src/features/admin-audit/model/actionLabels.ts
+msgid "Deactivated a competency"
+msgstr "Compétence désactivée"
+
+#: src/features/admin-audit/model/actionLabels.ts
+msgid "Deactivated a user"
+msgstr "Utilisateur désactivé"
+
+#: src/features/admin-audit/model/actionLabels.ts
+msgid "Edited the current revision"
+msgstr "Révision actuelle corrigée"
+
+#: src/features/admin-audit/pages/AuditPage.tsx
+msgid "Every admin change: who, when, what, and the values before and after. Newest first."
+msgstr "Chaque modification d'administration : qui, quand, quoi, et les valeurs avant et après. Les plus récentes d'abord."
+
+#: src/features/admin-audit/components/AuditTable.tsx
+msgid "Field"
+msgstr "Champ"
+
+#: src/features/admin-audit/components/AuditFiltersBar.tsx
+msgid "From"
+msgstr "Du"
+
+#: src/features/admin-audit/components/AuditTable.tsx
+msgid "Hide details"
+msgstr "Masquer les détails"
+
+#: src/features/admin-audit/model/actionLabels.ts
+msgid "Imported from CSV"
+msgstr "Importé depuis un CSV"
+
+#: src/features/admin-audit/components/AuditTable.tsx
+msgid "Item"
+msgstr "Élément"
+
+#: src/features/admin-audit/components/AuditTable.tsx
+msgid "Load older entries"
+msgstr "Charger les entrées plus anciennes"
+
+#: src/features/admin-audit/model/actionLabels.ts
+msgid "Moved an item"
+msgstr "Élément déplacé"
+
+#: src/features/admin-audit/components/AuditTable.tsx
+msgid "No changes match these filters."
+msgstr "Aucune modification ne correspond à ces filtres."
+
+#: src/features/admin-audit/components/AuditFiltersBar.tsx
+msgid "Only one item"
+msgstr "Un seul élément"
+
+#: src/features/admin-audit/components/AuditFiltersBar.tsx
+msgid "Only: {entityLabel}"
+msgstr "Seulement : {entityLabel}"
+
+#: src/features/admin-audit/model/actionLabels.ts
+msgid "Published a new revision"
+msgstr "Nouvelle révision publiée"
+
+#: src/features/admin-audit/model/actionLabels.ts
+msgid "Reactivated a competency"
+msgstr "Compétence réactivée"
+
+#: src/features/admin-audit/model/actionLabels.ts
+msgid "Reactivated a user"
+msgstr "Utilisateur réactivé"
+
+#: src/features/admin-audit/model/actionLabels.ts
+msgid "Removed a classification"
+msgstr "Classification retirée"
+
+#: src/features/admin-audit/model/actionLabels.ts
+msgid "Removed an item"
+msgstr "Élément retiré"
+
+#: src/features/admin-audit/model/actionLabels.ts
+msgid "Renamed a heading"
+msgstr "Titre renommé"
+
+#: src/features/admin-audit/model/actionLabels.ts
+msgid "Renamed a list"
+msgstr "Liste renommée"
+
+#: src/features/admin-audit/components/AuditTable.tsx
+msgid "Show details"
+msgstr "Afficher les détails"
+
+#: src/features/admin-audit/components/AuditFiltersBar.tsx
+msgid "To"
+msgstr "Au"
+
+#: src/features/admin-audit/components/AuditFiltersBar.tsx
+msgid "Type"
+msgstr "Type"
+
+#: src/features/admin-audit/model/actionLabels.ts
+msgid "User"
+msgstr "Utilisateur"
+
+#: src/features/admin-audit/components/AuditTable.tsx
+msgid "What"
+msgstr "Quoi"
+
+#: src/features/admin-audit/components/AuditTable.tsx
+msgid "When"
+msgstr "Quand"
+
+#: src/features/admin-audit/components/AuditFiltersBar.tsx
+#: src/features/admin-audit/components/AuditTable.tsx
+msgid "Who"
+msgstr "Qui"

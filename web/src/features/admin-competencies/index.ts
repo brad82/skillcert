@@ -1,3 +1,4 @@
+export { CompetenciesContainer } from './pages/CompetenciesContainer'
 export { CompetencyEditorContainer } from './pages/CompetencyEditorContainer'
 export { competenciesQueryOptions } from './model/competenciesQuery'
 export { competencyQueryOptions } from './model/competencyQuery'

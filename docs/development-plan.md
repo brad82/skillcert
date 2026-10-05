@@ -191,6 +191,12 @@ Source: `docs/AFA Skills Record - Revised v3.pdf`.
    - **CSV format** (spec §26 encoding): the spec's header plus `ShortTitle` and `Resources`. Method columns take Y or blank, and the lowest marked level counts (decision §2.5). Resources are `Title|URL|Type` separated by `;`. Imported competencies are published as revision 1 immediately.
    - **Editorial edits** may change titles, description and resources only. Recertification and who can sign are policy, so they need a new revision (409 `competency.policy-change`).
    - **Admin gate:** `/api/admin/*` requires `IsAdministrator`. An admin can't deactivate their own account. Audit entries are written in the same transaction as the change.
+   - **Screens (from the wireframes):**
+     - **List-first editing.** Admins reach a competency through its list (Competency lists → list → competency). A competency can sit in many lists, so the editor, tree and review say when it is shared. "All competencies" is a secondary view for unlisted, inactive and freshly imported ones.
+     - **One "Publish changes" button.** The review lists which fields changed (no detail) and recommends an editorial edit for one changed field, a new revision for two or more; a Certification change can only be a new revision. The admin always chooses.
+     - **A new revision asks what happens to existing sign-offs** ("review at next recertification" or "require reassessment now", no default); reassessment needs a final confirmation.
+     - **Destructive actions confirm first** (deactivate a user or competency, remove a classification, remove from a list), naming what stops and what is kept. Reactivating, assigning and adding don't ask.
+     - **Lists are reordered with Move up / Move down / Move to…** (keyboard friendly). Drag and drop can come later.
 
 ## 3. Spec defaults still to finalize
 | Item | Decide in |
@@ -328,8 +334,9 @@ Source: `docs/AFA Skills Record - Revised v3.pdf`.
 ### Phase 4: Admin configuration + audit + CSV import (3 wks)
 **Goal:** administrators manage users, competencies, revisions and lists, and every change is audited.
 
-- [ ] Claude Design screens: admin shell, users, competency editor (edit vs publish), list tree editor, CSV preview, audit viewer. Brief: `docs/admin-api.md`.
-- [ ] Admin UI built from those wireframes (users, competencies, list tree editor, CSV import, audit viewer).
+- [x] Claude Design screens: admin shell, users, competency editor (edit vs publish), list tree editor, CSV preview, audit viewer. Brief: `docs/admin-api.md`. Wireframes: https://claude.ai/artifact/Br53vPE17YVictB8qjjSY9
+- [x] Admin UI built from those wireframes (users, competencies, list tree editor, CSV import, audit viewer). API follow-ups the screens need: `docs/admin-api.md` § Notes from the admin screens.
+- [ ] Playwright smoke test for the admin area (gate, one change per screen).
 - [x] Audit log: actor, timestamp, action, entity type/id, before/after JSON. Written by an interceptor or explicit service for configuration entities only.
 - [x] Users admin (API): list, view, deactivate (no delete). Assign/remove reviewer classifications.
 - [x] Competencies admin (API):

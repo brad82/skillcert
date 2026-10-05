@@ -201,3 +201,31 @@ entry's `at`.
   `list.move-node`, `list.remove-node`
 
 A competency or list detail screen can link to its own history (`?entityId=`).
+
+---
+
+## Notes from the admin screens (for API reconciliation)
+
+The admin web was built from the wireframes against the API as it stands. These are the gaps it works around
+or leaves out; each says what the screen does today.
+
+1. **Shared count on list tree nodes.** The wireframes tag shared competencies "In N lists" in the list tree.
+   `GET /api/admin/lists/{id}` returns each node's `competency` without a list count, so the tree shows no tag
+   yet. Proposal: add `listCount` to `AdminListCompetencyDto`; the tree then shows the tag when it is above 1.
+   (The competency editor and the review already show sharing, from `GET /api/admin/competencies/{id}` `lists[]`.)
+2. **New competency in a list** is two calls from the browser: `POST /api/admin/competencies`, then
+   `POST /api/admin/lists/{id}/competencies`. If the second fails, the competency exists but isn't in the list
+   (the screen says so). An optional `{ listId, parentNodeId }` on create would make it one transaction.
+3. **CSV import into a list** is also two calls: import, then the web app looks up the created codes in
+   `GET /api/admin/competencies` and adds them to the chosen list. Returning the created ids from
+   `POST /api/admin/imports/competencies` (or accepting an optional `{ listId, parentNodeId }`) would remove
+   the lookup and make it one transaction.
+4. **Searching** happens in the browser for users, lists and all competencies (the whole set is loaded once).
+   The `search=` parameters are unused for now; worth switching to if the library grows to thousands.
+5. **Audit date filters** send local midnight of the `from` day and of the day after `to`, as instants, so `to`
+   covers its whole day. The API treats `to` as exclusive, which matches.
+6. **Audit actor filter** lists administrators from `GET /api/admin/users`. A `GET /api/admin/audit/actors`
+   (everyone who appears in the log, including since-demoted admins) would be more accurate.
+7. **Recommendation rule** for "edit or new revision" is client-side (1 field → edit, 2+ → revision,
+   certification → revision only). The API's only rule is `competency.policy-change`, which the screen
+   already respects by not offering an edit.
