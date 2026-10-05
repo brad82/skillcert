@@ -15,7 +15,6 @@ msgstr "Account"
 msgid "Administrator"
 msgstr "Administrator"
 
-#: src/app/routes/_authenticated/basket.tsx
 #: src/app/shell/BottomNav.tsx
 msgid "Basket"
 msgstr "Basket"

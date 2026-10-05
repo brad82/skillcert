@@ -1,0 +1,149 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2026-10-04 23:32-0600\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: en\n"
+
+#: src/features/sign-off/components/SignOffResult.tsx
+msgid "{count, plural, one {# review recorded} other {# reviews recorded}}"
+msgstr "{count, plural, one {# review recorded} other {# reviews recorded}}"
+
+#: src/features/sign-off/components/Handoff.tsx
+msgid "{count, plural, one {# skill} other {# skills}}"
+msgstr "{count, plural, one {# skill} other {# skills}}"
+
+#: src/features/sign-off/components/Handoff.tsx
+msgid "{levelText} or higher"
+msgstr "{levelText} or higher"
+
+#: src/features/sign-off/components/SignStep.tsx
+msgid "{name} ({method}) confirms {competent} Competent, {notCompetent} Not competent for {candidateName}, {today}."
+msgstr "{name} ({method}) confirms {competent} Competent, {notCompetent} Not competent for {candidateName}, {today}."
+
+#: src/features/sign-off/components/Assess.tsx
+msgid "Assess {candidateName}"
+msgstr "Assess {candidateName}"
+
+#: src/features/sign-off/components/Assess.tsx
+#: src/features/sign-off/components/SignStep.tsx
+msgid "Back"
+msgstr "Back"
+
+#: src/features/sign-off/components/EmptySignOff.tsx
+#: src/features/sign-off/components/SignOffResult.tsx
+msgid "Back to basket"
+msgstr "Back to basket"
+
+#: src/features/sign-off/components/Handoff.tsx
+msgid "Cancel"
+msgstr "Cancel"
+
+#: src/features/sign-off/components/SignStep.tsx
+msgid "Clear signature"
+msgstr "Clear signature"
+
+#: src/features/sign-off/components/Assess.tsx
+msgid "Comment (optional)"
+msgstr "Comment (optional)"
+
+#: src/features/sign-off/components/Assess.tsx
+#: src/features/sign-off/components/SignOffResult.tsx
+msgid "Competent"
+msgstr "Competent"
+
+#: src/features/sign-off/components/Assess.tsx
+msgid "Continue to sign"
+msgstr "Continue to sign"
+
+#: src/features/sign-off/components/ReviewerBar.tsx
+msgid "Exit"
+msgstr "Exit"
+
+#: src/features/sign-off/components/FindReviewer.tsx
+msgid "Find your name"
+msgstr "Find your name"
+
+#: src/features/sign-off/components/Handoff.tsx
+msgid "I'm the reviewer"
+msgstr "I'm the reviewer"
+
+#: src/features/sign-off/components/FindReviewer.tsx
+msgid "No registered reviewer matches. Only people who can sign every skill here are listed."
+msgstr "No registered reviewer matches. Only people who can sign every skill here are listed."
+
+#: src/features/sign-off/components/Assess.tsx
+#: src/features/sign-off/components/SignOffResult.tsx
+msgid "Not competent"
+msgstr "Not competent"
+
+#: src/features/sign-off/pages/SignOffContainer.tsx
+msgid "One of these skills is already waiting for confirmation. Remove it and try again."
+msgstr "One of these skills is already waiting for confirmation. Remove it and try again."
+
+#. placeholder {0}: item.code
+#: src/features/sign-off/components/Assess.tsx
+msgid "Outcome for {0}"
+msgstr "Outcome for {0}"
+
+#: src/features/sign-off/components/Handoff.tsx
+msgid "Pass your phone to your reviewer"
+msgstr "Pass your phone to your reviewer"
+
+#: src/features/sign-off/components/SignOffResult.tsx
+msgid "Pending"
+msgstr "Pending"
+
+#: src/features/sign-off/pages/SignOffContainer.tsx
+msgid "Please sign before submitting."
+msgstr "Please sign before submitting."
+
+#: src/features/sign-off/components/ReviewerBar.tsx
+msgid "Reviewer mode"
+msgstr "Reviewer mode"
+
+#: src/features/sign-off/components/FindReviewer.tsx
+msgid "Search reviewers"
+msgstr "Search reviewers"
+
+#: src/features/sign-off/components/SignStep.tsx
+msgid "Sign"
+msgstr "Sign"
+
+#: src/features/sign-off/components/SignaturePadCanvas.tsx
+msgid "Signature pad"
+msgstr "Signature pad"
+
+#: src/features/sign-off/components/SignStep.tsx
+msgid "Submit & hand back"
+msgstr "Submit & hand back"
+
+#: src/features/sign-off/components/SignStep.tsx
+msgid "Submitting…"
+msgstr "Submitting…"
+
+#: src/features/sign-off/pages/SignOffContainer.tsx
+msgid "The sign-off couldn't be recorded. Please try again."
+msgstr "The sign-off couldn't be recorded. Please try again."
+
+#: src/features/sign-off/pages/SignOffContainer.tsx
+msgid "The signature couldn't be read. Clear it and sign again."
+msgstr "The signature couldn't be read. Clear it and sign again."
+
+#: src/features/sign-off/components/EmptySignOff.tsx
+msgid "There's nothing to sign off. Add skills to your basket first."
+msgstr "There's nothing to sign off. Add skills to your basket first."
+
+#: src/features/sign-off/components/SignStep.tsx
+msgid "These sign-offs count once {name} confirms them in SkillCert."
+msgstr "These sign-offs count once {name} confirms them in SkillCert."
+
+#: src/features/sign-off/pages/SignOffContainer.tsx
+msgid "This reviewer can't sign off all of these skills."
+msgstr "This reviewer can't sign off all of these skills."
+
+#: src/features/sign-off/components/SignOffResult.tsx
+msgid "Waiting for {name} to confirm."
+msgstr "Waiting for {name} to confirm."

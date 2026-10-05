@@ -6,3 +6,40 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: en\n"
+
+#: src/features/basket/components/GroupCard.tsx
+msgid "{count, plural, one {Sign off this one} other {Sign off these #}}"
+msgstr "{count, plural, one {Sign off this one} other {Sign off these #}}"
+
+#: src/features/basket/components/GroupCard.tsx
+msgid "{level} or higher"
+msgstr "{level} or higher"
+
+#: src/features/basket/components/MergeSuggestion.tsx
+msgid "Any {level} could sign all {count} at once."
+msgstr "Any {level} could sign all {count} at once."
+
+#: src/features/basket/components/BasketHeader.tsx
+msgid "Basket ({count})"
+msgstr "Basket ({count})"
+
+#: src/features/basket/components/BasketHeader.tsx
+msgid "Clear"
+msgstr "Clear"
+
+#: src/features/basket/components/EmptyBasket.tsx
+msgid "Go to skills"
+msgstr "Go to skills"
+
+#: src/features/basket/components/MergeSuggestion.tsx
+msgid "Merge"
+msgstr "Merge"
+
+#. placeholder {0}: item.code
+#: src/features/basket/components/GroupCard.tsx
+msgid "Remove {0}"
+msgstr "Remove {0}"
+
+#: src/features/basket/components/EmptyBasket.tsx
+msgid "Your basket is empty. Tick skills in the Skills tab to sign them off together."
+msgstr "Your basket is empty. Tick skills in the Skills tab to sign them off together."

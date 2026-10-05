@@ -66,4 +66,34 @@ public sealed class ReviewHierarchyTests
 
         Assert.Equal(ConfirmationStatus.Pending, review.ConfirmationStatus);
     }
+
+    private static CompetencyRevision Revision(bool self = false, bool peer = false, params Guid[] classifications) =>
+        Competency.Create($"x{Guid.NewGuid():N}"[..8], ReviewHierarchy.CloseUpward(Content.Revision(self: self, peer: peer, classifications: classifications), All), People.Joined, null)
+            .CurrentRevision;
+
+    [Fact]
+    public void A_reviewer_signs_at_the_lowest_level_they_hold_that_every_skill_permits()
+    {
+        var candidate = People.Candidate();
+        var both = People.Holding(People.Instructor, "Ines and Sam");
+        both.AssignClassification(People.Supervisor.Id, People.Joined);
+        var instructorSkill = Revision(classifications: People.Instructor.Id);
+        var supervisorSkill = Revision(classifications: People.Supervisor.Id);
+
+        Assert.Equal("Instructor", ReviewHierarchy.ReviewerFor(both, candidate.Id, [instructorSkill], All)!.Classification!.Code);
+        Assert.Equal("Supervisor", ReviewHierarchy.ReviewerFor(both, candidate.Id, [instructorSkill, supervisorSkill], All)!.Classification!.Code);
+        Assert.Null(ReviewHierarchy.ReviewerFor(People.Holding(People.Instructor, "Ines"), candidate.Id, [instructorSkill, supervisorSkill], All));
+    }
+
+    [Fact]
+    public void Anyone_else_signs_peer_skills_as_a_peer_and_the_candidate_signs_self_skills()
+    {
+        var candidate = People.Candidate();
+        var supervisor = People.Holding(People.Supervisor, "Sam");
+
+        Assert.Equal(ReviewMethod.Peer, ReviewHierarchy.ReviewerFor(supervisor, candidate.Id, [Revision(peer: true)], All)!.Method);
+        Assert.Equal(ReviewMethod.Self, ReviewHierarchy.ReviewerFor(candidate, candidate.Id, [Revision(self: true)], All)!.Method);
+        Assert.Null(ReviewHierarchy.ReviewerFor(candidate, candidate.Id, [Revision(peer: true)], All));
+        Assert.Null(ReviewHierarchy.ReviewerFor(People.Candidate("Pat"), candidate.Id, [Revision(classifications: People.Instructor.Id)], All));
+    }
 }

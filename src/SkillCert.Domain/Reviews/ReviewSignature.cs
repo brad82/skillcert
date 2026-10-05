@@ -29,6 +29,9 @@ public sealed class ReviewSignature
 
     public DateTimeOffset CreatedAt { get; private set; }
 
+    public static ReviewSignature FromDrawing(SignatureDrawing drawing, DateTimeOffset createdAt) =>
+        FromServerRenderedSvg(drawing.ToSvg(), createdAt);
+
     public static ReviewSignature FromServerRenderedSvg(string svg, DateTimeOffset createdAt) =>
         new(svg, SvgContentType, createdAt);
 }

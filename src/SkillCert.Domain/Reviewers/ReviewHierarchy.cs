@@ -1,5 +1,6 @@
 using SkillCert.Domain.Competencies;
 using SkillCert.Domain.Reviews;
+using SkillCert.Domain.Users;
 
 namespace SkillCert.Domain.Reviewers;
 
@@ -46,6 +47,40 @@ public static class ReviewHierarchy
 
         var lowest = permittedRanks.Min();
         return content with { PermittedClassificationIds = classifications.Where(c => c.Rank >= lowest).Select(c => c.Id).ToList() };
+    }
+
+    /// <summary>
+    /// How <paramref name="reviewerUser"/> would sign every one of <paramref name="revisions"/> for the candidate:
+    /// the lowest level they hold that all of them permit. Self for the candidate themselves, Peer for anyone else,
+    /// then their classifications by rank, so a Supervisor who is also an Instructor signs as Instructor and no
+    /// confirmation is needed. Null when they can't sign them all, or aren't active.
+    /// </summary>
+    public static Reviewer? ReviewerFor(
+        User reviewerUser,
+        Guid candidateUserId,
+        IReadOnlyCollection<CompetencyRevision> revisions,
+        IReadOnlyCollection<ReviewerClassification> classifications)
+    {
+        if (!reviewerUser.IsActive || revisions.Count == 0)
+        {
+            return null;
+        }
+
+        if (reviewerUser.Id == candidateUserId)
+        {
+            return revisions.All(r => r.AllowsSelfReview) ? Reviewer.Self(reviewerUser) : null;
+        }
+
+        if (revisions.All(r => r.AllowsPeerReview))
+        {
+            return Reviewer.Peer(reviewerUser);
+        }
+
+        var held = reviewerUser.Classifications.Select(c => c.ReviewerClassificationId).ToHashSet();
+        var lowest = classifications
+            .Where(c => held.Contains(c.Id) && revisions.All(r => r.PermitsClassification(c.Id)))
+            .MinBy(c => c.Rank);
+        return lowest is null ? null : Reviewer.Classified(reviewerUser, lowest);
     }
 
     /// <summary>The lowest level a revision accepts, for grouping the basket and for "… or higher" labels.</summary>

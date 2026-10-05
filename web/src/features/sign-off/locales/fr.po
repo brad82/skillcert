@@ -1,0 +1,149 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2026-10-04 23:32-0600\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: fr\n"
+
+#: src/features/sign-off/components/SignOffResult.tsx
+msgid "{count, plural, one {# review recorded} other {# reviews recorded}}"
+msgstr "{count, plural, one {# évaluation enregistrée} other {# évaluations enregistrées}}"
+
+#: src/features/sign-off/components/Handoff.tsx
+msgid "{count, plural, one {# skill} other {# skills}}"
+msgstr "{count, plural, one {# compétence} other {# compétences}}"
+
+#: src/features/sign-off/components/Handoff.tsx
+msgid "{levelText} or higher"
+msgstr "{levelText} ou supérieur"
+
+#: src/features/sign-off/components/SignStep.tsx
+msgid "{name} ({method}) confirms {competent} Competent, {notCompetent} Not competent for {candidateName}, {today}."
+msgstr "{name} ({method}) confirme {competent} Compétent, {notCompetent} Non compétent pour {candidateName}, le {today}."
+
+#: src/features/sign-off/components/Assess.tsx
+msgid "Assess {candidateName}"
+msgstr "Évaluer {candidateName}"
+
+#: src/features/sign-off/components/Assess.tsx
+#: src/features/sign-off/components/SignStep.tsx
+msgid "Back"
+msgstr "Retour"
+
+#: src/features/sign-off/components/EmptySignOff.tsx
+#: src/features/sign-off/components/SignOffResult.tsx
+msgid "Back to basket"
+msgstr "Retour au panier"
+
+#: src/features/sign-off/components/Handoff.tsx
+msgid "Cancel"
+msgstr "Annuler"
+
+#: src/features/sign-off/components/SignStep.tsx
+msgid "Clear signature"
+msgstr "Effacer la signature"
+
+#: src/features/sign-off/components/Assess.tsx
+msgid "Comment (optional)"
+msgstr "Commentaire (facultatif)"
+
+#: src/features/sign-off/components/Assess.tsx
+#: src/features/sign-off/components/SignOffResult.tsx
+msgid "Competent"
+msgstr "Compétent"
+
+#: src/features/sign-off/components/Assess.tsx
+msgid "Continue to sign"
+msgstr "Continuer vers la signature"
+
+#: src/features/sign-off/components/ReviewerBar.tsx
+msgid "Exit"
+msgstr "Quitter"
+
+#: src/features/sign-off/components/FindReviewer.tsx
+msgid "Find your name"
+msgstr "Trouvez votre nom"
+
+#: src/features/sign-off/components/Handoff.tsx
+msgid "I'm the reviewer"
+msgstr "Je suis l'évaluateur"
+
+#: src/features/sign-off/components/FindReviewer.tsx
+msgid "No registered reviewer matches. Only people who can sign every skill here are listed."
+msgstr "Aucun évaluateur inscrit ne correspond. Seules les personnes pouvant valider toutes ces compétences sont listées."
+
+#: src/features/sign-off/components/Assess.tsx
+#: src/features/sign-off/components/SignOffResult.tsx
+msgid "Not competent"
+msgstr "Non compétent"
+
+#: src/features/sign-off/pages/SignOffContainer.tsx
+msgid "One of these skills is already waiting for confirmation. Remove it and try again."
+msgstr "L'une de ces compétences attend déjà une confirmation. Retirez-la et réessayez."
+
+#. placeholder {0}: item.code
+#: src/features/sign-off/components/Assess.tsx
+msgid "Outcome for {0}"
+msgstr "Résultat pour {0}"
+
+#: src/features/sign-off/components/Handoff.tsx
+msgid "Pass your phone to your reviewer"
+msgstr "Passez votre téléphone à votre évaluateur"
+
+#: src/features/sign-off/components/SignOffResult.tsx
+msgid "Pending"
+msgstr "En attente"
+
+#: src/features/sign-off/pages/SignOffContainer.tsx
+msgid "Please sign before submitting."
+msgstr "Veuillez signer avant d'envoyer."
+
+#: src/features/sign-off/components/ReviewerBar.tsx
+msgid "Reviewer mode"
+msgstr "Mode évaluateur"
+
+#: src/features/sign-off/components/FindReviewer.tsx
+msgid "Search reviewers"
+msgstr "Rechercher un évaluateur"
+
+#: src/features/sign-off/components/SignStep.tsx
+msgid "Sign"
+msgstr "Signer"
+
+#: src/features/sign-off/components/SignaturePadCanvas.tsx
+msgid "Signature pad"
+msgstr "Zone de signature"
+
+#: src/features/sign-off/components/SignStep.tsx
+msgid "Submit & hand back"
+msgstr "Envoyer et rendre le téléphone"
+
+#: src/features/sign-off/components/SignStep.tsx
+msgid "Submitting…"
+msgstr "Envoi…"
+
+#: src/features/sign-off/pages/SignOffContainer.tsx
+msgid "The sign-off couldn't be recorded. Please try again."
+msgstr "La validation n'a pas pu être enregistrée. Veuillez réessayer."
+
+#: src/features/sign-off/pages/SignOffContainer.tsx
+msgid "The signature couldn't be read. Clear it and sign again."
+msgstr "La signature n'a pas pu être lue. Effacez-la et signez de nouveau."
+
+#: src/features/sign-off/components/EmptySignOff.tsx
+msgid "There's nothing to sign off. Add skills to your basket first."
+msgstr "Il n'y a rien à valider. Ajoutez d'abord des compétences à votre panier."
+
+#: src/features/sign-off/components/SignStep.tsx
+msgid "These sign-offs count once {name} confirms them in SkillCert."
+msgstr "Ces validations compteront dès que {name} les aura confirmées dans SkillCert."
+
+#: src/features/sign-off/pages/SignOffContainer.tsx
+msgid "This reviewer can't sign off all of these skills."
+msgstr "Cet évaluateur ne peut pas valider toutes ces compétences."
+
+#: src/features/sign-off/components/SignOffResult.tsx
+msgid "Waiting for {name} to confirm."
+msgstr "En attente de la confirmation de {name}."

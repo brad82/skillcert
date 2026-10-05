@@ -7,6 +7,7 @@ using SkillCert.Api.Features.Auth;
 using SkillCert.Api.Common;
 using SkillCert.Api.Features.CurrentUser;
 using SkillCert.Api.Features.MyRecord;
+using SkillCert.Api.Features.SignOffs;
 using SkillCert.Infrastructure.Identity;
 using SkillCert.Infrastructure.Persistence;
 
@@ -88,6 +89,7 @@ app.MapDefaultEndpoints();
 app.MapAuthFeature();
 app.MapCurrentUserFeature();
 app.MapMyRecordFeature();
+app.MapSignOffsFeature();
 
 app.Run();
 

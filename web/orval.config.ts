@@ -12,6 +12,7 @@ const featureByTag: Record<string, string> = {
   Auth: 'auth',
   CurrentUser: 'current-user',
   MyRecord: 'my-record',
+  SignOffs: 'sign-off',
 }
 
 const camel = (name: string) => name.replace(/-(\w)/g, (_, c: string) => c.toUpperCase())

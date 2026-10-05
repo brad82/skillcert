@@ -1,6 +1,6 @@
 import Box from '@mui/material/Box'
 import { useQueryClient, useSuspenseQuery } from '@tanstack/react-query'
-import { Outlet, useNavigate } from '@tanstack/react-router'
+import { Outlet, useMatches, useNavigate } from '@tanstack/react-router'
 import { useLogout } from '@features/auth'
 import { BasketProvider } from '@features/basket'
 import { CurrentUserProvider, currentUserQueryOptions } from '@features/current-user'
@@ -16,7 +16,8 @@ const appShellStyles = () => ({
 /**
  * Signed-in chrome. Container for the shell: owns the current-user query (already loaded by the
  * route gate) and the sign-out mutation, then mounts CurrentUserProvider (so useCurrentUser() is never
- * null below) and the basket, and draws the app bar and the five-tab bottom nav.
+ * null below) and the basket, and draws the app bar and the five-tab bottom nav, unless the route asks for the full screen
+ * (`staticData.fullScreen`, e.g. sign-off).
  */
 export function AppShell() {
   const { data: user } = useSuspenseQuery(currentUserQueryOptions())
@@ -30,18 +31,23 @@ export function AppShell() {
       },
     },
   })
+  const fullScreen = useMatches({ select: (matches) => matches.some((match) => match.staticData.fullScreen) })
   const styles = appShellStyles()
 
   return (
     <CurrentUserProvider user={user}>
       <BasketProvider userId={user.id}>
-        <Box sx={styles.page}>
-          <AppHeader signingOut={logout.isPending} onSignOut={() => logout.mutate()} />
-          <Box component="main" sx={styles.main}>
-            <Outlet />
+        {fullScreen ? (
+          <Outlet />
+        ) : (
+          <Box sx={styles.page}>
+            <AppHeader signingOut={logout.isPending} onSignOut={() => logout.mutate()} />
+            <Box component="main" sx={styles.main}>
+              <Outlet />
+            </Box>
+            <BottomNav />
           </Box>
-          <BottomNav />
-        </Box>
+        )}
       </BasketProvider>
     </CurrentUserProvider>
   )

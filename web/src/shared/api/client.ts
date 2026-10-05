@@ -30,3 +30,9 @@ export async function apiFetch<T>(url: string, init?: RequestInit): Promise<T> {
 
 export const isApiError = (error: unknown, ...statuses: number[]): error is ApiError =>
   error instanceof ApiError && (statuses.length === 0 || statuses.includes(error.status))
+
+/** The ProblemDetails `type` of a business-rule refusal (e.g. "signoff.pending"), for containers to branch on. */
+export const problemType = (error: unknown): string | undefined =>
+  isApiError(error) && typeof error.body === 'object' && error.body !== null && 'type' in error.body && typeof error.body.type === 'string'
+    ? error.body.type
+    : undefined

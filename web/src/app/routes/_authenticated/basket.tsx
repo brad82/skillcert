@@ -1,7 +1,16 @@
-import { Trans } from '@lingui/react/macro'
 import { createFileRoute } from '@tanstack/react-router'
-import { ComingSoonPage } from '../../shell/ComingSoonPage'
+import { BasketContainer } from '@features/basket'
 
 export const Route = createFileRoute('/_authenticated/basket')({
-  component: () => <ComingSoonPage title={<Trans>Basket</Trans>} />,
+  component: BasketRoute,
 })
+
+function BasketRoute() {
+  const navigate = Route.useNavigate()
+  return (
+    <BasketContainer
+      onSignOff={(ids) => navigate({ to: '/sign-off', search: { ids } })}
+      onOpenSkills={() => navigate({ to: '/skills' })}
+    />
+  )
+}

@@ -16,4 +16,8 @@ declare module '@tanstack/react-router' {
   interface Register {
     router: typeof router
   }
+  interface StaticDataRouteOption {
+    /** Hide the shell's app bar and bottom nav (sign-off's reviewer mode draws its own). */
+    fullScreen?: boolean
+  }
 }
