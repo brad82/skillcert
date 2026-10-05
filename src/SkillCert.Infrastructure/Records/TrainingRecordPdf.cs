@@ -23,7 +23,7 @@ public static class TrainingRecordPdf
 
     static TrainingRecordPdf()
     {
-        // Free for organisations under the Community licence threshold; revisit for production.
+        // Community licence: SkillCert is internal software built by a non-profit, which the licence covers.
         QuestPDF.Settings.License = LicenseType.Community;
     }
 
