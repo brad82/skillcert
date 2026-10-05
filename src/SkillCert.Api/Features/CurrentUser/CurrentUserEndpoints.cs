@@ -14,7 +14,7 @@ public static class CurrentUserEndpoints
 
     public static IEndpointRouteBuilder MapMeEndpoints(this IEndpointRouteBuilder app)
     {
-        app.MapGet("/api/me", GetMeAsync).WithTags("Me").RequireAuthorization();
+        app.MapGet("/api/me", GetMeAsync).WithName("GetCurrentUser").WithTags("CurrentUser").RequireAuthorization();
         return app;
     }
 

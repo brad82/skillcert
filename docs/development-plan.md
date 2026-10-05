@@ -183,7 +183,7 @@ Source: `docs/AFA Skills Record - Revised v3.pdf`.
 - [x] EF Core DbContext + first migration. `/health` endpoint. (Migrator applies migrations on start; snake_case naming; `dotnet ef` via local tool manifest.)
 - [x] ASP.NET Identity (cookie auth). Dev seeder creates: 1 admin, 2 instructors, 2 supervisors, 10 candidates.
 - [x] Domain `User` entity linked to the Identity user by `ExternalSubjectId`. `GET /api/me` returns the user and their capabilities. (ReviewerClassification and user assignments from spec §7 were brought forward from Phase 1 to provide Instructor/Supervisor capabilities.)
-- [ ] Web shell: Vite + React + TS, TanStack Router + Query, Orval generation from OpenAPI, login page, app shell, PWA manifest.
+- [x] Web shell: Vite + React + TS, TanStack Router + Query, Orval generation from OpenAPI, login page, app shell, PWA manifest.
 - [ ] Claude Design:
   - create the SkillCert design-system project and define the tokens
   - generate `theme.ts`

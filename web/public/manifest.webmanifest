@@ -1,0 +1,13 @@
+{
+  "name": "SkillCert",
+  "short_name": "SkillCert",
+  "description": "Digital practical skills record",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#a6192e",
+  "icons": [
+    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

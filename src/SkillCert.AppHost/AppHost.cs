@@ -29,7 +29,7 @@ var migrator = builder.AddProject<Projects.SkillCert_Migrator>("migrator")
     .WithEnvironment("Seed__DemoPassword", demoPassword)
     .WaitFor(db);
 
-builder.AddProject<Projects.SkillCert_Api>("api")
+var api = builder.AddProject<Projects.SkillCert_Api>("api")
     .WithReference(db)
     .WithEnvironment("S3__ServiceUrl", s3.GetEndpoint("api"))
     .WithEnvironment("S3__AccessKey", s3AccessKey)
@@ -39,5 +39,10 @@ builder.AddProject<Projects.SkillCert_Api>("api")
     .WaitFor(s3)
     .WaitForCompletion(migrator)
     .WithHttpHealthCheck("/health");
+
+// Vite dev server; proxies /api to the API so the auth cookie stays same-origin.
+builder.AddViteApp("web", "../../web")
+    .WithReference(api)
+    .WaitFor(api);
 
 builder.Build().Run();

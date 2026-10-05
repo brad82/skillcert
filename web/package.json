@@ -1,0 +1,41 @@
+{
+  "name": "skillcert-web",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "gen:api": "orval",
+    "predev": "npm run gen:api",
+    "dev": "vite",
+    "prebuild": "npm run gen:api && npm run gen:routes",
+    "build": "tsc -b && vite build",
+    "typecheck": "npm run gen:api && npm run gen:routes && tsc -b",
+    "lint": "oxlint --deny-warnings",
+    "preview": "vite preview",
+    "gen:routes": "tsr generate"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@mui/icons-material": "^9.4.0",
+    "@mui/material": "^9.4.0",
+    "@tanstack/react-query": "^5.104.1",
+    "@tanstack/react-router": "^1.170.41",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  },
+  "devDependencies": {
+    "@tanstack/react-query-devtools": "^5.104.1",
+    "@tanstack/react-router-devtools": "^1.167.2",
+    "@tanstack/router-cli": "^1.167.40",
+    "@tanstack/router-plugin": "^1.168.42",
+    "@types/node": "^24.13.3",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "@vitejs/plugin-react": "^6.1.1",
+    "orval": "^8.40.0",
+    "oxlint": "^1.81.0",
+    "typescript": "~6.0.2",
+    "vite": "^8.3.0"
+  }
+}
