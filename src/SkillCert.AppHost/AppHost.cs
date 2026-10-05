@@ -36,6 +36,8 @@ var api = builder.AddProject<Projects.SkillCert_Api>("api")
     .WithEnvironment("S3__AccessKey", s3AccessKey)
     .WithEnvironment("S3__SecretKey", s3SecretKey)
     .WithEnvironment("S3__Bucket", "training-records")
+    // Archive compliant records once at start-up too, so local dev doesn't wait for the 2 a.m. run.
+    .WithEnvironment("Archival__RunOnStartup", "true")
     .WaitFor(db)
     .WaitFor(s3)
     .WaitForCompletion(migrator)

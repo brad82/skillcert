@@ -57,7 +57,9 @@ Set:
 - `TZ`
 - `GHCR_OWNER`
 
-The Spaces keys can wait until Phase 3.
+For archived training records (Phase 3), also set the Spaces values: `S3_SERVICE_URL`, `S3_ACCESS_KEY`,
+`S3_SECRET_KEY` and `S3_BUCKET`. Without them the site works, but the nightly archival run (02:00 server
+time) logs "skipped" and saves nothing.
 
 ### 5. Image access
 

@@ -107,7 +107,7 @@ required, final) or **Confirm all**.
 Tabs Open · My events · Past, with a card list and "Scan QR". The detail screen shows your status per skill,
 and its button cycles Register / Withdraw / Check in.
 
-## 07 Records: 7a (Phase 3)
+## 07 Records: 7a (built in Phase 3)
 
 A card for each required list: compliance, a progress bar and "Download current record (PDF)". Below it,
 "Archived records" (saved automatically when you became compliant).

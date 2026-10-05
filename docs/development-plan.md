@@ -180,6 +180,12 @@ Source: `docs/AFA Skills Record - Revised v3.pdf`.
    - Self and Peer sign-offs carry no signature; a classified reviewer must sign.
 8. **A sitting is identified by its signature.** Supervisor claims are confirmed or rejected per signature (`/api/approvals/{signatureId}/…`), which is exactly "candidate + ReviewedAt + signature" from spec §11, without storing a batch.
    - Anyone named as reviewer on pending claims sees a Home banner leading to the queue, whether or not they still hold the classification.
+9. **Training records and archival** (spec §21–22):
+   - The PDF shows a sign-off date and evaluator initials only for competencies that are Current; anything else is blank, as on an unfinished paper record. A current-record download of an incomplete list says "Not complete" for the completion date.
+   - Dates in the PDF and the nightly run time are server-local (§1.5).
+   - Without S3 settings (the CI stack) the nightly run logs "skipped"; current-record downloads still work.
+   - Locally, Aspire sets `Archival:RunOnStartup` so archives appear in RustFS without waiting for 2 a.m.
+   - Candidates see archives on the Records tab (wireframe 7a). Administrator manual archives and organization-wide record access come with Phase 5.
 
 ## 3. Spec defaults still to finalize
 | Item | Decide in |
@@ -293,22 +299,22 @@ Source: `docs/AFA Skills Record - Revised v3.pdf`.
 ### Phase 3: Training record PDF + nightly archival (2 wks)
 **Goal:** a training record PDF that looks like the AFA paper record, and automatic archival when a user becomes compliant.
 
-- [ ] `ComplianceEvaluator`: a list is compliant only when it is non-empty and every distinct competency is Current. Empty lists are non-compliant.
-- [ ] `CompletionDateCalculator`: the start of the current period in which all competencies were Current at the same time, using evidence only. Tests include the spec §21 Sept 1 / Oct 4 removal case.
-- [ ] QuestPDF renderer modelled on the AFA record (§2a layout):
+- [x] `ComplianceEvaluator` (`ListCompliance.IsCompliant`): a list is compliant only when it is non-empty and every distinct competency is Current. Empty lists are non-compliant.
+- [x] `CompletionDateCalculator` (`ListCompliance.CompletionDate` / `CurrentSince`): the start of the current period in which all competencies were Current at the same time, using evidence only. Tests include the spec §21 Sept 1 / Oct 4 removal case.
+- [x] QuestPDF renderer modelled on the AFA record (§2a layout; `TrainingRecordPdf`, Lato bundled):
   - candidate name, list title, completion date
   - full hierarchy, codes and ShortTitle (falling back to Title)
   - sign-off dates and evaluator initials, plus an evaluator legend on the last page (decision §2.3)
   - no expiry dates, signatures or resources
-- [ ] Candidate "download current record" endpoint. Generated on the fly; it does not create an archive.
-- [ ] `IBlobStore` (S3 SDK) + TrainingRecord entity (UserId, ListId, CompletionDate, GeneratedAt, BlobPath, Sha256Hash, Trigger). Unique index on (UserId, ListId, CompletionDate) where Trigger = ComplianceAchieved.
-- [ ] Nightly hosted job (runs at a configured org-local time):
+- [x] Candidate "download current record" endpoint (`GET /api/me/lists/{listId}/record`). Generated on the fly; it does not create an archive.
+- [x] `IBlobStore` (S3 SDK) + TrainingRecord entity (UserId, ListId, CompletionDate, GeneratedAt, BlobPath, Sha256Hash, Trigger). Unique index on (UserId, ListId, CompletionDate) where Trigger = ComplianceAchieved.
+- [x] Nightly hosted job (runs at a configured org-local time; `Archival:RunAt`, default 02:00):
   - compliance checkpoint table
   - archive on first observed compliance or a NonCompliant → Compliant change
   - idempotent
   - a failed upload leaves no completed record and is retried next run
-- [ ] Fake-clock tests: compliant 3 nights in a row → 1 archive; re-run the same night → no duplicate; non-compliant → compliant → 2nd archive; failed upload → retried.
-- [ ] Playwright: candidate downloads their PDF.
+- [x] Fake-clock tests: compliant 3 nights in a row → 1 archive; re-run the same night → no duplicate; non-compliant → compliant → 2nd archive; failed upload → retried.
+- [x] Playwright: candidate downloads their PDF.
 
 **Done when:**
 - The PDF is visually reviewed against the AFA record.
