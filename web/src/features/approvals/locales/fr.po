@@ -1,0 +1,89 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2026-10-04 23:36-0600\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: fr\n"
+
+#: src/features/approvals/components/ApprovalCard.tsx
+msgid "{candidate}, {signedOn}"
+msgstr "{candidate}, {signedOn}"
+
+#: src/features/approvals/components/RejectDialog.tsx
+msgid "Cancel"
+msgstr "Annuler"
+
+#: src/features/approvals/components/ApprovalCard.tsx
+msgid "Comment"
+msgstr "Commentaire"
+
+#: src/features/approvals/components/ApprovalCard.tsx
+msgid "Competent"
+msgstr "Compétent"
+
+#: src/features/approvals/components/ApprovalCard.tsx
+msgid "Confirm all"
+msgstr "Tout confirmer"
+
+#: src/features/approvals/components/RejectDialog.tsx
+msgid "None of these skills will count, and this can't be undone. The candidate sees your reason."
+msgstr "Aucune de ces compétences ne comptera, et c'est définitif. Le candidat verra votre motif."
+
+#: src/features/approvals/components/ApprovalCard.tsx
+msgid "Not competent"
+msgstr "Non compétent"
+
+#: src/features/approvals/pages/ApprovalsPage.tsx
+msgid "Nothing is waiting for your confirmation."
+msgstr "Rien n'attend votre confirmation."
+
+#: src/features/approvals/pages/ApprovalsContainer.tsx
+msgid "Only the reviewer named on a sign-off can decide it."
+msgstr "Seul l'évaluateur nommé sur une validation peut la trancher."
+
+#: src/features/approvals/components/RejectDialog.tsx
+msgid "Reason"
+msgstr "Motif"
+
+#: src/features/approvals/components/ApprovalCard.tsx
+#: src/features/approvals/components/RejectDialog.tsx
+msgid "Reject"
+msgstr "Refuser"
+
+#: src/features/approvals/components/RejectDialog.tsx
+msgid "Reject {candidate}'s sign-off?"
+msgstr "Refuser la validation de {candidate} ?"
+
+#: src/features/approvals/components/ApprovalCard.tsx
+msgid "Saving…"
+msgstr "Enregistrement…"
+
+#: src/features/approvals/pages/ApprovalsPage.tsx
+msgid "Sign-offs you gave as a supervisor count once you confirm them here."
+msgstr "Les validations que vous avez données comme superviseur comptent dès que vous les confirmez ici."
+
+#: src/features/approvals/components/ApprovalCard.tsx
+msgid "Signature on {candidate}'s sign-off"
+msgstr "Signature sur la validation de {candidate}"
+
+#: src/features/approvals/components/ApprovalCard.tsx
+msgid "Signed {signedOn}"
+msgstr "Signée le {signedOn}"
+
+#: src/features/approvals/pages/ApprovalsContainer.tsx
+msgid "That sign-off was already decided. The list has been refreshed."
+msgstr "Cette validation a déjà été tranchée. La liste a été actualisée."
+
+#: src/features/approvals/pages/ApprovalsContainer.tsx
+msgid "The decision couldn't be saved. Please try again."
+msgstr "La décision n'a pas pu être enregistrée. Veuillez réessayer."
+
+#: src/features/approvals/pages/ApprovalsPage.tsx
+msgid "Waiting for you"
+msgstr "En attente de vous"
+
+#: src/features/approvals/components/ApprovalCard.tsx
+msgid "Your signature"
+msgstr "Votre signature"

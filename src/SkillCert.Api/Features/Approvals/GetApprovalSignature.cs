@@ -3,17 +3,17 @@ using Microsoft.EntityFrameworkCore;
 using SkillCert.Api.Common;
 using SkillCert.Infrastructure.Persistence;
 
-namespace SkillCert.Api.Features.MyRecord;
+namespace SkillCert.Api.Features.Approvals;
 
 /// <summary>
-/// GET /api/me/signatures/{signatureId}: the SVG of a signature on one of the candidate's own reviews. 404 for any
-/// other signature, so ids can't be probed. The SVG is server-rendered (spec §10).
+/// GET /api/approvals/{signatureId}/signature: the signature on a sitting that names the signed-in user as
+/// reviewer, so they can check it before deciding. 404 otherwise.
 /// </summary>
-public static class GetMySignatureEndpoint
+public static class GetApprovalSignatureEndpoint
 {
     public static RouteHandlerBuilder Map(RouteGroupBuilder group) =>
-        group.MapGet("/signatures/{signatureId:guid}", HandleAsync)
-            .WithName("GetMySignature")
+        group.MapGet("/{signatureId:guid}/signature", HandleAsync)
+            .WithName("GetApprovalSignature")
             .Produces(StatusCodes.Status200OK, contentType: "image/svg+xml")
             .Produces(StatusCodes.Status401Unauthorized)
             .Produces(StatusCodes.Status403Forbidden)
@@ -29,8 +29,7 @@ public static class GetMySignatureEndpoint
         }
 
         var signature = await db.ReviewSignatures
-            .Where(s => s.Id == signatureId
-                && db.CompetencyReviews.Any(r => r.ReviewSignatureId == s.Id && r.CandidateUserId == userId))
+            .Where(s => s.Id == signatureId && db.CompetencyReviews.Any(r => r.ReviewSignatureId == s.Id && r.ReviewerUserId == userId))
             .Select(s => new { s.Data, s.ContentType })
             .SingleOrDefaultAsync(cancellationToken);
         if (signature is null)

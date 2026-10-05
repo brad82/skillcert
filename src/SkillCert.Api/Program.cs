@@ -3,6 +3,7 @@ using FluentValidation;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Identity;
+using SkillCert.Api.Features.Approvals;
 using SkillCert.Api.Features.Auth;
 using SkillCert.Api.Common;
 using SkillCert.Api.Features.CurrentUser;
@@ -90,6 +91,7 @@ app.MapAuthFeature();
 app.MapCurrentUserFeature();
 app.MapMyRecordFeature();
 app.MapSignOffsFeature();
+app.MapApprovalsFeature();
 
 app.Run();
 

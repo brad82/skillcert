@@ -7,6 +7,10 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Language: en\n"
 
+#: src/features/home/components/ApprovalsBanner.tsx
+msgid "{count, plural, one {# sign-off is waiting for your confirmation.} other {# sign-offs are waiting for your confirmation.}}"
+msgstr "{count, plural, one {# sign-off is waiting for your confirmation.} other {# sign-offs are waiting for your confirmation.}}"
+
 #. placeholder {0}: list.counts.total
 #: src/features/home/components/ComplianceCard.tsx
 msgid "Compliant · all {0} current"
@@ -35,6 +39,10 @@ msgstr "Not compliant · {toGo, plural, one {# to go} other {# to go}}"
 #: src/features/home/components/StatusTiles.tsx
 msgid "Pending"
 msgstr "Pending"
+
+#: src/features/home/components/ApprovalsBanner.tsx
+msgid "Review"
+msgstr "Review"
 
 #: src/features/home/components/NextEventCard.tsx
 msgid "Training events are coming soon."

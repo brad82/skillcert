@@ -1,0 +1,89 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2026-10-04 23:36-0600\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: en\n"
+
+#: src/features/approvals/components/ApprovalCard.tsx
+msgid "{candidate}, {signedOn}"
+msgstr "{candidate}, {signedOn}"
+
+#: src/features/approvals/components/RejectDialog.tsx
+msgid "Cancel"
+msgstr "Cancel"
+
+#: src/features/approvals/components/ApprovalCard.tsx
+msgid "Comment"
+msgstr "Comment"
+
+#: src/features/approvals/components/ApprovalCard.tsx
+msgid "Competent"
+msgstr "Competent"
+
+#: src/features/approvals/components/ApprovalCard.tsx
+msgid "Confirm all"
+msgstr "Confirm all"
+
+#: src/features/approvals/components/RejectDialog.tsx
+msgid "None of these skills will count, and this can't be undone. The candidate sees your reason."
+msgstr "None of these skills will count, and this can't be undone. The candidate sees your reason."
+
+#: src/features/approvals/components/ApprovalCard.tsx
+msgid "Not competent"
+msgstr "Not competent"
+
+#: src/features/approvals/pages/ApprovalsPage.tsx
+msgid "Nothing is waiting for your confirmation."
+msgstr "Nothing is waiting for your confirmation."
+
+#: src/features/approvals/pages/ApprovalsContainer.tsx
+msgid "Only the reviewer named on a sign-off can decide it."
+msgstr "Only the reviewer named on a sign-off can decide it."
+
+#: src/features/approvals/components/RejectDialog.tsx
+msgid "Reason"
+msgstr "Reason"
+
+#: src/features/approvals/components/ApprovalCard.tsx
+#: src/features/approvals/components/RejectDialog.tsx
+msgid "Reject"
+msgstr "Reject"
+
+#: src/features/approvals/components/RejectDialog.tsx
+msgid "Reject {candidate}'s sign-off?"
+msgstr "Reject {candidate}'s sign-off?"
+
+#: src/features/approvals/components/ApprovalCard.tsx
+msgid "Saving…"
+msgstr "Saving…"
+
+#: src/features/approvals/pages/ApprovalsPage.tsx
+msgid "Sign-offs you gave as a supervisor count once you confirm them here."
+msgstr "Sign-offs you gave as a supervisor count once you confirm them here."
+
+#: src/features/approvals/components/ApprovalCard.tsx
+msgid "Signature on {candidate}'s sign-off"
+msgstr "Signature on {candidate}'s sign-off"
+
+#: src/features/approvals/components/ApprovalCard.tsx
+msgid "Signed {signedOn}"
+msgstr "Signed {signedOn}"
+
+#: src/features/approvals/pages/ApprovalsContainer.tsx
+msgid "That sign-off was already decided. The list has been refreshed."
+msgstr "That sign-off was already decided. The list has been refreshed."
+
+#: src/features/approvals/pages/ApprovalsContainer.tsx
+msgid "The decision couldn't be saved. Please try again."
+msgstr "The decision couldn't be saved. Please try again."
+
+#: src/features/approvals/pages/ApprovalsPage.tsx
+msgid "Waiting for you"
+msgstr "Waiting for you"
+
+#: src/features/approvals/components/ApprovalCard.tsx
+msgid "Your signature"
+msgstr "Your signature"
