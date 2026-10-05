@@ -56,11 +56,12 @@ test('a candidate signs a skill off with a supervisor, the supervisor confirms, 
   await sitting.getByRole('button', { name: 'Confirm all' }).click()
   await expect(supervisor.getByRole('region', { name: new RegExp(`^${candidate.name},`) }).filter({ hasText: code })).toHaveCount(0)
 
-  // Candidate: the skill is now current, signed by the supervisor.
-  await phone.goto('/skills')
-  await phone.getByLabel('Search skills').fill(code)
-  await phone.getByRole('button', { name: new RegExp(`^${code.replaceAll('.', '\\.')}\\b`) }).first().click()
-  await expect(phone).toHaveURL(/\/skills\/[0-9a-f-]{36}/)
+  // Candidate: the skill is now current, signed by the supervisor. Opened by id: tapping rows is covered by unit tests.
+  const lists = await (await phone.request.get('/api/me/lists')).json()
+  const competencyId = lists.lists
+    .flatMap((list: { nodes: { competency: { code: string; competencyId: string } | null }[] }) => list.nodes)
+    .find((node: { competency: { code: string } | null }) => node.competency?.code === code).competency.competencyId
+  await phone.goto(`/skills/${competencyId}`)
   await expect(phone.getByRole('tab', { name: 'Overview' })).toBeVisible()
   await expect(phone.getByText('Current', { exact: true })).toBeVisible()
   await expect(phone.getByText(`${demoUsers.supervisor.name} · Supervisor`)).toBeVisible()
