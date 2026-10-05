@@ -1,0 +1,14 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/SkillCert.Api/SkillCert.Api.csproj" />
+    <Project Path="src/SkillCert.AppHost/SkillCert.AppHost.csproj" />
+    <Project Path="src/SkillCert.Domain/SkillCert.Domain.csproj" />
+    <Project Path="src/SkillCert.Infrastructure/SkillCert.Infrastructure.csproj" />
+    <Project Path="src/SkillCert.Migrator/SkillCert.Migrator.csproj" />
+    <Project Path="src/SkillCert.ServiceDefaults/SkillCert.ServiceDefaults.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/SkillCert.Api.Tests/SkillCert.Api.Tests.csproj" />
+    <Project Path="tests/SkillCert.Domain.Tests/SkillCert.Domain.Tests.csproj" />
+  </Folder>
+</Solution>

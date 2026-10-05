@@ -1,0 +1,192 @@
+{
+  "source": "AFA Skills Record - Revised v3 (docs/AFA Skills Record - Revised v3.pdf)",
+  "list": {
+    "title": "AFA Skills Record",
+    "assignedGroups": ["New Patroller", "Returning Patroller", "Senior Patroller"]
+  },
+  "defaults": {
+    "_note": "Demo values only, not confirmed policy. Override per competency where needed.",
+    "recertificationDays": 365,
+    "permittedMethods": ["Instructor", "Supervisor"]
+  },
+  "nodes": [
+    {
+      "type": "heading", "code": "3", "title": "Management of injured or ill patients",
+      "children": [
+        { "type": "competency", "code": "3.1", "shortTitle": "Approach, assess and provide injured or ill patient management in accordance with the Patient Assessment Evaluation", "title": "Patient assessment and management (per Patient Assessment Evaluation)" },
+        { "type": "competency", "code": "3.2", "shortTitle": "Proper use of personal protective equipment (PPE) used in first aid", "title": "Use of personal protective equipment (PPE) in first aid" }
+      ]
+    },
+    {
+      "type": "heading", "code": "4", "title": "Basic Life Support",
+      "children": [
+        {
+          "type": "heading", "code": "4.1", "title": "Airway management",
+          "children": [
+            { "type": "competency", "code": "4.1.1", "shortTitle": "Basic procedures for opening and maintaining airway (Head tilt-chin lift, Jaw thrust)", "title": "Airway – open and maintain (head tilt-chin lift, jaw thrust)" },
+            { "type": "competency", "code": "4.1.2", "shortTitle": "Use of airway adjuncts for opening and maintaining airway", "title": "Airway – use of airway adjuncts" },
+            { "type": "competency", "code": "4.1.3", "shortTitle": "Clearing an airway (suction)", "title": "Airway – clearing by suction" },
+            { "type": "competency", "code": "4.1.4", "shortTitle": "Clearing an airway (foreign body airway obstruction, adult and child)", "title": "Airway – foreign body obstruction, adult and child" },
+            { "type": "competency", "code": "4.1.5", "shortTitle": "Clearing an airway (foreign body airway obstruction, infant)", "title": "Airway – foreign body obstruction, infant" },
+            { "type": "competency", "code": "4.1.6", "shortTitle": "Positioning to maintain an open airway (recovery position)", "title": "Airway – recovery position" }
+          ]
+        },
+        {
+          "type": "heading", "code": "4.2", "title": "Breathing management",
+          "children": [
+            { "type": "competency", "code": "4.2.1", "shortTitle": "Ventilation (pocket face mask)", "title": "Ventilation – pocket face mask" },
+            { "type": "competency", "code": "4.2.2", "shortTitle": "Ventilation (bag valve mask)", "title": "Ventilation – bag valve mask" }
+          ]
+        },
+        {
+          "type": "heading", "code": "4.3", "title": "Cardiopulmonary resuscitation (CPR)",
+          "children": [
+            { "type": "competency", "code": "4.3.1", "shortTitle": "One-rescuer adult CPR", "title": "CPR – one-rescuer adult" },
+            { "type": "competency", "code": "4.3.2", "shortTitle": "Two-rescuer adult CPR", "title": "CPR – two-rescuer adult" },
+            { "type": "competency", "code": "4.3.3", "shortTitle": "One-rescuer child CPR", "title": "CPR – one-rescuer child" },
+            { "type": "competency", "code": "4.3.4", "shortTitle": "Two-rescuer child CPR", "title": "CPR – two-rescuer child" },
+            { "type": "competency", "code": "4.3.5", "shortTitle": "One-rescuer infant CPR", "title": "CPR – one-rescuer infant" },
+            { "type": "competency", "code": "4.3.6", "shortTitle": "Two-rescuer infant CPR", "title": "CPR – two-rescuer infant" }
+          ]
+        },
+        {
+          "type": "heading", "code": "4.4", "title": "Automatic external defibrillation (AED)",
+          "children": [
+            { "type": "competency", "code": "4.4.1", "shortTitle": "Application and use of an AED", "title": "AED – application and use" }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading", "code": "5", "title": "Oxygen administration",
+      "children": [
+        { "type": "competency", "code": "5.1", "shortTitle": "Safe handling of oxygen delivery systems", "title": "Oxygen – safe handling of delivery systems" },
+        { "type": "competency", "code": "5.2", "shortTitle": "Oxygen administration using appropriate equipment", "title": "Oxygen – administration using appropriate equipment" }
+      ]
+    },
+    {
+      "type": "heading", "code": "6", "title": "Management of respiratory emergencies",
+      "children": [
+        {
+          "type": "heading", "code": "6.1", "title": "Management of specific respiratory conditions",
+          "children": [
+            { "type": "competency", "code": "6.1.1", "shortTitle": "Flail chest", "title": "Respiratory – flail chest" },
+            { "type": "competency", "code": "6.1.2", "shortTitle": "Sucking chest wound", "title": "Respiratory – sucking chest wound" },
+            { "type": "competency", "code": "6.1.3", "shortTitle": "Penetrating chest injury (object stabilization)", "title": "Respiratory – penetrating chest injury (object stabilization)" }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading", "code": "7", "title": "Management of circulation emergencies",
+      "children": [
+        {
+          "type": "heading", "code": "7.1", "title": "Management of specific cardiovascular emergencies",
+          "children": [
+            { "type": "competency", "code": "7.1.1", "shortTitle": "Angina", "title": "Cardiovascular – angina" },
+            { "type": "competency", "code": "7.1.2", "shortTitle": "Heart attack", "title": "Cardiovascular – heart attack" },
+            { "type": "competency", "code": "7.1.3", "shortTitle": "Management for shock", "title": "Cardiovascular – shock management" }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading", "code": "8", "title": "Management of spinal and neurological emergencies",
+      "children": [
+        { "type": "competency", "code": "8.1", "shortTitle": "Management for suspected fractures involving the spinal column", "title": "Spinal – suspected spinal column fracture" },
+        { "type": "competency", "code": "8.2", "shortTitle": "Helmet removal", "title": "Spinal – helmet removal" }
+      ]
+    },
+    {
+      "type": "heading", "code": "9", "title": "Injury Management – Wounds and burns",
+      "children": [
+        {
+          "type": "heading", "code": "9.1", "title": "Controls for major external hemorrhage from:",
+          "children": [
+            { "type": "competency", "code": "9.1a", "shortTitle": "A limb using manual pressure and a pressure bandage", "title": "Major hemorrhage – limb, manual pressure and pressure bandage" },
+            { "type": "competency", "code": "9.1b", "shortTitle": "A limb using a tourniquet or an emergency trauma bandage", "title": "Major hemorrhage – limb, tourniquet or emergency trauma bandage" },
+            { "type": "competency", "code": "9.1c", "shortTitle": "The neck", "title": "Major hemorrhage – neck" },
+            { "type": "competency", "code": "9.1d", "shortTitle": "The trunk of the body, including evisceration", "title": "Major hemorrhage – trunk, including evisceration" }
+          ]
+        },
+        {
+          "type": "heading", "code": "9.2", "title": "Controls for minor external hemorrhage from:",
+          "children": [
+            { "type": "competency", "code": "9.2a", "shortTitle": "The top of the head", "title": "Minor hemorrhage – top of the head" },
+            { "type": "competency", "code": "9.2b", "shortTitle": "The forehead or sides of the head", "title": "Minor hemorrhage – forehead or sides of the head" },
+            { "type": "competency", "code": "9.2c", "shortTitle": "The chest or back", "title": "Minor hemorrhage – chest or back" },
+            { "type": "competency", "code": "9.2d", "shortTitle": "The shoulder or hip", "title": "Minor hemorrhage – shoulder or hip" },
+            { "type": "competency", "code": "9.2e", "shortTitle": "The elbow or knee", "title": "Minor hemorrhage – elbow or knee" },
+            { "type": "competency", "code": "9.2f", "shortTitle": "The palm of a hand", "title": "Minor hemorrhage – palm of a hand" },
+            { "type": "competency", "code": "9.2g", "shortTitle": "The back of a hand or foot", "title": "Minor hemorrhage – back of a hand or foot" }
+          ]
+        },
+        { "type": "competency", "code": "9.3", "shortTitle": "Manage amputations", "title": "Wounds – amputation management" },
+        {
+          "type": "heading", "code": "9.4", "title": "Management of ear, eyes and nose injuries",
+          "children": [
+            { "type": "competency", "code": "9.4a", "shortTitle": "Blood or fluid draining from the ear", "title": "Ear – blood or fluid draining from the ear" },
+            { "type": "competency", "code": "9.4b", "shortTitle": "Foreign body in the eye", "title": "Eye – foreign body" },
+            { "type": "competency", "code": "9.4c", "shortTitle": "Lacerations to the eyelid", "title": "Eye – eyelid laceration" },
+            { "type": "competency", "code": "9.4d", "shortTitle": "Lacerations to the eyeball", "title": "Eye – eyeball laceration" },
+            { "type": "competency", "code": "9.4e", "shortTitle": "Nosebleed", "title": "Nose – nosebleed" }
+          ]
+        },
+        {
+          "type": "heading", "code": "9.5", "title": "Management of burn injuries",
+          "children": [
+            { "type": "competency", "code": "9.5.1", "shortTitle": "Superficial burns (1st degree)", "title": "Burns – superficial (1st degree)" },
+            { "type": "competency", "code": "9.5.2", "shortTitle": "Partial and full thickness burns (2nd and 3rd degree)", "title": "Burns – partial and full thickness (2nd and 3rd degree)" }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading", "code": "10", "title": "Injury Management - Musculoskeletal",
+      "children": [
+        {
+          "type": "heading", "code": "10.1", "title": "Open fractures",
+          "children": [
+            { "type": "competency", "code": "10.1.1", "shortTitle": "Open fracture wound cover", "title": "Open fracture – wound cover" }
+          ]
+        },
+        {
+          "type": "heading", "code": "10.2", "title": "Stabilization of a fracture to the:",
+          "children": [
+            { "type": "competency", "code": "10.2a", "shortTitle": "Clavicle or scapula", "title": "Fracture stabilization – clavicle or scapula" },
+            { "type": "competency", "code": "10.2b", "shortTitle": "Upper arm", "title": "Fracture stabilization – upper arm" },
+            { "type": "competency", "code": "10.2c", "shortTitle": "Lower arm, including elbow, radius, ulna, wrist", "title": "Fracture stabilization – lower arm, elbow, radius, ulna, wrist" },
+            { "type": "competency", "code": "10.2d", "shortTitle": "Pelvic girdle", "title": "Fracture stabilization – pelvic girdle" },
+            { "type": "competency", "code": "10.2e", "shortTitle": "Femur, including use of a stirrup bandage", "title": "Fracture stabilization – femur, including stirrup bandage" },
+            { "type": "competency", "code": "10.2f", "shortTitle": "Patella, where the knee will not straighten", "title": "Fracture stabilization – patella, knee will not straighten", "_note": "Paper code 10.2e (duplicate); re-lettered" },
+            { "type": "competency", "code": "10.2g", "shortTitle": "Lower leg, including use of a modified stirrup bandage", "title": "Fracture stabilization – lower leg, including modified stirrup bandage", "_note": "Paper code 10.2f; re-lettered" },
+            { "type": "competency", "code": "10.2h", "shortTitle": "Ankle or foot", "title": "Fracture stabilization – ankle or foot", "_note": "Paper code 10.2g; re-lettered" },
+            { "type": "competency", "code": "10.2i", "shortTitle": "Boot and footwear removal", "title": "Boot and footwear removal", "_note": "Paper code 10.2h; re-lettered" }
+          ]
+        },
+        {
+          "type": "heading", "code": "10.3", "title": "Dislocations",
+          "children": [
+            { "type": "competency", "code": "10.3a", "shortTitle": "Shoulder", "title": "Dislocation – shoulder" }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading", "code": "11", "title": "Medical emergencies",
+      "children": [
+        { "type": "competency", "code": "11.1", "shortTitle": "Management of anaphylaxis emergencies", "title": "Medical – anaphylaxis" },
+        { "type": "competency", "code": "11.2", "shortTitle": "Management of diabetic emergencies", "title": "Medical – diabetic emergencies" },
+        { "type": "competency", "code": "11.3", "shortTitle": "Management of seizure emergencies", "title": "Medical – seizures" },
+        { "type": "competency", "code": "11.4", "shortTitle": "Management of stroke", "title": "Medical – stroke" }
+      ]
+    },
+    {
+      "type": "heading", "code": "12", "title": "Environmental injury and illness",
+      "children": [
+        { "type": "competency", "code": "12.1", "shortTitle": "Management of systemic hypothermia", "title": "Environmental – systemic hypothermia" },
+        { "type": "competency", "code": "12.2", "shortTitle": "Management of systemic hyperthermia", "title": "Environmental – systemic hyperthermia" }
+      ]
+    }
+  ]
+}

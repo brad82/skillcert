@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\SkillCert.Infrastructure\SkillCert.Infrastructure.csproj" />
+    <ProjectReference Include="..\SkillCert.ServiceDefaults\SkillCert.ServiceDefaults.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+  </PropertyGroup>
+
+</Project>

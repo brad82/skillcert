@@ -1,0 +1,23 @@
+# .NET
+bin/
+obj/
+*.user
+.vs/
+.idea/
+TestResults/
+*.efbundle
+efbundle
+
+# Node
+node_modules/
+web/dist/
+web/src/api/generated/
+playwright-report/
+test-results/
+
+# Env / secrets
+.env
+!deploy/.env.example
+
+# OS
+.DS_Store
