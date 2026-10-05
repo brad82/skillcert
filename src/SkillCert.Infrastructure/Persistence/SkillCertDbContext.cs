@@ -1,11 +1,16 @@
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using SkillCert.Infrastructure.Identity;
 
 namespace SkillCert.Infrastructure.Persistence;
 
-public sealed class SkillCertDbContext(DbContextOptions<SkillCertDbContext> options) : DbContext(options)
+public sealed class SkillCertDbContext(DbContextOptions<SkillCertDbContext> options)
+    : IdentityDbContext<ApplicationUser, IdentityRole<Guid>, Guid>(options)
 {
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    protected override void OnModelCreating(ModelBuilder builder)
     {
-        modelBuilder.ApplyConfigurationsFromAssembly(typeof(SkillCertDbContext).Assembly);
+        base.OnModelCreating(builder);
+        builder.ApplyConfigurationsFromAssembly(typeof(SkillCertDbContext).Assembly);
     }
 }

@@ -1,3 +1,6 @@
+using Microsoft.AspNetCore.Identity;
+using SkillCert.Api.Features.Auth;
+using SkillCert.Infrastructure.Identity;
 using SkillCert.Infrastructure.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,6 +9,35 @@ builder.AddServiceDefaults();
 builder.AddNpgsqlDbContext<SkillCertDbContext>(
     SkillCertDbContextOptions.ConnectionName,
     configureDbContextOptions: SkillCertDbContextOptions.Configure);
+
+builder.Services
+    .AddAuthentication(IdentityConstants.ApplicationScheme)
+    .AddIdentityCookies();
+builder.Services.AddSkillCertIdentityCore().AddSignInManager();
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.Cookie.Name = "skillcert.auth";
+    options.Cookie.HttpOnly = true;
+    // The SPA is served from the same origin as the API (Vite proxy locally, Caddy on the demo).
+    options.Cookie.SameSite = SameSiteMode.Strict;
+    options.Cookie.SecurePolicy = builder.Environment.IsDevelopment()
+        ? CookieSecurePolicy.SameAsRequest
+        : CookieSecurePolicy.Always;
+    options.ExpireTimeSpan = TimeSpan.FromHours(12);
+    options.SlidingExpiration = true;
+    // JSON API: answer with status codes, never redirect to a login page.
+    options.Events.OnRedirectToLogin = context =>
+    {
+        context.Response.StatusCode = StatusCodes.Status401Unauthorized;
+        return Task.CompletedTask;
+    };
+    options.Events.OnRedirectToAccessDenied = context =>
+    {
+        context.Response.StatusCode = StatusCodes.Status403Forbidden;
+        return Task.CompletedTask;
+    };
+});
+builder.Services.AddAuthorization();
 builder.Services.AddOpenApi();
 
 var app = builder.Build();
@@ -15,7 +47,11 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
+app.UseAuthentication();
+app.UseAuthorization();
+
 app.MapDefaultEndpoints();
+app.MapAuthEndpoints();
 
 app.Run();
 
