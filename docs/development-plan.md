@@ -46,7 +46,7 @@ src/
   SkillCert.Domain/           Entities, enums, pure services (currency, compliance, completion date). No EF.
   SkillCert.Infrastructure/   DbContext, migrations, S3 blob store, QuestPDF renderer, audit interceptor
   SkillCert.Api/              Features/<Feature>/ slices, authorization policies, nightly hosted job
-  SkillCert.Migrator/         EF Core migration bundle (efbundle) image
+  SkillCert.Migrator/         one-shot app: applies migrations, seeds demo users (its own image)
 web/                          Vite SPA; src/app (shell, routes), src/features/<name>, src/shared (see docs/web-architecture.md)
 tests/
   SkillCert.Domain.Tests/
@@ -112,8 +112,8 @@ Cross-cutting rules:
 | Orchestration | .NET Aspire AppHost | Docker Compose on one VPS |
 | Database | Postgres container (Aspire) | Postgres container (compose) |
 | PDF blob store | RustFS container `rustfs/rustfs:1.0.1` (Aspire); the MinIO image was removed from Docker Hub | DigitalOcean Spaces (S3 API) |
-| TLS / reverse proxy | n/a | Caddy (automatic Let's Encrypt), serves the SPA static files and proxies `/api` |
-| Migrations | Migrator resource in Aspire | One-shot `migrator` service (efbundle); `api` depends on it with `service_completed_successfully` |
+| TLS / reverse proxy | n/a | The `web` image is Caddy: automatic Let's Encrypt, serves the SPA static files, proxies `/api`, sets security headers (CSP) |
+| Migrations | Migrator resource in Aspire | One-shot `migrator` service (the `SkillCert.Migrator` app: migrations, then demo seed); `api` depends on it with `service_completed_successfully` |
 | Backups | n/a | None; demo data can be rebuilt from seed |
 
 - **Environments:** local, plus one hosted demo.
@@ -192,7 +192,7 @@ Source: `docs/AFA Skills Record - Revised v3.pdf`.
 - [x] Template feature slice (endpoint + validator + handler + integration test) to copy for every later feature. (See `docs/api-architecture.md`; reference `Features/Auth/Login.cs`.)
 - [x] Test projects: Domain.Tests, Api.Tests (Testcontainers), e2e Playwright login smoke test. (`tests/e2e`: phone + desktop projects; run against a live stack with `E2E_BASE_URL`.)
 - [x] `ci.yml`: build, test, lint, Playwright. (Also fails on OpenAPI or translation-catalog drift. The Playwright job runs against the compose stack; added with the deploy files.)
-- [ ] `deploy/` files: compose (api, migrator, postgres, caddy, `TZ` set), Caddyfile, `.env.example`.
+- [x] `deploy/` files: compose (api, migrator, postgres, caddy, `TZ` set), Caddyfile, `.env.example`. (Plus `deploy/dotnet.Dockerfile`, `web/Dockerfile`, a build override and `.env.ci`; CI's e2e job runs Playwright against this stack. Data-protection keys persist in Postgres so restarts keep sessions.)
 - [ ] `deploy.yml`: build images → GHCR → SSH `compose pull && up -d`. Provision the VPS (Docker, deploy user, SSH key, DNS) and the DO Spaces bucket.
 
 **Done when:**

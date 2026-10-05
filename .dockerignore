@@ -1,0 +1,13 @@
+**/bin/
+**/obj/
+**/node_modules/
+**/dist/
+**/TestResults/
+**/test-results/
+**/playwright-report/
+.git/
+.github/
+.design-sync/
+docs/
+deploy/.env
+**/*.gen.ts

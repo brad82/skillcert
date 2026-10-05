@@ -1,0 +1,32 @@
+# SITE_ADDRESS: the public hostname (Caddy fetches its Let's Encrypt certificate), or ":80" for plain HTTP in CI.
+{$SITE_ADDRESS:localhost} {
+	encode zstd gzip
+
+	header {
+		X-Content-Type-Options nosniff
+		Referrer-Policy strict-origin-when-cross-origin
+		X-Frame-Options DENY
+		Permissions-Policy "camera=(), microphone=(), geolocation=()"
+		# MUI/emotion inject <style> tags, hence 'unsafe-inline' for styles only.
+		Content-Security-Policy "default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
+		-Server
+	}
+
+	handle /api/* {
+		reverse_proxy api:8080
+	}
+
+	handle {
+		root * /srv
+
+		@hashed path /assets/*
+		header @hashed Cache-Control "public, max-age=31536000, immutable"
+
+		@shell not path /assets/*
+		header @shell Cache-Control "no-cache"
+
+		# Client-side routes (/login, /lists/…) all load the SPA shell.
+		try_files {path} /index.html
+		file_server
+	}
+}

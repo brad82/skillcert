@@ -1,0 +1,9 @@
+# Build the images from this checkout instead of pulling them (local check and the CI smoke test):
+#   docker compose -f deploy/docker-compose.yml -f deploy/docker-compose.build.yml --env-file deploy/.env.ci up -d --build
+services:
+  migrator:
+    build: { context: .., dockerfile: deploy/dotnet.Dockerfile, target: migrator }
+  api:
+    build: { context: .., dockerfile: deploy/dotnet.Dockerfile, target: api }
+  web:
+    build: { context: .., dockerfile: web/Dockerfile }

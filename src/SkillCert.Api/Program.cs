@@ -1,4 +1,6 @@
 using FluentValidation;
+using Microsoft.AspNetCore.DataProtection;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Identity;
 using SkillCert.Api.Features.Auth;
 using SkillCert.Api.Features.CurrentUser;
@@ -11,6 +13,18 @@ builder.AddServiceDefaults();
 builder.AddNpgsqlDbContext<SkillCertDbContext>(
     SkillCertDbContextOptions.ConnectionName,
     configureDbContextOptions: SkillCertDbContextOptions.Configure);
+
+builder.Services.AddDataProtection()
+    .SetApplicationName("SkillCert")
+    .PersistKeysToDbContext<SkillCertDbContext>();
+
+// Caddy terminates TLS and proxies to the API on the compose network; trust its forwarded scheme and client IP.
+builder.Services.Configure<ForwardedHeadersOptions>(options =>
+{
+    options.ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
+    options.KnownIPNetworks.Clear();
+    options.KnownProxies.Clear();
+});
 
 builder.Services
     .AddAuthentication(IdentityConstants.ApplicationScheme)
@@ -45,6 +59,8 @@ builder.Services.AddSingleton(TimeProvider.System);
 builder.Services.AddOpenApi();
 
 var app = builder.Build();
+
+app.UseForwardedHeaders();
 
 if (app.Environment.IsDevelopment())
 {
