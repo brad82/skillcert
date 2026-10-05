@@ -82,10 +82,92 @@
           }
         }
       }
+    },
+    "/api/me/lists": {
+      "get": {
+        "tags": [
+          "MyRecord"
+        ],
+        "operationId": "GetMyLists",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MyListsResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
     }
   },
   "components": {
     "schemas": {
+      "CurrencyDto": {
+        "required": [
+          "status",
+          "reason",
+          "achievedAt",
+          "expiresAt",
+          "expiringSoon",
+          "hasPendingReview"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/CurrencyStatus"
+          },
+          "reason": {
+            "$ref": "#/components/schemas/CurrencyReason"
+          },
+          "achievedAt": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time"
+          },
+          "expiresAt": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time"
+          },
+          "expiringSoon": {
+            "type": "boolean"
+          },
+          "hasPendingReview": {
+            "type": "boolean"
+          }
+        }
+      },
+      "CurrencyReason": {
+        "enum": [
+          "NeverReviewed",
+          "Current",
+          "RecertificationExpired",
+          "RevisionInvalidated",
+          "NotCompetent"
+        ]
+      },
+      "CurrencyStatus": {
+        "enum": [
+          "NotCertified",
+          "Current",
+          "Expired",
+          "NotCompetent"
+        ]
+      },
       "CurrentUserResponse": {
         "required": [
           "id",
@@ -160,6 +242,12 @@
           }
         }
       },
+      "ListNodeKind": {
+        "enum": [
+          "Heading",
+          "Competency"
+        ]
+      },
       "LoginRequest": {
         "required": [
           "email",
@@ -174,6 +262,250 @@
             "type": "string"
           }
         }
+      },
+      "MyCompetencySummaryDto": {
+        "required": [
+          "competencyId",
+          "code",
+          "title",
+          "shortTitle",
+          "currency",
+          "lowestReviewer"
+        ],
+        "type": "object",
+        "properties": {
+          "competencyId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "code": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "shortTitle": {
+            "type": "string"
+          },
+          "currency": {
+            "$ref": "#/components/schemas/CurrencyDto"
+          },
+          "lowestReviewer": {
+            "$ref": "#/components/schemas/ReviewLevelDto"
+          }
+        }
+      },
+      "MyListCountsDto": {
+        "required": [
+          "total",
+          "current",
+          "expiringSoon",
+          "expired",
+          "notCompetent",
+          "notCertified",
+          "pending"
+        ],
+        "type": "object",
+        "properties": {
+          "total": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "current": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "expiringSoon": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "expired": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "notCompetent": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "notCertified": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "pending": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          }
+        }
+      },
+      "MyListDto": {
+        "required": [
+          "id",
+          "title",
+          "isCompliant",
+          "counts",
+          "nodes"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "title": {
+            "type": "string"
+          },
+          "isCompliant": {
+            "type": "boolean"
+          },
+          "counts": {
+            "$ref": "#/components/schemas/MyListCountsDto"
+          },
+          "nodes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MyListNodeDto"
+            }
+          }
+        }
+      },
+      "MyListNodeDto": {
+        "required": [
+          "id",
+          "parentNodeId",
+          "depth",
+          "kind",
+          "headingCode",
+          "headingTitle",
+          "competency"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "parentNodeId": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "uuid"
+          },
+          "depth": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "kind": {
+            "$ref": "#/components/schemas/ListNodeKind"
+          },
+          "headingCode": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "headingTitle": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "competency": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/MyCompetencySummaryDto"
+              }
+            ]
+          }
+        }
+      },
+      "MyListsResponse": {
+        "required": [
+          "asOf",
+          "lists"
+        ],
+        "type": "object",
+        "properties": {
+          "asOf": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "lists": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MyListDto"
+            }
+          }
+        }
+      },
+      "ReviewLevelDto": {
+        "required": [
+          "method",
+          "classificationCode",
+          "order"
+        ],
+        "type": "object",
+        "properties": {
+          "method": {
+            "$ref": "#/components/schemas/ReviewMethod"
+          },
+          "classificationCode": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "order": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          }
+        }
+      },
+      "ReviewMethod": {
+        "enum": [
+          "Self",
+          "Peer",
+          "Classified"
+        ]
       }
     }
   },
@@ -183,6 +515,9 @@
     },
     {
       "name": "CurrentUser"
+    },
+    {
+      "name": "MyRecord"
     }
   ]
 }

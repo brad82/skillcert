@@ -1,9 +1,12 @@
+using System.Text.Json.Serialization;
 using FluentValidation;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Identity;
 using SkillCert.Api.Features.Auth;
+using SkillCert.Api.Common;
 using SkillCert.Api.Features.CurrentUser;
+using SkillCert.Api.Features.MyRecord;
 using SkillCert.Infrastructure.Identity;
 using SkillCert.Infrastructure.Persistence;
 
@@ -59,6 +62,9 @@ builder.Services.ConfigureApplicationCookie(options =>
 builder.Services.AddAuthorization();
 builder.Services.AddValidatorsFromAssemblyContaining<Program>();
 builder.Services.AddSingleton(TimeProvider.System);
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddScoped<CurrentUserAccessor>();
+builder.Services.ConfigureHttpJsonOptions(options => options.SerializerOptions.Converters.Add(new JsonStringEnumConverter()));
 builder.Services.AddOpenApi();
 
 var app = builder.Build();
@@ -76,6 +82,7 @@ app.UseAuthorization();
 app.MapDefaultEndpoints();
 app.MapAuthFeature();
 app.MapCurrentUserFeature();
+app.MapMyRecordFeature();
 
 app.Run();
 

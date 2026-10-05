@@ -11,6 +11,7 @@ const spec = './openapi/skillcert.json'
 const featureByTag: Record<string, string> = {
   Auth: 'auth',
   CurrentUser: 'current-user',
+  MyRecord: 'my-record',
 }
 
 const camel = (name: string) => name.replace(/-(\w)/g, (_, c: string) => c.toUpperCase())
