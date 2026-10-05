@@ -58,7 +58,10 @@ msgstr "Reload"
 msgid "Sign out"
 msgstr "Sign out"
 
-#: src/app/routes/_authenticated/skills.tsx
+#: src/app/routes/_authenticated/skills_.$competencyId.tsx
+msgid "Skill detail"
+msgstr "Skill detail"
+
 #: src/app/shell/BottomNav.tsx
 msgid "Skills"
 msgstr "Skills"

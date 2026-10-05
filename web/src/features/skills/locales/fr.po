@@ -1,0 +1,80 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2026-10-04 22:54-0600\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: fr\n"
+
+#. placeholder {0}: heading.current
+#. placeholder {1}: heading.total
+#: src/features/skills/components/Tree/HeadingRow.tsx
+msgid "{0} of {1} current"
+msgstr ""
+
+#: src/features/skills/components/BasketBar.tsx
+msgid "{count, plural, one {# in basket} other {# in basket}}"
+msgstr ""
+
+#. placeholder {0}: competency.code
+#: src/features/skills/components/Tree/CompetencyRow.tsx
+msgid "Add {0} to basket"
+msgstr ""
+
+#: src/features/skills/components/Toolbar/FilterChips.tsx
+msgid "All"
+msgstr ""
+
+#: src/features/skills/components/Toolbar/FilterChips.tsx
+msgid "Current"
+msgstr ""
+
+#: src/features/skills/components/Toolbar/FilterChips.tsx
+msgid "Expired"
+msgstr ""
+
+#: src/features/skills/components/Toolbar/FilterChips.tsx
+msgid "Expiring soon"
+msgstr ""
+
+#: src/features/skills/components/Toolbar/FilterChips.tsx
+msgid "Needs action"
+msgstr ""
+
+#: src/features/skills/components/ListSection.tsx
+msgid "No skills match."
+msgstr ""
+
+#: src/features/skills/components/Toolbar/FilterChips.tsx
+msgid "Not certified"
+msgstr ""
+
+#: src/features/skills/components/Toolbar/FilterChips.tsx
+msgid "Not competent"
+msgstr ""
+
+#: src/features/skills/components/Toolbar/FilterChips.tsx
+msgid "Pending"
+msgstr ""
+
+#. placeholder {0}: i18n._(stateLabels[filter.status])
+#: src/features/skills/components/Toolbar/FilterChips.tsx
+msgid "Remove filter: {0}"
+msgstr ""
+
+#: src/features/skills/components/BasketBar.tsx
+msgid "Review"
+msgstr ""
+
+#: src/features/skills/components/Toolbar/SearchField.tsx
+msgid "Search skills"
+msgstr ""
+
+#: src/features/skills/pages/SkillsPage.tsx
+msgid "Skills"
+msgstr ""
+
+#: src/features/skills/pages/SkillsPage.tsx
+msgid "You have no required skills records yet."
+msgstr ""
