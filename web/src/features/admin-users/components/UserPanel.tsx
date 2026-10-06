@@ -13,7 +13,7 @@ import { useLocale } from '@shared/i18n/AppI18nProvider'
 import { useSelectedUser } from '../UsersProvider'
 
 const userPanelStyles = () => ({
-  panel: { p: 6, flex: '1 1 320px', minWidth: 0 },
+  panel: { p: 6, flex: { md: '0 0 340px' }, minWidth: 0 },
   facts: { display: 'grid', gridTemplateColumns: 'max-content 1fr', columnGap: 4, rowGap: 2, m: 0, '& dd': { m: 0 } },
   footer: { pt: 4, borderTop: 1, borderColor: 'divider' },
 })

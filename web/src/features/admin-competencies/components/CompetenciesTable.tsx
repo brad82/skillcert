@@ -17,7 +17,7 @@ export function CompetenciesTable() {
   const { rows } = useCompetencyRows()
   const { i18n, t } = useLingui()
   return (
-    <TableContainer component={Paper} variant="outlined">
+    <TableContainer component={Paper} variant="outlined" sx={{ position: 'relative' }}>
       <Table aria-label={t`All competencies`}>
         <TableHead>
           <TableRow>

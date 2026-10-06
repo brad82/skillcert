@@ -30,8 +30,9 @@ export function UsersTable() {
   const { t } = useLingui()
   const styles = usersTableStyles()
 
+  // Positioned, so the visually hidden heading below is clipped by the scroll box instead of widening the page.
   return (
-    <TableContainer component={Paper} variant="outlined">
+    <TableContainer component={Paper} variant="outlined" sx={{ position: 'relative' }}>
       <Table aria-label={t`Users`}>
         <TableHead>
           <TableRow>

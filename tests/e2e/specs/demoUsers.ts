@@ -16,3 +16,10 @@ export const signOffCandidates: Record<string, { email: string; name: string }> 
   iphone: { email: 'candidate08@skillcert.test', name: 'Candidate 08' },
   desktop: { email: 'candidate10@skillcert.test', name: 'Candidate 10' },
 }
+
+/** One user per Playwright project for the admin smoke test to edit (not used by any other spec). */
+export const adminTargets: Record<string, { email: string; name: string }> = {
+  phone: { email: 'candidate02@skillcert.test', name: 'Candidate 02' },
+  iphone: { email: 'candidate03@skillcert.test', name: 'Candidate 03' },
+  desktop: { email: 'candidate04@skillcert.test', name: 'Candidate 04' },
+}

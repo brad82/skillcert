@@ -16,7 +16,7 @@ export function ListsTable() {
   const { rows } = useListsTable()
   const { t } = useLingui()
   return (
-    <TableContainer component={Paper} variant="outlined">
+    <TableContainer component={Paper} variant="outlined" sx={{ position: 'relative' }}>
       <Table aria-label={t`Competency lists`}>
         <TableHead>
           <TableRow>

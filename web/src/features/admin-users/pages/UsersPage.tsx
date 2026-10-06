@@ -19,8 +19,9 @@ export function UsersPage() {
         <Typography variant="body2" color="text.secondary"><Trans>Users are deactivated, never deleted. Their history stays.</Trans></Typography>
       </div>
       {error && <Alert severity="error">{error}</Alert>}
-      <Stack direction="row" spacing={6} useFlexGap sx={{ flexWrap: 'wrap', alignItems: 'flex-start' }}>
-        <Stack spacing={4} sx={{ flex: '999 1 560px', minWidth: 0 }}>
+      {/* Stacked on phones (the table scrolls inside its own box); table and panel side by side from md up. */}
+      <Stack direction={{ xs: 'column', md: 'row' }} spacing={6} useFlexGap sx={{ alignItems: { xs: 'stretch', md: 'flex-start' } }}>
+        <Stack spacing={4} sx={{ flex: { md: '1 1 auto' }, minWidth: 0 }}>
           <UserFilters />
           <UsersTable />
         </Stack>

@@ -32,7 +32,7 @@ export function AuditTable() {
   const { t, i18n } = useLingui()
   return (
     <Stack spacing={4}>
-      <TableContainer component={Paper} variant="outlined">
+      <TableContainer component={Paper} variant="outlined" sx={{ position: 'relative' }}>
         <Table aria-label={t`Audit log`}>
           <TableHead>
             <TableRow>

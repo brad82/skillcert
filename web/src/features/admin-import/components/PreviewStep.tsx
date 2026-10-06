@@ -46,7 +46,7 @@ export function PreviewStep() {
           <Trans>Nothing has been created. Warnings don't block the import.</Trans>
         </Alert>
       )}
-      <TableContainer component={Paper} variant="outlined">
+      <TableContainer component={Paper} variant="outlined" sx={{ position: 'relative' }}>
         <Table aria-label={t`Rows`} size="small">
           <TableHead>
             <TableRow>
