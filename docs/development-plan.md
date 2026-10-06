@@ -337,7 +337,7 @@ Source: `docs/AFA Skills Record - Revised v3.pdf`.
 - [x] Claude Design screens: admin shell, users, competency editor (edit vs publish), list tree editor, CSV preview, audit viewer. Brief: `docs/admin-api.md`. Wireframes: https://claude.ai/artifact/Br53vPE17YVictB8qjjSY9
 - [x] Admin UI built from those wireframes (users, competencies, list tree editor, CSV import, audit viewer). API changes the screens want: `docs/admin-api.md` § API changes requested by the admin screens.
 - [x] API changes requested by the admin screens (shared count on tree nodes, create/import into a list in one transaction, audit actors), then switch the web over (same section).
-- [ ] Playwright smoke test for the admin area (gate, one change per screen).
+- [x] Playwright smoke test for the admin area (`tests/e2e/specs/admin.spec.ts`: gate, a classification change, a list built from a heading plus existing and new competencies, its audit history).
 - [x] Audit log: actor, timestamp, action, entity type/id, before/after JSON. Written by an interceptor or explicit service for configuration entities only.
 - [x] Users admin (API): list, view, deactivate (no delete). Assign/remove reviewer classifications.
 - [x] Competencies admin (API):
