@@ -6,6 +6,7 @@ Written: 4 October 2026.
 ## How to use this plan
 - Built solo, part-time, mostly by Claude Code. Each `- [ ]` task fits in one Claude Code session.
 - Work one phase at a time, in order. A phase is done only when every check under its **Done when** passes.
+- Phase 5 (reporting) is deferred until after Phase 6 (decided 5 October 2026). Order: 0–4, 6, 5, 7.
 - Each phase starts by designing its screens in Claude Design. Implementation starts after the designs are reviewed.
 - Estimates assume about 8–10 hours a week. **Total: about 17 weeks.**
 
@@ -16,8 +17,8 @@ Written: 4 October 2026.
 | 2 | Candidate sign-off + supervisor confirmation | 9–11, 13, 18 | Candidate signs off; supervisor confirms; status updates | 2–3 wks |
 | 3 | Training record PDF + nightly archival | 21–22 | Download PDF that looks like the AFA record; nightly job archives it | 2 wks |
 | 4 | Admin configuration + audit + CSV import | 3, 4, 19, 23, 26 | Admin edits/publishes revisions, edits list tree, imports CSV | 3 wks |
-| 5 | Admin reporting | 20, 21 | Six reports + org-wide training records + manual archive | 2 wks |
 | 6 | Groups admin + opportunities + group attestation | 6, 14–17 | Opportunity → QR registration → attendance → 30×30 attestation | 3 wks |
+| 5 | Admin reporting | 20, 21 | Six reports + org-wide training records + manual archive | 2 wks |
 | 7 | OIDC cutover (CiviCRM) | 5, 18 | Login via CiviCRM only | 1 wk |
 
 ---
@@ -144,6 +145,11 @@ Record these in the next spec revision.
    - Each row shows initials derived from the ReviewerName snapshot.
    - The last page lists each evaluator's name and initials, as on the paper form. If two evaluators share initials, they are disambiguated (e.g. JS, JS2).
    - Candidate identity is the name only: no CSP# and no New/Returning tick-box.
+4. **Opportunity registration and attendance defaults (spec §15, §17).**
+   - Candidates can register while the opportunity is Open. QR check-in also works while it is InProgress, so walk-ins on the day can join. There are no separate registration dates.
+   - A Withdrawn candidate can register again. The same registration row goes back to Registered, if audience and capacity still allow.
+   - Assigned instructors can switch a candidate between Registered and Attended until the opportunity is Completed. Administrators can still override afterwards. Every change is audited.
+   - An administrator can cancel an unused Draft (Draft → Cancelled), as well as Open → Cancelled.
 
 ## 2a. AFA Skills Record source mapping
 Source: `docs/AFA Skills Record - Revised v3.pdf`.
@@ -201,7 +207,6 @@ Source: `docs/AFA Skills Record - Revised v3.pdf`.
 ## 3. Spec defaults still to finalize
 | Item | Decide in |
 |---|---|
-| Registration windows, re-registering after Withdraw, attendance correction, cancelling an unused Draft (spec §15, §17) | Phase 6 |
 | CiviCRM user provisioning (first login vs pre-created) and claim mapping | Phase 7 |
 
 ---
@@ -360,32 +365,17 @@ Source: `docs/AFA Skills Record - Revised v3.pdf`.
 
 **Done when:** every audited action appears in the viewer, the CSV tests pass, and the screens match the approved designs.
 
-### Phase 5: Admin reporting (2 wks)
-**Goal:** the six spec §20 reports, plus org-wide training records.
-
-- [ ] Claude Design screens: report pages and the individual record view.
-- [ ] Batch currency service: evaluate many users × competencies in a few queries, not one per row.
-- [ ] Compliance Overview (organization and group level).
-- [ ] User Compliance (missing/expired/non-current).
-- [ ] Competency Compliance (currency rate per competency).
-- [ ] Recertification Forecast (configurable window, e.g. 30/60/90 days).
-- [ ] Pending Approvals (claims + responsible reviewer).
-- [ ] Individual Training Record (admin view of any user) + manual archive (Trigger = AdministratorManual).
-- [ ] Tests compare each report with hand-computed values on the fixed seed. Performance check with 500 seeded users: every report responds in under 2 s.
-
-**Done when:** all report tests pass, the performance check passes, and the screens match the approved designs.
-
 ### Phase 6: Groups admin + opportunities + group attestation (3 wks)
 **Goal:** scheduled events from registration through attendance to classroom-scale attestation.
 
-- [ ] Claude Design screens:
+- [ ] Claude Design screens. Brief: `docs/opportunities-brief.md`.
   - groups admin
   - opportunity listing and detail
   - QR check-in
   - instructor participant/attendance view
   - attestation grid
 - [ ] Groups admin: CRUD, user membership and list assignment, all audited. Groups are seed-only before this phase.
-- [ ] Finalize the §3 Phase 6 defaults.
+- [x] Finalize the §3 Phase 6 defaults (now decision §2.4).
 - [ ] Opportunity entity:
   - title, description, location, StartsAt/EndsAt, capacity, Status, AudienceMode
   - competencies (distinct, can be copied from a list)
@@ -407,6 +397,21 @@ Source: `docs/AFA Skills Record - Revised v3.pdf`.
 - [ ] Playwright: register via QR → instructor marks attended → attests → candidate sees Current.
 
 **Done when:** all tests pass and the screens match the approved designs.
+
+### Phase 5: Admin reporting (2 wks, after Phase 6)
+**Goal:** the six spec §20 reports, plus org-wide training records.
+
+- [ ] Claude Design screens: report pages and the individual record view.
+- [ ] Batch currency service: evaluate many users × competencies in a few queries, not one per row.
+- [ ] Compliance Overview (organization and group level).
+- [ ] User Compliance (missing/expired/non-current).
+- [ ] Competency Compliance (currency rate per competency).
+- [ ] Recertification Forecast (configurable window, e.g. 30/60/90 days).
+- [ ] Pending Approvals (claims + responsible reviewer).
+- [ ] Individual Training Record (admin view of any user) + manual archive (Trigger = AdministratorManual).
+- [ ] Tests compare each report with hand-computed values on the fixed seed. Performance check with 500 seeded users: every report responds in under 2 s.
+
+**Done when:** all report tests pass, the performance check passes, and the screens match the approved designs.
 
 ### Phase 7: OIDC cutover to CiviCRM (1 wk)
 **Goal:** users log in through CiviCRM only.
