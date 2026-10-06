@@ -195,10 +195,6 @@ msgid "That file is over 1 MB. Split it into smaller files."
 msgstr "Ce fichier dépasse 1 Mo. Divisez-le en fichiers plus petits."
 
 #: src/features/admin-import/pages/ImportContainer.tsx
-msgid "The competencies were created, but couldn't be added to the list. Add them from the list editor."
-msgstr "Les compétences ont été créées, mais n'ont pas pu être ajoutées à la liste. Ajoutez-les depuis l'éditeur de liste."
-
-#: src/features/admin-import/pages/ImportContainer.tsx
 msgid "The file couldn't be checked. Please try again."
 msgstr "Le fichier n'a pas pu être vérifié. Veuillez réessayer."
 

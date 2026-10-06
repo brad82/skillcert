@@ -79,6 +79,9 @@ export function TreeRow({ node, collapsed, competencyCount, canMoveUp, canMoveDo
           {node.competency?.title}
         </TextLink>
       )}
+      {node.competency && node.competency.listCount > 1 && (
+        <Chip size="small" variant="outlined" label={<Trans>In {node.competency.listCount} lists</Trans>} />
+      )}
       {node.competency && !node.competency.isActive && <Chip size="small" variant="outlined" label={<Trans>Inactive</Trans>} />}
       <IconButton color="inherit" aria-label={t`Actions for ${label}`} disabled={busy} onClick={(e) => setAnchor(e.currentTarget)}>
         <EllipsisVertical size={20} aria-hidden />

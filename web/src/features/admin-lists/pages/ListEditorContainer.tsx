@@ -70,17 +70,21 @@ export function ListEditorContainer({ listId }: { listId: string }) {
         save(() => addCompetencies.mutateAsync({ listId, data: { parentNodeId, competencyIds, index: null } }))
       }
       onCreateCompetency={async (parentNodeId, request) => {
-        let created
+        // One call: the competency is created and placed in this list in the same transaction.
         try {
-          created = await createCompetency.mutateAsync({ data: request })
+          await createCompetency.mutateAsync({ data: { ...request, placement: { listId, parentNodeId, index: null } } })
         } catch (error) {
           if (problemType(error) === 'competency.duplicate-code') return 'duplicate'
           setFailure(error)
           return 'failed'
         }
-        // The competency now exists; adding it to the list is a second call.
-        const added = await save(() => addCompetencies.mutateAsync({ listId, data: { parentNodeId, competencyIds: [created.id], index: null } }))
-        return added ? 'ok' : 'failed'
+        setFailure(null)
+        await Promise.all([
+          queryClient.invalidateQueries({ queryKey: listQueryOptions(listId).queryKey }),
+          queryClient.invalidateQueries({ queryKey: listsQueryOptions().queryKey }),
+          queryClient.invalidateQueries({ queryKey: competenciesQueryOptions().queryKey }),
+        ])
+        return 'ok'
       }}
     >
       <ListEditorPage />

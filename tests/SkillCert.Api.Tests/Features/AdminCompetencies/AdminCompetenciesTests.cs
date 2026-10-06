@@ -165,4 +165,30 @@ public sealed class AdminCompetenciesTests(ApiFactory api)
         Assert.Contains("content.LowestReviewer.ClassificationCode", errors, StringComparer.OrdinalIgnoreCase);
         Assert.Contains("content.Resources[0].Url", errors, StringComparer.OrdinalIgnoreCase);
     }
+
+    [Fact]
+    public async Task A_new_competency_can_be_placed_in_a_list_in_one_step_and_a_bad_placement_creates_nothing()
+    {
+        var admin = await AdminAsync();
+        var list = (await (await admin.PostAsJsonAsync("/api/admin/lists", new SkillCert.Api.Features.AdminLists.ListDetailsRequest($"Place {Guid.NewGuid():N}"[..16], null), Json))
+            .Content.ReadFromJsonAsync<SkillCert.Api.Features.AdminLists.AdminListDto>(Json))!;
+        list = (await (await admin.PostAsJsonAsync($"/api/admin/lists/{list.Id}/headings", new SkillCert.Api.Features.AdminLists.AddHeadingRequest(null, "1", "Section", null), Json))
+            .Content.ReadFromJsonAsync<SkillCert.Api.Features.AdminLists.AdminListDto>(Json))!;
+        var heading = list.Nodes.Single().Id;
+        var code = $"T-{Guid.NewGuid():N}"[..12];
+
+        var placed = await admin.PostAsJsonAsync("/api/admin/competencies",
+            new CreateCompetencyRequest(code, Content(), new SkillCert.Api.Admin.ListPlacementRequest(list.Id, heading, null)), Json);
+        var badCode = $"T-{Guid.NewGuid():N}"[..12];
+        var nowhere = await admin.PostAsJsonAsync("/api/admin/competencies",
+            new CreateCompetencyRequest(badCode, Content(), new SkillCert.Api.Admin.ListPlacementRequest(Guid.NewGuid(), null, null)), Json);
+
+        var dto = (await placed.Content.ReadFromJsonAsync<AdminCompetencyDto>(Json))!;
+        Assert.Equal([list.Id], dto.Lists.Select(l => l.Id));
+        Assert.Equal(HttpStatusCode.UnprocessableEntity, nowhere.StatusCode);
+        Assert.Equal(SkillCert.Api.Admin.ListPlacement.ListNotFoundType, (await nowhere.Content.ReadFromJsonAsync<ProblemDetails>())!.Type);
+        var exists = true;
+        await api.WithDbAsync(async db => exists = await db.Competencies.AnyAsync(c => c.Code == badCode));
+        Assert.False(exists);
+    }
 }

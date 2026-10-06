@@ -155,7 +155,9 @@ msgid "History"
 msgstr "History"
 
 #. placeholder {0}: competency.listCount
+#. placeholder {0}: node.competency.listCount
 #: src/features/admin-lists/components/AddExistingDialog.tsx
+#: src/features/admin-lists/components/TreeRow.tsx
 msgid "In {0} lists"
 msgstr "In {0} lists"
 

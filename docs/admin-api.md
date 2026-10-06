@@ -204,36 +204,22 @@ A competency or list detail screen can link to its own history (`?entityId=`).
 
 ---
 
-## API changes requested by the admin screens
+## API changes requested by the admin screens (done)
 
-The admin web is built and working against today's API, with workarounds. These are the changes it wants, in
-priority order. Each says the proposed contract, what the web does until then, and what to change in `web/`
-afterwards (regenerate with `npm run gen` first).
+All four requests landed on 2026-10-05, and the web uses them:
 
-1. **Shared count on list tree nodes.**
-   - **Change:** add `listCount: int` to `AdminListCompetencyDto` (the `competency` on each node of
-     `GET /api/admin/lists/{id}` and every tree-changing response).
-   - **Until then:** the list tree can't show the wireframes' "In N lists" tag. Sharing is still shown in the
-     competency editor and the review (from `GET /api/admin/competencies/{id}` `lists[]`).
-   - **Then:** in `features/admin-lists/components/TreeRow.tsx`, show a tag when `node.competency.listCount > 1`.
-2. **Create a competency straight into a list, in one transaction.**
-   - **Change:** optional `placement: { listId, parentNodeId?, index? } | null` on `POST /api/admin/competencies`.
-     Refuse with the existing `list.*` problem types; audit both `competency.create` and `list.add-competencies`.
-   - **Until then:** the web creates, then calls `POST /api/admin/lists/{id}/competencies`. If the second call
-     fails, the competency exists outside the list (the screen says so).
-   - **Then:** `features/admin-lists/pages/ListEditorContainer.tsx` `onCreateCompetency` makes one call.
-3. **CSV import into a list, in one transaction, returning ids.**
-   - **Change:** optional `placement: { listId, parentNodeId? } | null` on `POST /api/admin/imports/competencies`
-     (validated in the preview too), and `CompetencyImportResponse` gains `competencies: [{ id, code }]`.
-   - **Until then:** after the import the web reloads all competencies, matches the created codes, and adds them
-     to the list with a second call.
-   - **Then:** `features/admin-import/pages/ImportContainer.tsx` `importAll` sends the placement and drops the lookup.
-4. **Audit actors.**
-   - **Change:** `entityTypes[]` already comes with `GET /api/admin/audit`; add `actors: [{ id, name }]` (everyone
-     who appears in the log, including since-demoted admins).
-   - **Until then:** the "Who" filter lists current administrators from `GET /api/admin/users`.
-   - **Then:** `features/admin-audit/pages/AuditContainer.tsx` reads `pages[0].actors` and the route stops
-     loading users.
+1. **Shared count on list tree nodes.** Each tree node's `competency` has `listCount`. The tree shows
+   "In N lists" when it's above 1.
+2. **Create a competency straight into a list.** `POST /api/admin/competencies` takes an optional
+   `placement: { listId, parentNodeId?, index? }`.
+   - It runs in one transaction and audits both `competency.create` and `list.add-competencies`.
+   - An unusable placement is 422 `list.not-found` or `list.invalid-parent`, and nothing is created.
+3. **CSV import into a list.** Both the preview and the import take an optional `placement`.
+   - In the preview, an unusable placement shows up as a file error.
+   - The import places every competency in file order in the same transaction.
+   - The response gains `competencies: [{ id, code }]`.
+4. **Audit actors.** `GET /api/admin/audit` returns `actors: [{ id, name }]`: everyone who appears in the log,
+   including former administrators.
 
 **No change needed:**
 - **Search:** users, lists and all competencies are searched in the browser over the loaded set; the `search=`

@@ -90,4 +90,26 @@ public sealed class CompetencyImportTests(ApiFactory api)
 
         Assert.Equal(HttpStatusCode.Forbidden, (await candidate.PostAsJsonAsync("/api/admin/imports/competencies/preview", new CompetencyImportRequest("Code,Title"))).StatusCode);
     }
+
+    [Fact]
+    public async Task An_import_can_go_straight_into_a_list_and_returns_the_new_ids()
+    {
+        var admin = await AdminAsync();
+        var list = (await (await admin.PostAsJsonAsync("/api/admin/lists", new SkillCert.Api.Features.AdminLists.ListDetailsRequest($"Import {Guid.NewGuid():N}"[..17], null)))
+            .Content.ReadFromJsonAsync<SkillCert.Api.Features.AdminLists.AdminListDto>(GetMyListsTests.Json))!;
+        var csv = $"{Header}\n{Codes(2, out var codes)}";
+
+        var badPreview = await (await admin.PostAsJsonAsync("/api/admin/imports/competencies/preview",
+            new CompetencyImportRequest(csv, new SkillCert.Api.Admin.ListPlacementRequest(Guid.NewGuid(), null, null)))).Content
+            .ReadFromJsonAsync<CompetencyImportPreviewResponse>(GetMyListsTests.Json);
+        var imported = await admin.PostAsJsonAsync("/api/admin/imports/competencies",
+            new CompetencyImportRequest(csv, new SkillCert.Api.Admin.ListPlacementRequest(list.Id, null, null)));
+
+        Assert.False(badPreview!.CanImport);
+        Assert.Equal(["That list doesn't exist."], badPreview.FileErrors);
+        var result = (await imported.Content.ReadFromJsonAsync<CompetencyImportResponse>())!;
+        Assert.Equal(codes, result.Competencies.Select(c => c.Code));
+        var tree = (await admin.GetFromJsonAsync<SkillCert.Api.Features.AdminLists.AdminListDto>($"/api/admin/lists/{list.Id}", GetMyListsTests.Json))!;
+        Assert.Equal(result.Competencies.Select(c => c.Id), tree.Nodes.Select(n => n.Competency!.Id));
+    }
 }

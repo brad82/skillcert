@@ -9,7 +9,8 @@ using SkillCert.Infrastructure.Persistence;
 namespace SkillCert.Api.Features.AdminCompetencies;
 
 /// <param name="Code">As printed on the record, e.g. "4.3.1" or "9.1a". Unique after trimming and upper-casing.</param>
-public sealed record CreateCompetencyRequest(string Code, RevisionContentRequest Content);
+/// <param name="Placement">Optionally add it to a list in the same transaction.</param>
+public sealed record CreateCompetencyRequest(string Code, RevisionContentRequest Content, ListPlacementRequest? Placement = null);
 
 public sealed class CreateCompetencyRequestValidator : AbstractValidator<CreateCompetencyRequest>
 {
@@ -17,10 +18,15 @@ public sealed class CreateCompetencyRequestValidator : AbstractValidator<CreateC
     {
         RuleFor(r => r.Code).NotEmpty().MaximumLength(50);
         RuleFor(r => r.Content).NotNull().SetValidator(new RevisionContentRequestValidator());
+        RuleFor(r => r.Placement!.Index).GreaterThanOrEqualTo(0).When(r => r.Placement?.Index is not null);
     }
 }
 
-/// <summary>POST /api/admin/competencies: a new competency with revision 1. 409 when the code is taken (spec §26).</summary>
+/// <summary>
+/// POST /api/admin/competencies: a new competency with revision 1, optionally placed in a list in the same
+/// transaction. 409 when the code is taken (spec §26); 422 <c>list.not-found</c> / <c>list.invalid-parent</c> for an
+/// unusable placement.
+/// </summary>
 public static class CreateCompetencyEndpoint
 {
     public const string DuplicateCodeType = "competency.duplicate-code";
@@ -52,6 +58,18 @@ public static class CreateCompetencyEndpoint
         db.Competencies.Add(competency);
         audit.Record(adminId, "competency.create", "Competency", competency.Id, null,
             new { competency.Code, Revision = AdminCompetencyMapping.Snapshot(competency.CurrentRevision, classifications) });
+
+        if (request.Placement is { } placement)
+        {
+            var (list, problemType, problem) = await ListPlacement.LoadAsync(db, placement, cancellationToken);
+            if (list is null)
+            {
+                return RuleProblems.Create(problemType!, problem!);
+            }
+
+            ListPlacement.Add(list, placement, [competency.Id]);
+            audit.Record(adminId, "list.add-competencies", "CompetencyList", list.Id, null, new { placement.ParentNodeId, Codes = new[] { competency.Code } });
+        }
         try
         {
             await db.SaveChangesAsync(cancellationToken);

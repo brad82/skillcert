@@ -26,6 +26,7 @@ public sealed class ListAuditEntriesTests(ApiFactory api)
         Assert.All(forList.Entries, e => Assert.Equal((title, "Alex Admin"), (e.EntityLabel, e.ActorName)));
         Assert.Equal("Now described", forList.Entries[0].After!.Value.GetProperty("after").GetProperty("description").GetString());
         Assert.Contains("CompetencyList", forList.EntityTypes);
+        Assert.Contains(forList.Actors, a => a.Name == "Alex Admin");
 
         // 55 more entries for the same entity → two pages.
         await api.WithDbAsync(async db =>

@@ -25,7 +25,8 @@ public sealed record AdminListNodeDto(
     string? HeadingTitle,
     AdminListCompetencyDto? Competency);
 
-public sealed record AdminListCompetencyDto(Guid Id, string Code, string Title, string ShortTitle, bool IsActive);
+/// <param name="ListCount">How many lists use this competency (this one included); above 1 it is shared.</param>
+public sealed record AdminListCompetencyDto(Guid Id, string Code, string Title, string ShortTitle, bool IsActive, int ListCount);
 
 internal static class AdminListQuery
 {
@@ -42,6 +43,12 @@ internal static class AdminListQuery
             .Where(c => competencyIds.Contains(c.Id))
             .ToDictionaryAsync(c => c.Id, cancellationToken);
         var groups = await GroupsAsync(db, listId, cancellationToken);
+        var listCounts = await db.CompetencyLists
+            .SelectMany(l => l.Nodes)
+            .Where(n => n.CompetencyId != null && competencyIds.Contains(n.CompetencyId.Value))
+            .GroupBy(n => n.CompetencyId!.Value)
+            .Select(g => new { CompetencyId = g.Key, Count = g.Count() })
+            .ToDictionaryAsync(x => x.CompetencyId, x => x.Count, cancellationToken);
 
         var depths = new Dictionary<Guid, int>();
         var nodes = list.Walk().Select(node =>
@@ -53,7 +60,7 @@ internal static class AdminListQuery
             {
                 var c = competencies[id];
                 var revision = c.CurrentRevision;
-                competency = new AdminListCompetencyDto(c.Id, c.Code, revision.Title, revision.ShortTitle ?? revision.Title, c.IsActive);
+                competency = new AdminListCompetencyDto(c.Id, c.Code, revision.Title, revision.ShortTitle ?? revision.Title, c.IsActive, listCounts.GetValueOrDefault(c.Id));
             }
 
             return new AdminListNodeDto(node.Id, node.ParentNodeId, depth, node.SortOrder, node.Kind, node.HeadingCode, node.HeadingTitle, competency);

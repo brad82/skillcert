@@ -123,4 +123,17 @@ public sealed class AdminListsTests(ApiFactory api)
         Assert.Equal(63, afa.CompetencyCount);
         Assert.Equal(["New Patroller", "Returning Patroller", "Senior Patroller"], afa.Groups);
     }
+
+    [Fact]
+    public async Task Tree_nodes_say_how_many_lists_share_each_competency()
+    {
+        var admin = await AdminAsync();
+        var ppe = (await CompetencyIdsAsync("3.2"))[0];
+        var list = await ReadAsync(await admin.PostAsJsonAsync("/api/admin/lists", new ListDetailsRequest($"Shared {Guid.NewGuid():N}"[..17], null), Json));
+
+        list = await ReadAsync(await admin.PostAsJsonAsync($"/api/admin/lists/{list.Id}/competencies", new AddCompetenciesRequest(null, [ppe], null), Json));
+
+        var shared = Assert.Single(list.Nodes).Competency!;
+        Assert.True(shared.ListCount >= 2); // the AFA record and this list
+    }
 }

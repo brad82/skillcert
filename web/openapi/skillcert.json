@@ -2331,7 +2331,8 @@
           "code",
           "title",
           "shortTitle",
-          "isActive"
+          "isActive",
+          "listCount"
         ],
         "type": "object",
         "properties": {
@@ -2350,6 +2351,10 @@
           },
           "isActive": {
             "type": "boolean"
+          },
+          "listCount": {
+            "type": "integer",
+            "format": "int32"
           }
         }
       },
@@ -2788,11 +2793,28 @@
           }
         }
       },
+      "AuditActorDto": {
+        "required": [
+          "id",
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string"
+          }
+        }
+      },
       "AuditEntriesResponse": {
         "required": [
           "entries",
           "hasMore",
-          "entityTypes"
+          "entityTypes",
+          "actors"
         ],
         "type": "object",
         "properties": {
@@ -2809,6 +2831,12 @@
             "type": "array",
             "items": {
               "type": "string"
+            }
+          },
+          "actors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AuditActorDto"
             }
           }
         }
@@ -2914,13 +2942,24 @@
         "properties": {
           "csv": {
             "type": "string"
+          },
+          "placement": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/ListPlacementRequest"
+              }
+            ]
           }
         }
       },
       "CompetencyImportResponse": {
         "required": [
           "created",
-          "codes"
+          "codes",
+          "competencies"
         ],
         "type": "object",
         "properties": {
@@ -2932,6 +2971,12 @@
             "type": "array",
             "items": {
               "type": "string"
+            }
+          },
+          "competencies": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ImportedCompetencyDto"
             }
           }
         }
@@ -3014,6 +3059,16 @@
           },
           "content": {
             "$ref": "#/components/schemas/RevisionContentRequest"
+          },
+          "placement": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/ListPlacementRequest"
+              }
+            ]
           }
         }
       },
@@ -3145,6 +3200,22 @@
           }
         }
       },
+      "ImportedCompetencyDto": {
+        "required": [
+          "id",
+          "code"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "code": {
+            "type": "string"
+          }
+        }
+      },
       "JsonElement": { },
       "ListDetailsRequest": {
         "required": [
@@ -3169,6 +3240,34 @@
           "Heading",
           "Competency"
         ]
+      },
+      "ListPlacementRequest": {
+        "required": [
+          "listId",
+          "parentNodeId",
+          "index"
+        ],
+        "type": "object",
+        "properties": {
+          "listId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "parentNodeId": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "uuid"
+          },
+          "index": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "format": "int32"
+          }
+        }
       },
       "LoginRequest": {
         "required": [

@@ -26,7 +26,7 @@ const item = (id: string, parentNodeId: string, depth: number, index: number, co
   kind: 'Competency',
   headingCode: null,
   headingTitle: null,
-  competency: { id: competencyId, code, title, shortTitle: title, isActive: true },
+  competency: { id: competencyId, code, title, shortTitle: title, isActive: true, listCount: 1 },
 })
 
 const list: AdminListDto = {

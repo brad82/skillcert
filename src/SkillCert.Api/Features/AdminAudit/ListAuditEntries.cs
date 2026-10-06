@@ -20,7 +20,10 @@ public sealed record AuditEntryDto(
     JsonElement? After);
 
 /// <param name="HasMore">True when another page follows; ask again with <c>before</c> = the last entry's At.</param>
-public sealed record AuditEntriesResponse(IReadOnlyList<AuditEntryDto> Entries, bool HasMore, IReadOnlyList<string> EntityTypes);
+/// <param name="Actors">Everyone who appears in the log (including former administrators), for the "Who" filter.</param>
+public sealed record AuditEntriesResponse(IReadOnlyList<AuditEntryDto> Entries, bool HasMore, IReadOnlyList<string> EntityTypes, IReadOnlyList<AuditActorDto> Actors);
+
+public sealed record AuditActorDto(Guid Id, string Name);
 
 /// <summary>
 /// GET /api/admin/audit: the audit log, newest first, filtered by entity type, entity, actor and a date range
@@ -84,6 +87,11 @@ public static class ListAuditEntriesEndpoint
         var listIds = entries.Where(e => e.EntityType == "CompetencyList").Select(e => e.EntityId).Distinct().ToList();
         var lists = await db.CompetencyLists.Where(l => listIds.Contains(l.Id)).ToDictionaryAsync(l => l.Id, l => l.Title, cancellationToken);
         var entityTypes = await db.AuditEntries.Select(e => e.EntityType).Distinct().OrderBy(t => t).ToListAsync(cancellationToken);
+        var actors = await db.DomainUsers
+            .Where(u => db.AuditEntries.Any(e => e.ActorUserId == u.Id))
+            .OrderBy(u => u.DisplayName)
+            .Select(u => new AuditActorDto(u.Id, u.DisplayName))
+            .ToListAsync(cancellationToken);
 
         string? Label(string type, Guid entity) => type switch
         {
@@ -100,6 +108,7 @@ public static class ListAuditEntriesEndpoint
                 e.Id, e.At, e.ActorUserId, users.GetValueOrDefault(e.ActorUserId) ?? "Unknown user", e.Action, e.EntityType, e.EntityId,
                 Label(e.EntityType, e.EntityId), Parse(e.Before), Parse(e.After))).ToList(),
             page.Count > PageSize,
-            entityTypes));
+            entityTypes,
+            actors));
     }
 }

@@ -1,5 +1,4 @@
-import { useSuspenseInfiniteQuery, useSuspenseQuery } from '@tanstack/react-query'
-import { usersQueryOptions } from '@features/admin-users'
+import { useSuspenseInfiniteQuery } from '@tanstack/react-query'
 import { AuditProvider } from '../AuditProvider'
 import { type AuditFilters, auditQueryOptions } from '../model/auditQuery'
 import { AuditPage } from './AuditPage'
@@ -10,16 +9,15 @@ type Props = {
   onFiltersChange: (filters: AuditFilters) => void
 }
 
-/** Owns the paged audit query (and the users query, for the Who filter). */
+/** Owns the paged audit query. The Who filter lists everyone in the log, former administrators included. */
 export function AuditContainer({ filters, onFiltersChange }: Props) {
   const audit = useSuspenseInfiniteQuery(auditQueryOptions(filters))
-  const { data: users } = useSuspenseQuery(usersQueryOptions())
   const pages = audit.data.pages
   return (
     <AuditProvider
       entries={pages.flatMap((page) => page.entries)}
       entityTypes={pages[0]?.entityTypes ?? []}
-      actors={users.users.filter((u) => u.isAdministrator).map((u) => ({ id: u.id, name: u.displayName }))}
+      actors={pages[0]?.actors ?? []}
       filters={filters}
       hasMore={audit.hasNextPage}
       loadingMore={audit.isFetchingNextPage}
